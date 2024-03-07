@@ -1,0 +1,776 @@
+﻿@{
+    ViewData["Title"] = "Home Page";
+    Layout = "_Layout";
+}
+<style>
+    .table-wrp  {
+  max-height: 75vh;
+  overflow-y: auto;
+  display:block;
+}
+.modal{
+    padding-right: 0px !important;
+}
+thead{
+  position:sticky;
+  top:0
+}
+   
+    #mdlOgrenciKayit{
+        padding-right: 0px !important;
+    
+    }
+    .card{
+        margin-bottom: 0px !important;
+    }
+
+.swal2-popup {
+    width: 100em !important;
+}
+
+</style>
+<div class="page-container">
+
+<div class="main-content">
+        <div class="section__content section__content--p30" style="padding:0px !important;">
+            <div class="container-fluid">
+                <div class="row">
+                    <div class="col-md-12">
+                        <h2 class="title-1 m-b-25">Kitapçıklar <button type="button" class="btn btn-danger" onclick="x();">Diğer Şubelere Aktar</button></h2>
+           
+                        <div class="spinner-border" role="status">
+                            <span class="sr-only">Loading...</span>
+                        </div>
+                    </div>
+                    <div class="col-md-12">
+                        <div class="card">
+                            <div class="card-header">
+                                <h4 class="card-title">Filtre Paneli</h4>
+                            </div>
+                            <div id="btnFilters" class="card-body">
+
+                            </div>
+                        </div>
+                    </div>
+
+                    @*                    <div class="col-lg-3">
+                        <h2 class="title-1 m-b-25">Top countries</h2>
+                        <div class="au-card au-card--bg-blue au-card-top-countries m-b-40">
+                            <div class="au-card-inner">
+                                <div class="table-responsive">
+                                    <table class="table table-top-countries">
+                                        <tbody>
+                                            <tr>
+                                                <td>United States</td>
+                                                <td class="text-right">$119,366.96</td>
+                                            </tr>
+                                            <tr>
+                                                <td>Australia</td>
+                                                <td class="text-right">$70,261.65</td>
+                                            </tr>
+                                            <tr>
+                                                <td>United Kingdom</td>
+                                                <td class="text-right">$46,399.22</td>
+                                            </tr>
+                                            <tr>
+                                                <td>Turkey</td>
+                                                <td class="text-right">$35,364.90</td>
+                                            </tr>
+                                            <tr>
+                                                <td>Germany</td>
+                                                <td class="text-right">$20,366.96</td>
+                                            </tr>
+                                            <tr>
+                                                <td>France</td>
+                                                <td class="text-right">$10,366.96</td>
+                                            </tr>
+                                            <tr>
+                                                <td>Australia</td>
+                                                <td class="text-right">$5,366.96</td>
+                                            </tr>
+                                            <tr>
+                                                <td>Italy</td>
+                                                <td class="text-right">$1639.32</td>
+                                            </tr>
+                                        </tbody>
+                    </table>*@
+                </div>
+                <div class="row" id="yayinarea" >
+                </div>
+                
+            </div>
+        </div>
+    </div>
+</div>
+<div class="modal fade" id="mdlKitapcikEkle" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog modal-lg" role="document">
+    <div class="modal-content">
+        <div class="modal-header">
+        <h5 class="modal-title" id="mdlStokKartTitle">Yeni Kitapçık Kartı</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+        <div class="modal-body">
+      
+            <div class="card">
+                <div class="card-body">
+                  <form>
+                    <div class="form-group row">
+                      <label for="drpKategorikitapcik" class="col-sm-2 col-form-label">Kategori</label>
+                      <div class="col-sm-10">
+                          <select id="drpKategorikitapcik" class="form-control"></select>
+                      </div>
+                    </div>
+                      <div class="form-group row">
+                      <label for="txtKitapcikAd" class="col-sm-2 col-form-label">Kitapçık Adı</label>
+                          <div class="col-sm-10">
+                              <input type="text" class="form-control" id="txtKitapcikAd" placeholder="Kitapçık Başlığı">
+                          </div>
+                      </div>
+                      <div class="form-group row">
+                        <label for="txtGirisFiyat" class="col-sm-2 col-form-label">Adet Fiyatı</label>
+                        <div class="col-sm-10">
+                          <input type="number" class="form-control" id="txtGirisFiyat" placeholder="Adet Fiyatı">
+                        </div>
+                      </div>
+                  </form>
+                </div>
+            </div>
+        </div>
+        <div class="modal-footer">
+            <button id="btnKitapcikAdd" type="button" class="btn btn-primary">Kaydet</button>
+            <button type="button" class="btn btn-secondary" data-dismiss="modal">Kapat</button>
+        </div>
+    </div>
+  </div>
+</div>
+<div class="modal fade" id="mdlyayindetaykart" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog modal-lg" role="document">
+    <div class="modal-content">
+        <div class="modal-header">
+        <h5 class="modal-title" id="mdlStokKartTitle">Yayın Bilgi Kartı</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+        <div class="modal-body">
+      
+            <div class="card">
+                <div class="card-body">
+                  <form>
+                      <div class="form-group row">
+                      <label for="txtyayinadinfo" class="col-sm-2 col-form-label">Yayın Adı:</label>
+                          <div class="col-sm-10" id="infyayinbaslikarea">
+                              <input type="text" class="form-control" id="txtyayinadinfo" placeholder="Yayın Başlık">
+                          </div>
+                      </div>
+                      <div class="form-group row">
+                          <label for="txtYayinLogoinfo" class="col-sm-2 col-form-label">Yayın Logo</label>
+                          <div class="col-sm-10" id="şnfyayinlogoarea">
+                              <input type="text" class="form-control" id="txtYayinLogoinfo" placeholder="">
+                          </div>
+                      </div>
+                      <img id="yayininflogo" class="img-thumbnail" style="width: 100% !important;"/>  
+                      
+                  </form>
+                </div>
+            </div>
+        </div>
+        <div class="modal-footer">
+            <button id="btnKitapcikAdd" type="button" class="btn btn-primary">Kaydet</button>
+            <button type="button" class="btn btn-secondary" data-dismiss="modal">Kapat</button>
+        </div>
+    </div>
+  </div>
+</div>
+
+<!-- Modal -->
+<div class="modal fade" id="mdlKitapcikStok" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog" role="document" style="max-width: 80% !important;">
+        <div class="modal-content" style="    height: 600px !important;">
+            <div class="modal-header">
+                <h5 class="modal-title" id="mdlStokKartTitle"></h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body">
+                <div class="card">
+                    <div class="card-body" id="stokactionbtns">
+                    </div>
+                </div>
+                <br/>
+                <div class="card">
+                    <div class="card-body">
+                        <div class="table table-responsive" style="overflow-y: auto;">
+                            <table id="tblstok" class="table table-sm table-striped">
+                                <thead>
+                                <tr>
+                                    <th>#</th>
+                                    <th>İşlem</th>
+                                    <th>Adet</th>
+                                    <th>Tarih</th>
+                                    <th></th>
+                                </tr>
+                                </thead>
+                                <tbody id="tblstokbody">
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-dismiss="modal">Kapat</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="modal fade" id="mdlKitapcikStokAction" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog modal-lg" role="document">
+    <div class="modal-content">
+        <div class="modal-header">
+        <h5 class="modal-title" id="mdlStokKartTitle">Yeni Stok kartı</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+        <div class="modal-body">
+      
+            <div class="card">
+                <div class="card-body">
+                  <form>
+                    <div class="form-group row">
+                      <label for="drpKategorikitapcik" class="col-sm-2 col-form-label">Stok Türü</label>
+                      <div class="col-sm-10">
+                          <select id="drpStokType" class="form-control">
+                              <option value="1">Stok-Giriş</option>
+                              <option value="2">Stok-Çıkış</option>
+                          </select>
+                      </div>
+                    </div>
+                      <div class="form-group row">
+                      <label for="txtKitapcikAd" class="col-sm-2 col-form-label">Adet</label>
+                          <div class="col-sm-10">
+                              <input type="text" class="form-control" id="txtStokAdet" placeholder="Adet Bilgisi">
+                          </div>
+                      </div>
+                  </form>
+                </div>
+            </div>
+        </div>
+        <div class="modal-footer">
+            <button id="btnkitapcikstokadd" type="button" class="btn btn-primary">Kaydet</button>
+            <button type="button" class="btn btn-secondary" data-dismiss="modal">Kapat</button>
+        </div>
+    </div>
+  </div>
+</div>
+<div class="modal fade" id="mdlKitapcikBilgi">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLabel">Kitapçık Kartı</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+
+
+                    <div class="form-group">
+                        <label for="drpKitapcikKategoriDetay" class="col-form-label">Kategori</label>
+                        <select id="drpKitapcikKategoriDetay" class="form-control"></select>
+                    </div>
+                    <div class="form-group">
+                        <label for="drpKitapcikYayinDetay" class="col-form-label">Yayın</label>
+                        <select id="drpKitapcikYayinDetay" class="form-control"></select>
+                    </div>
+                    <div class="form-group">
+                        <label for="txtKitapcikAdiDetay" class="col-form-label">Kitapçık Adı</label>
+                        <input type="text" class="form-control" id="txtKitapcikAdiDetay">
+                    </div>
+                       <div class="form-group">
+                      <label for="txtKitapcikGirisFiyatDetay" class="col-form-label">Mâliyet</label>
+                      <input type="text" class="form-control" id="txtKitapcikGirisFiyatDetay">
+                    </div>
+
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-dismiss="modal">Vazgeç</button>
+        <button id="kitapcikUpdatebtn" type="button" class="btn btn-primary">Kaydet</button>
+      </div>
+    </div>
+  </div>
+</div>
+<!-- end modal large -->
+@section Scripts{
+    <script>
+    let _kitapcikid;
+                                                    function x(){
+                                                               $.ajax({
+                                                                        url: '/DenemeAction/kitapcikAllSubeSet/',
+                                                                        type: 'post',
+                                                                        dataType: 'json',
+                                                                        success: function (data) {
+                                                                                  Swal.fire(
+                                                                                              {
+                                                                                                  text: "Mevcut Şubedeki Kitapçık & Stoklar, Diğer Tüm Şubelerinize Aktarıldı",
+                                                                                                  icon: "success",
+                                                                                                  title: "İşlem Başarılı",
+                                                                                                  showDenyButton: true,
+                                                                                                  showConfirmButton: false,
+                                                                                                  denyButtonText: 'Kapat',
+                                                                                              }
+                                                                                          )
+                                                                        },
+                                                      
+                                                    });
+                                                               }
+function kitapciksil(kitapcikid){
+                   var islemonay = "İşlem onayı";
+                   var mesaj = "Seçilen Kitapçık İçin Stok Kaydı Eklenecektir. İşlemi Onaylıyor musunuz?";
+        
+                   Swal.fire({
+                       title: islemonay,
+                       text: mesaj,
+                       icon: 'info',
+                       showDenyButton: true,
+                       showCancelButton: false,
+                       confirmButtonText: 'Onaylıyorum',
+                       denyButtonText: `Vazgeç`,
+                   }).then((result) => {
+                       if (result.isConfirmed) {
+                               var obj = {
+                                    Id: kitapcikid
+                               }
+                              $.ajax({
+                                url: '/DenemeAction/DenemeOp',
+                                type: 'post',
+                                dataType: 'json',
+                                data: { model: obj, type: 3 },
+                                success: function (data) {
+                                  var baslik = jQuery.parseJSON(data.baslik);
+                                  var mesaj = jQuery.parseJSON(data.mesaj);
+                                  var icon = jQuery.parseJSON(data.icon);
+                                
+                                   Swal.fire({
+                                     title: baslik,
+                                     html: mesaj,
+                                     icon: icon,
+                                     showDenyButton: false,
+                                     showCancelButton: false,
+                                     confirmButtonText: `Kapat`,
+                                   });
+                                   kategorilist();
+          
+                                },
+                                error: function (error) {
+                                     var baslik = jQuery.parseJSON(error.baslik);
+                                     var mesaj = jQuery.parseJSON(error.mesaj);
+                                     var icon = jQuery.parseJSON(error.icon);
+                                    sweetalertmethod(baslik, mesaj, icon);
+                                }
+                          });
+
+                       }
+                   });
+                  
+    }
+function yayinlist(){
+        let yayinlist = ``;
+        let filterbtns = ``;
+        $.ajax({
+            url: '/YayinAction/YayinList/',
+            type: 'post',
+            dataType: 'json',
+            success: function (data) {
+                var jsondata = JSON.parse(data);
+                let optyayin = ``;
+                  $.each(jsondata, (index, value) => 
+                      {
+                         optyayin +=`<option value="${value.Id}">${value.YayinBaslik}</option>`;
+                      }
+                  );
+                  $("#drpKitapcikYayinDetay").html(optyayin);
+                  $("#yayinarea").html("");
+          var yayinjsondata = JSON.stringify(jsondata);
+                filterbtns += `                        <button onclick="aramaYap(0);" type="button" class="btn btn-primary mt-2 mr-2">TÜM YAYINLAR</button>`;
+                  localStorage.setItem("yayinlist", yayinjsondata);
+                  $.each(jsondata, (index, value) => 
+                  { 
+                      yayinlist += `<div id="YAYIN-${value.Id}" class="col-12 YAYINDIV" style="margin-bottom: 2rem;">
+                                                            <div class="card">
+                                                              <h5 class="card-header">${value.YayinBaslik}</h5>
+                                                              <div class="card-body">
+                                                                <div class="container-fluid">
+                                                                    <div class="row" style="overflow-y: scroll;
+                                                                                                height: 580px;">
+                                                                            <div class="col-md-3 col-sm-12" id="kitapcikarea-${value.Id}" style="margin-bottom:12px;">
+                                                                                <img src="${value.Logo}" class="img-thumbnail" style="width:  300px; height: 300px;" >
+                                                                            <div class="row">
+                    <div class="col-lg-12" style="margin-top:10px;">
+                                 <button type="button" class="btn btn-success" onclick="kitapcikekle(${value.Id})" >Kitapçık Ekle</button>
+                    </div>                                                                            
+</div>
+                                                                            </div>
+                                                                        </div>                                                                
+                                                                    </div>
+                                                              </div>
+                                                            </div>
+                                                        </div>`;
+                      filterbtns += `<button type="button" class="btn btn-secondary mt-2 mr-2" onclick="aramaYap('YAYIN-${value.Id}');">${value.YayinBaslik}</button>`;
+                  }); 
+                  $("#yayinarea").html(yayinlist);
+                  $("#btnFilters").html(filterbtns);
+                    kitapciklist();
+                   $.each(jsondata, (index, value) => 
+                    { 
+                         setTimeout(() => { kitapciksec(value.Id);  }, 2000); 
+                    });
+            }
+        });
+  
+    }
+async function kategorilist(){
+        $.ajax({
+            url: '/KategoriAction/KategoriList/',
+            type: 'post',
+            dataType: 'json',
+            success: function (data) {
+                jsondata = JSON.parse(data);                  
+                
+               var kategoridata = JSON.stringify(jsondata);
+             
+               localStorage.setItem("kategorilist", kategoridata);
+               let kategorioption = ``;
+                $.each(jsondata, (index, value) => {
+                  kategorioption += `<optgroup label="${value.AnaKategoriBaslik}">`;
+                            $.each(value.Kategorilers, (altvalindex,altkatvalue) => {
+                                kategorioption += `<option value="${altkatvalue.Id}">${altkatvalue.AltKategoriBaslik}</option>`;
+                            });
+                        kategorioption += `</optgroup>`;
+                });
+                $("#drpKategorikitapcik").html(kategorioption);
+                $("#drpKitapcikKategoriDetay").html(kategorioption);
+                yayinlist();
+            }      
+        });
+  
+    }
+
+let jsondata;
+function kitapciklist() {    
+    
+  $.ajax({
+               url: '/DenemeAction/kitapciklist/',
+               type: 'post',
+               dataType: 'json',
+               success: function (data) {
+                  jsondata = JSON.parse(data);                  
+                    console.log(jsondata);
+                  var kitapcikdata = JSON.stringify(jsondata);
+                    
+                  localStorage.setItem("kitapciklist", kitapcikdata);
+
+
+                }
+            });
+ } 
+ 
+
+function stokopdialog(kitapcikid,remove){
+    const const_kitapcikid = _kitapcikid;
+    kitapcikid = _kitapcikid;
+    console.log(_kitapcikid);
+    $("#mdlKitapcikStokAction").modal('show');
+        try {
+            $("#btnkitapcikstokadd").click(function (){
+               var islemonay = "İşlem onayı";
+               var mesaj = "Seçilen Kitapçık İçin Stok Kaydı Eklenecektir. İşlemi Onaylıyor musunuz?";
+    
+               Swal.fire({
+                   title: islemonay,
+                   text: mesaj,
+                   icon: 'info',
+                   showDenyButton: true,
+                   showCancelButton: false,
+                   confirmButtonText: 'Onaylıyorum',
+                   denyButtonText: `Vazgeç`,
+               }).then((result) => {
+                   if (result.isConfirmed) {
+                       var stoktype = $("#drpStokType option:selected").val();
+                       var adet = $("#txtStokAdet").val();
+                       var obj = { 
+                           DenemeId: kitapcikid,
+                           StokType: stoktype,
+                           Adet: adet   
+                       }
+                       $.ajax({
+                              url: '/DenemeAction/stokop/',
+                              type: 'post',
+                              dataType: 'json',
+                              data: { type: 1, model: obj },
+                              success: function (data) {   
+                                  
+                                 stokrowselect(1,const_kitapcikid);
+                                 kategorilist();
+                              },
+                              error: function (error){
+                               
+                              }
+                                 
+                       })
+                   }
+               }); 
+            });
+               
+        }catch (e){
+            console.log(e.message);
+        }
+    }
+
+
+  function kitapciksec(yayinid) {
+      var storedData = localStorage.getItem("kitapciklist");
+
+      var jsonData = JSON.parse(storedData);
+      var result2 = jsonData.filter(x => x.YayinId == yayinid);
+      
+      var divid = "#kitapcikarea-"+yayinid;
+          let kitapcikarea = ``;
+          if (result2.length == 0)
+          {
+            kitapcikarea += `<div class="col-md-9"><div class="alert alert-warning" role="alert">
+                                                                                                                <h4 class="alert-heading">Kitapçık Bulunamadı</h4>
+                                                                                                                <hr>
+                                                                                                                <h4>Bu yayın için henüz bir kitapçık eklemediniz</h4>
+                                                                                                              </div></div>`;  
+          }else {
+                   $.each(result2, (index, value) => 
+                        {
+                            var kalankitapcik = parseInt(value.toplamStok - value.doluStok);
+                            kitapcikarea += `<div class="col-md-3 col-sm-12" style="margin-bottom:12px;">
+                                                <div class="card" style="width: 100%;">
+                                                  <img class="card-img-top" src="/images/kitapcik.png" alt="Deneme Kitapçığı">
+                                                  <div class="card-body">
+                                                    <h5 class="card-title">${value.DenemeBaslik}</h5>
+                                                    <br>
+                                                    <button type="button" class="btn btn-warning" onclick="kitapcikInfo(${value.Id})"> Kitapçık Düzenle</button>
+                                                  </div>
+                                                  <ul class="list-group list-group-flush">
+                                                    <li class="list-group-item">Güncel Kitapçık: <b id="guncelkitapcik-${yayinid}-${value.Id}">${kalankitapcik}</b></li>
+                                                    <li class="list-group-item">Dolu Kitapçık: <b id="dolukitapcik-${yayinid}-${value.Id}">${value.doluStok}</b></li>
+                                                  </ul>
+                                                  <div class="card-body">
+                                                    <a href="javascript:;" class="card-link btn btn-info" onclick="stokrowselect(0,${value.Id})"> Stok İşlemleri</a>
+                                                    <a href="javascript:;" class="card-link btn btn-outline-danger" onclick="kitapciksil(${value.Id});">Sil</a>
+                                                  </div>
+                                                </div>
+                                            </div>`;
+                        });
+          }
+     
+      $(divid).after(kitapcikarea);
+                      
+  }
+  function kitapcikInfo(kitapcikid)
+  {
+          $.ajax({
+            url: '/DenemeAction/kitapcikBilgi',
+            type: 'post',
+            dataType: 'json',
+            data: { kitapcikid: kitapcikid},
+            success: function (data) {
+                let jsondata = JSON.parse(data);
+                console.log(jsondata);
+                $("#txtKitapcikGirisFiyatDetay").val(jsondata.GirisFiyat);
+                $("#txtKitapcikAdiDetay").val(jsondata.DenemeBaslik);
+                $("#drpKitapcikYayinDetay").val(jsondata.YayinId);
+                $("#drpKitapcikKategoriDetay").val(jsondata.KategoriId);
+                $("#kitapcikUpdatebtn").attr('onclick', 'kitapcikUpdate(' + jsondata.Id + ')');
+
+                $("#mdlKitapcikBilgi").modal('show');
+            }
+        });
+  }
+  function kitapcikUpdate(kitapcikId){
+          Swal.fire({
+                        title: "İşlem Onayı",
+                        text: "Kitapçık Bilgileri Güncellenecektir, İşlemi Onaylıyor musunuz?",
+                        icon: 'info',
+                        showDenyButton: true,
+                        showCancelButton: false,
+                        confirmButtonText: 'Onaylıyorum',
+                        denyButtonText: `Vazgeç`,
+                    }).then((result) => {
+                        if (result.isConfirmed) {
+                            var kitapcikad = $("#txtKitapcikAdiDetay").val();
+                            var girisfiyat = $("#txtKitapcikGirisFiyatDetay").val();
+                            var kategori = $("#drpKitapcikKategoriDetay option:selected").val();
+                            var yayin = $("#drpKitapcikYayinDetay option:selected").val();
+                            var obj = {
+                                Id:kitapcikId,
+                                DenemeBaslik:kitapcikad,
+                                GirisFiyat:girisfiyat,
+                                KategoriId:kategori,
+                                YayinId:yayin
+                            }
+                            $.ajax({
+                                       url: '/DenemeAction/kitapcikInfoUpdate/',
+                                       type: 'post',
+                                       dataType: 'json',
+                                       data: { model: obj },
+                                       success: function (data) {
+                                           let jsondata = JSON.parse(data);
+                                           console.log(jsondata);
+                                           kategorilist();
+                                           $("#mdlKitapcikBilgi").modal('hide');
+                                       }
+                                   });     
+                        }
+                    });
+  }
+  function kitapcikekle(yayinid) {
+      $("#mdlKitapcikEkle").modal('show');
+      $("#btnKitapcikAdd").click(function () {
+          try {
+            var islemonay = "Yeni Bir Kitapçık Eklemek Üzeresiniz";
+            var mesaj = "İşlemi Onaylıyor musunuz?";
+ 
+            Swal.fire({
+                title: islemonay,
+                text: mesaj,
+                icon: 'info',
+                showDenyButton: true,
+                showCancelButton: false,
+                confirmButtonText: 'Onaylıyorum',
+                denyButtonText: `Vazgeç`,
+            }).then((result) => {
+                if (result.isConfirmed) {
+                    var kitapcikad = $("#txtKitapcikAd").val();
+                    var kategori = $("#drpKategorikitapcik option:selected").val();
+                    var girisfiyat = $("#txtGirisFiyat").val();
+                    var obj = {
+                        DenemeBaslik: kitapcikad,
+                        KategoriId: kategori,
+                        GirisFiyat: girisfiyat,
+                        yayinid: yayinid
+                    }
+                    $.ajax({
+                          url: '/DenemeAction/DenemeOp',
+                          type: 'post',
+                          dataType: 'json',
+                          data: { model: obj, type: 1 },
+                          success: function (data) {
+                            var baslik = jQuery.parseJSON(data.baslik);
+                            var mesaj = jQuery.parseJSON(data.mesaj);
+                            var icon = jQuery.parseJSON(data.icon);
+                          
+                             Swal.fire({
+                               title: baslik,
+                               html: mesaj,
+                               icon: icon,
+                               showDenyButton: false,
+                               showCancelButton: false,
+                               confirmButtonText: `Kapat`,
+                             });
+                             kategorilist();
+                          },
+                          error: function (error) {
+                               var baslik = jQuery.parseJSON(error.baslik);
+                               var mesaj = jQuery.parseJSON(error.mesaj);
+                               var icon = jQuery.parseJSON(error.icon);
+                              sweetalertmethod(baslik, mesaj, icon);
+                          }
+                    });
+                }else{
+                    
+                }
+            });
+          }
+            catch (e) {
+                console.log(e.message);
+            }
+      });
+  } 
+  function stokrowselect(istwo,denemeid){
+    var trarea;
+    _kitapcikid = denemeid;
+            $.ajax({
+                           url: '/DenemeAction/kitapcikstoklist/',
+                           type: 'post',
+                           dataType: 'json',
+                           success: function (data) {
+                              jsondata = JSON.parse(data);                  
+                        jsondata = jsondata.filter(x => x.DenemeId == denemeid);
+                          var kitapcikAd;
+          $.each(jsondata, (index, value) => 
+                                        {
+                                            if (value.StokType == 1){
+                                                islemstr = "Giriş";
+                                            }else if (value.StokType == 2){
+                                                islemstr = "Çıkış";
+                                            }
+                                            trarea += `<tr>
+                                                           <td>${value.Id}</td>
+                                                           <td>${islemstr}</td>
+                                                           <td>${value.Adet}</td>
+                                                           <td>${value.TarihSTR}</td>
+                                                           <td><button type="button" class="btn btn-danger btn-sm">Sil</button></td>
+                                                        </tr>`;
+                                                    kitapcikAd = value.denemeBaslik + " Stok Kartı";
+                                                       $("#tblstokbody").html("");
+                                                                                                   $("#tblstokbody").html(trarea);
+
+                                        });    
+                        if (istwo === 0){
+                                                                                           $("#mdlStokKartTitle").html("");
+                                                                                           $("#mdlStokKartTitle").html(kitapcikAd);
+                                               $("#tblstokbody").html("");
+                                               $("#tblstokbody").html(trarea);
+                                               $("#stokactionbtns").html("");
+                                               $("#stokactionbtns").html(`<button type="button" class="btn btn-primary" onclick="stokopdialog(_kitapcikid);">Stok Hareketi</button>`);
+                                               
+                                               $("#mdlKitapcikStok").modal('show');
+                        }
+    
+            
+            
+                            }
+                        });
+                  
+                
+    }
+        window.onload = kategorilist();
+
+    
+
+    </script>
+
+    <script type="text/javascript">
+function aramaYap(hedefDivID) {
+  // Tüm div'leri al ve NodeList'i bir diziye dönüştür
+  var tumDivler = Array.from(document.getElementsByClassName('YAYINDIV'));
+    
+  // Her bir div için kontrol yap
+  tumDivler.forEach(function(div) {
+      if (hedefDivID == 0){
+                  div.style.display = 'block';
+return;
+      }
+    // Hedef div ID'sine uyan div'i bul
+    if (div.id === hedefDivID) {
+      // Hedef div hariç diğer tüm div'leri gizle
+      div.style.display = 'block';
+    } else {
+      div.style.display = 'none';
+    }
+  });
+}
+
+    </script>
+
+}

@@ -1,0 +1,307 @@
+﻿@{
+    ViewData["Title"] = "Home Page";
+    Layout = "_Layout";
+}
+
+<style>
+    .table-wrp  {
+  max-height: 75vh;
+  overflow-y: auto;
+  display:block;
+}
+.modal{
+    padding-right: 0px !important;
+}
+thead{
+  position:sticky;
+  top:0
+}
+   
+    #mdlOgrenciKayit{
+        padding-right: 0px !important;
+    
+    }
+    .card{      
+        margin-bottom: 0px !important;
+    }
+
+.swal2-popup {
+    width: 100em !important;
+}
+</style>
+<div class="page-container">
+    <div class="main-content">
+        <div class="section__content section__content--p30" style="padding:0px !important;">
+            <div class="container-fluid">
+                                <div class="row">
+                                    <div class="col-md-12">
+                                        <h2 class="title-1 m-b-25">Rapor-Sorgu Ekranı</h2>
+                        
+                                    </div>
+                                </div>    
+                <div class="card">
+                    <div class="card-body">
+                        <div class="row">
+
+                            <div class="col-md-6">
+
+                                <label for="txtD1">Sorgu Başlangıç</label>
+                                <input id="txtD1" type="date" class="form-control"/>
+
+                            </div>
+                            <div class="col-md-6">
+                                                    
+                                <label for="txtD1">Sorgu Bitiş</label>
+                                <input id="txtD2" type="date" class="form-control"/>
+                                                    
+                            </div>
+                                                    
+                            <div class="col-md-12" style="margin-top: 1rem !important;">
+                                <button type="button" class="btn btn-primary" style="float:right;" onclick="raporset();">Sorgula</button>
+                            </div>
+                        </div>
+                        <div class="spinner-border" role="status">
+                            <span class="sr-only">Loading...</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="card" style="margin-top:1rem;">
+                    <div class="card-body">
+                        <div class="row" style="margin-bottom:1rem;">
+                            <div class="col-md-4 col-sm-6" style="margin-bottom:1rem;"> 
+                                <div class="card text-white bg-info mb-3" style="max-width: 100%;">
+                                    <div class="card-header">Toplam Seans</div>
+                                    <div class="card-body">
+                                        <h2 class="card-title text-white text-center" id="toplamseans"></h2>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-md-4 col-sm-6" style="margin-bottom:1rem;">
+                                <div class="card text-white bg-info mb-3" style="max-width: 100%;">
+                                    <div class="card-header">Toplam Kayıt Sayısı</div>
+                                    <div class="card-body">
+                                        <h2 class="card-title text-white text-center" id="toplamkayitliogr"></h2>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-md-4 col-sm-6" style="margin-bottom:1rem;">
+                                <div class="card text-white bg-info mb-3" style="max-width: 100%;">
+                                    <div class="card-header">Toplam Ciro</div>
+                                    <div class="card-body">
+                                        <h2 class="card-title text-white text-center" id="toplamciro"></h2>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                      <div class="row" id="raporsonuc">
+                            <div class="col-md-12" style="margin-bottom: 1rem;">
+                                <div class="card" style="padding:0 !important;">
+                                    <h5 class="card-header">Kitapçık Listesi</h5>
+                                    <div class="card-body">
+                        <input type="text" id="myInput" onkeyup="myFunction()" placeholder="Öğrenci Ara..." class="form-control">
+
+                                        <div class="table-responsive table--no-card m-b-10" style="margin-top:1rem;">
+                                            <table class="table table-borderless table-striped table-earning">
+                                                <thead>
+                                                <tr>
+                                                    <th>Yayın</th>
+                                                    <th>Kategori</th>
+                                                    <th>Kitapçık Adı</th>
+                                                    <th>Giriş Fiyatı</th>
+                                                </tr>
+                                                </thead>
+                                                <tbody id="kitapcikListArea"></tbody>
+                                              
+                                            </table>
+
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                          <div class="col-md-12">
+                              <div class="card" style="padding:0 !important;">
+                                  <h5 class="card-header">Seans Listesi</h5>
+                                  <div class="card-body">
+                                    <div class="table-responsive table--no-card m-b-10" style="height:auto; margin-top:1rem;">
+
+                                        <table class="table table-borderless table-striped table-earning">
+                                            <thead>
+                                            <tr>
+                                                <th>Tarih / Saat</th>
+                                                <th>Seans Adı</th>
+                                                <th>Kontenjan</th>
+                                                <th>Kayıtlı Toplam</th>
+                                                <th>Kitapçık Alan</th>
+                                            </tr>
+                                            </thead>
+                                            <tbody id="seanslist"></tbody>
+
+                                        </table>
+                                    </div>
+                                  </div>
+                              </div>
+                          </div>
+                      </div>                 
+                    </div>
+                </div>
+            </div>          
+        </div>
+    </div>
+</div>
+
+@section Scripts{
+    <script>
+    localStorage.clear();
+     var ogrlist = [];
+    var yoklamabekleyen = [];
+    var kitapcikalan = [];
+    var katilimsaglayan = [];
+
+    var toplamciro;
+    var toplamkar;
+    var toplamdenemeseans;
+    var toplamkatilim;
+    var toplamyoklamabekleyen;
+    var toplammasraf;
+    var hedefciro;
+    var toplamciro;
+    var laststartdate;
+    var lastfinishdate;
+    function raporset(reload){
+        let timerInterval
+        Swal.fire({
+          title: 'Rapor Hazırlanıyor, Lütfen Bekleyiniz',
+          html: '',
+          timerProgressBar: true,
+          allowEscapeKey : false,
+          allowOutsideClick: false,
+          didOpen: () => {
+              if (reload == true){
+                     var obj = {
+                                D1: laststartdate,
+                                D2: lastfinishdate
+                            }
+                  
+              }else{
+                   Swal.showLoading()
+                              try {
+                                  var D1 = $("#txtD1").val();
+                                  laststartdate = D1;
+                                  var D2 = $("#txtD2").val();
+                                  lastfinishdate = D2;
+                                  var obj = {
+                                      D1: D1,
+                                      D2: D2
+                                  }
+                }catch (e) {
+                    console.log(e.message);
+                }
+              }
+            
+                   $.ajax({
+                        url: '/Home/rapor/',
+                        type: 'post',
+                        dataType: 'json',
+                        data: { model: obj, type: 1 },
+                        success: function (data) {
+                            swal.close();
+                            var jsonresult = JSON.parse(data);
+                            console.log(jsonresult);
+                            $("#toplamseans").html(jsonresult.seansList.length)
+                            let seanslistbody = ``;
+                            let denemelistbody = ``;
+                            $.each(jsonresult.seansList, (index, value) => {
+                                seanslistbody += `<tr>
+                                                        <td>${value.TarihSTR}</td>
+                                                        <td>${value.kitapcikBaslik}</td>
+                                                        <td>${value.Kontenjan}</td>
+                                                        <td>${value.KayitliOgrenci}</td>
+                                                        <td>${value.KitapcikAlanToplam}</td>
+                                                   </tr>`;
+                            });
+                            $.each(jsonresult.kitapciklist, (index, value) => {
+                                denemelistbody += `<tr>
+                                                        <td>${value.Yayin.YayinBaslik}</td>
+                                                        <td>${value.Kategori.AltKategoriBaslik}</td>
+                                                        <td>${value.DenemeBaslik}</td>
+                                                        <td>${value.GirisFiyat.toFixed(2)} TL</td>
+                                                    </tr>`;
+                            });
+                            $("#seanslist").html(seanslistbody);
+                            $("#kitapcikListArea").html(denemelistbody);
+                            $("#toplamkayitliogr").html(jsonresult.toplamkayit);
+                            $("#toplamciro").html(jsonresult.toplamciro.toFixed(2) + " TL");
+                        },
+                        error: function(error) {
+                        }
+                    });
+                
+          }
+
+        })
+
+    }
+            function ogryoklama(ogrid,seanskayitno,type){
+                var islemonay = "Öğrenci Yoklama Onayı";
+                var mesaj = "";
+                if(type == 2){
+                    mesaj = "Katılım Sağladı, İşlemi Onaylıyor musunuz?";
+                }else if(type == 4){
+                    mesaj = "Kitapçığını Teslim Aldı, İşlemi Onaylıyor musunuz?";
+                }else if(type == null){
+                    mesaj = "Yoklama İptal Edilecektir, İşlemi onaylıyor musunuz?";
+                }
+                Swal.fire({
+                    title: islemonay,
+                    text: mesaj,
+                    icon: 'info',
+                    showDenyButton: true,
+                    showCancelButton: false,
+                    confirmButtonText: 'Onaylıyorum',
+                    denyButtonText: `Vazgeç`,
+                }).then((result) => {
+                    if (result.isConfirmed) {
+                        $.ajax({
+                            url: '/SeansAction/OgrSeansYoklama',
+                            type: 'post',
+                            dataType: 'json',
+                            data: { ogrid: ogrid, seanskayitno: seanskayitno, type: type },
+                            success: function (data) {
+                                raporset(true);
+                            },
+                            error: function (error) {
+                                var mesajbaslik = error._mesajbaslik;
+                                var mesaj = error._mesaj;
+                                var mesajicon = error._MesajIcon;
+                                console.log(error);
+                            }
+                        });
+                    } else if (result.isDenied) {
+                        Swal.fire('Herhangi Bir İşlem Yapılmadı', '', 'info')
+                    }
+                })
+            }
+        function myFunction() {
+        // Declare variables
+        var input, filter, table, tr, td, i, txtValue;
+        input = document.getElementById("myInput");
+        filter = input.value.toUpperCase();
+        table = document.getElementById("tblogr");
+        tr = table.getElementsByTagName("tr");
+
+        // Loop through all table rows, and hide those who don't match the search query
+        for (i = 0; i < tr.length; i++) {
+            td = tr[i].getElementsByTagName("td")[0];
+            if (td) {
+            txtValue = td.textContent || td.innerText;
+            if (txtValue.toUpperCase().indexOf(filter) > -1) {
+                tr[i].style.display = "";
+            } else {
+                tr[i].style.display = "none";
+            }
+            }
+        }
+        }
+
+    </script>
+}

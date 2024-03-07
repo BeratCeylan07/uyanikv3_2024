@@ -1,0 +1,330 @@
+﻿@{
+    ViewData["Title"] = "Home Page";
+    Layout = "_Layout";
+}
+<style>
+    .au-btn{
+        width: 100% !important;
+        line-height: 115px !important;
+        text-transform: none !important;
+        padding: 0px !important;
+    }
+</style>
+<div class="page-container">
+    <!-- HEADER DESKTOP-->
+    <!-- HEADER DESKTOP-->
+    <!-- MAIN CONTENT-->
+    <div class="main-content">
+        <div class="section__content section__content--p30">
+        <div class="container-fluid">
+            <div class="row">
+                <div class="col-md-12">
+                    <h2 class="title-1 m-b-25">Kütüphane Üyelikler</h2>
+                    <div class="spinner-border" role="status">
+                        <span class="sr-only">Loading...</span>
+                    </div>
+                </div>
+                <div class="col-md-12">
+                    <div class="btn-group" role="group" aria-label="Basic example">
+                        <button type="button" class="btn btn-info" data-toggle="modal" data-target="#uyelikset">Üyelik Tanımla</button>
+                        <button type="button" class="btn btn-secondary">Üyelik Raporları</button>
+                        <button type="button" class="btn btn-warning">Üyelik Paketleri</button>
+                    </div>
+                </div>
+                <div class="col-md-12 mt-5">
+           
+                    <table class="table table-sm table-striped table-bordered">
+                        <thead>
+                            <tr class="bg-white">
+                                <th>#ID</th>
+                                <th>Üye</th>
+                                <th>Üyelik Tarihi</th>
+                                <th>Kalan Gün</th>
+                                <th>Giriş Hakkı</th>
+                                <th>Paket Başlangıç & Bitiş</th>
+                                <th>Toplam Giriş</th>
+                                <th>Durum</th>
+                                <th>İşlemler</th>
+                            </tr>
+                        </thead>
+                        <tbody id="uyelistbody">
+                        </tbody>
+                    </table>
+
+                </div>
+            </div>
+        </div>
+        </div>
+    </div>
+</div>
+
+<!-- Modal -->
+<div class="modal fade" id="uyelikset" data-backdrop="static" data-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+  <div class="modal-dialog" style="width:100% !important; max-width: 100% !important;">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h4 class="modal-title fs-5" id="staticBackdropLabel">Üyelik Tanımla</h4>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body">
+         <div class="form-group row">
+            <label for="colFormLabelLg" class="col-sm-2 col-form-label col-form-label-lg">Üyelik Paketleri:</label>
+            <div class="col-sm-10">
+                <select id="drpUyelikPaketler" class="js-example-basic-single">
+                </select>
+            </div>
+        </div>
+         <div class="form-group row">
+            <label for="drpKisiler" class="col-sm-2 col-form-label col-form-label-lg">Kişiler:</label>
+            <div class="col-sm-10">
+                <select id="drpKisiler" class="js-example-basic-single">
+                </select>
+            </div>
+        </div>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-dismiss="modal">Vazgeç</button>
+        <button type="button" class="btn btn-primary" onclick="uyeliktanimla();">Üyelik Tanımla</button>
+      </div>
+    </div>
+  </div>
+</div>
+<div class="modal fade" id="uyegiricikislar" data-backdrop="static" data-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+  <div class="modal-dialog" style="width:100% !important; max-width: 100% !important;">
+    <div class="modal-content">
+      <div class="modal-header">
+          <h4 class="modal-title fs-5" id="staticBackdropLabel">Giriş Çıkış Listesi</h4>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body">
+          <table class="table table-sm table-striped table-hover table-bordered text-nowrap">
+              <thead>
+              <tr class="text-nowrap">
+                  <th>No</th>
+                  <th>Ad Soyad</th>
+                  <th>Tarih</th>
+                  <th>Saat</th>
+                  <th></th>
+              </tr>
+              </thead>
+              <tbody id="giriscikislistbody">
+              
+              </tbody>
+          </table>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-dismiss="modal">Kapat</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+@section Scripts
+{
+    <script type="text/javascript">
+        function GoPage(action){
+            window.location.href = "/Home/"+action;
+        }
+        function GirisAction(parameter,uyeid,girisid){
+            var mesaj = "";
+            var url;
+            var data;
+            if (parameter === 1){
+                mesaj = "Üye Girişi Yapılacaktır ";
+                url = '/KutuphaneUyelikAction/GirisCikisAction';
+                data = { uyeid: uyeid, parameter: parameter};
+            }else if (parameter === 0){
+                mesaj = "Giriş İptal Edilecektir ";
+                url = '/KutuphaneUyelikAction/GirisIptal'
+                data = { girisID: girisid,};
+            }
+            Swal.fire({
+                title: mesaj +'işlemi onaylıyor musunuz?',
+                showDenyButton: true,
+                showCancelButton: false,
+                confirmButtonText: 'Onaylıyorum',
+                denyButtonText: `Vazgeç`,
+                }).then((result) => {
+                if (result.isConfirmed) {
+                    $.ajax({
+                        url: url,
+                        type: 'post',
+                        dataType: 'json',
+                        data: data,
+                        success: function (data){
+                            sweetalertmethod(data.MesajBaslik, data.Mesaj, data.MesajIcon);
+                            ogrlist();
+                           giriscikislist(1,uyeid,1);
+                        },
+                        error: function (error){
+                            sweetalertmethod(error.MesajBaslik, error.Mesaj, error.MesajIcon);
+                        }
+                    });
+                }
+            });
+        }
+        function uyeliktanimla(){
+            var ogrid = $("#drpKisiler option:selected").val();
+            var paketid = $("#drpUyelikPaketler option:selected").val();
+              Swal.fire({
+                    title: 'Seçilen kişi için üyelik paketi tanımlanacaktır, işlemi onaylıyor musunuz??',
+                    showDenyButton: true,
+                    showCancelButton: false,
+                    confirmButtonText: 'Onaylıyorum',
+                    denyButtonText: `Vazgeç`,
+                    }).then((result) => {
+                        if (result.isConfirmed) {
+                            $.ajax({
+                                url: '/KutuphaneUyelikAction/uyelikPaketTanimla',
+                                type: 'post',
+                                dataType: 'json',
+                                data: { ogrid: ogrid, paketid: paketid },
+                                success: function (data){
+                                    sweetalertmethod(data.MesajBaslik, data.Mesaj, data.MesajIcon);
+                                },
+                                error: function (error){
+                                    sweetalertmethod(error.MesajBaslik, error.Mesaj, error.MesajIcon);
+                                }
+                            });
+                        }
+                    });
+        }
+        function giriscikislist(ogrid,parameter){
+            
+               $.ajax({
+                    url: '/KutuphaneUyelikAction/uyeGirisCikisList',
+                    type: 'post',
+                    dataType: 'json',
+                    data: { ogrid: ogrid },
+                    success: function (data){
+                        let giriscikislist = ``;
+                        var jsondata = JSON.parse(data);
+                        $.each(jsondata, (index, value) => {
+                            giriscikislist += 
+                            `<tr>
+                                <td>${value.Id}</td>
+                                <td>${value.Uye.Ad} ${value.Uye.Soyad}</td>
+                                <td>${value.tarihStr}</td>
+                                <td>${value.Saat}</td>
+                                <td><button class="btn btn-danger btn-sm btn-block" onclick="GirisAction(0,${value.Uye.Id},${value.Id})">Giriş İptal</button></td>
+                            </tr>`;
+                        });
+                        $("#giriscikislistbody").html(giriscikislist);
+                        if (parameter == 1){
+                                $("#uyegiricikislar").modal('show');
+                        }
+                    },
+                    error: function (error){
+                        sweetalertmethod(error.MesajBaslik, error.Mesaj, error.MesajIcon);
+                    }
+                });
+        }
+         function sweetalertmethod(title, mesaj, icon) {
+                    Swal.fire(
+                        {
+                            html: mesaj,
+                            icon: icon,
+                            title: title,
+                            showDenyButton: true,
+                            showConfirmButton: false,
+                            denyButtonText: 'Kapat',
+                        }
+                    )
+                }
+        function uyelikpaketlist(){
+            $.ajax({
+                url: '/KutuphaneUyelikAction/uyelikPaketlist',
+                type: 'post',
+                dataType: 'json',
+                success: function (data){
+                    var jsondata = JSON.parse(data);
+                    let result = ``;
+                    $.each(jsondata, (index, value) => {
+                        result += `<option value="${value.Id}">${value.PaketBaslik}</option>`;
+                    });
+                    $("#drpUyelikPaketler").html(result);
+                }
+            });
+        }
+         function ogrlist(){
+            let uyelistbody = ``;
+            var baslik;
+            var mesaj;
+            var icon;
+            let optkisiler = ``;
+            $("#uyelistbody").html(uyelistbody);
+            $.ajax({
+                url: '/KutuphaneUyelikAction/UyeList/',
+                type: 'post',
+                dataType: 'json',
+                success: function (data) {
+                    var bitis_date;
+                    var jsondata = jQuery.parseJSON(data._uyelist);
+                    var jsondata2 = jQuery.parseJSON(data._drpuyelist);
+                    var bitisdate;
+                
+                    var trclass = "";
+                    var kalangun = "";
+                    var toplamgun, toplamgiris;
+                    var durum = "";
+                    
+                                        $("#uyelistbody").html("");
+                                        $.each(jsondata2, (index,value) => {
+                                            optkisiler += `<option value="${value.Id}">${value.Ad} ${value.Soyad}</option>`;
+
+                                        });
+                                        $.each(jsondata, (index, value) => {
+                                                var day = new Date().getDay();
+                                                day = day ? 0 : 1;
+                                                day = day.length ? 1 : '0'+day;
+                                                                var month = new Date().getMonth();
+                                                                month = month.length ? 1 : '0'+month;
+                                                                var year = new Date().getFullYear();
+                                                                var datenow = year + '-' + month + '-' + day;
+                                            toplamgun = parseInt(value.Paket.ToplamGirisHak);
+                                            toplamgiris = parseInt(value.toplamGiris);
+                                            console.log(year+'-'+month+'-'+day);
+                                            
+                                            kayitdate = new Date(value.TarihSTR);
+                                           
+                                            bitis_date = new Date(value.BitisTarihSTR.substring(6,10)+'-'+value.BitisTarihSTR.substring(3,5)+'-'+value.BitisTarihSTR.substring(0,2));
+                 
+                                            kalangun = kayitdate - datenow;
+                                            kalangun = Math.floor(kalangun / (1000 * 60 * 60 * 24));
+                                        
+                                            if (bitis_date >= datenow){ 
+                                                trclass = "table-success";
+                                                durum = "Aktif Üye";
+                                            }else{
+                                                trclass = "table-danger";
+                                                durum = "Geçerlilik Süresi Sona Erdi";
+                                            }
+                                            uyelistbody += `<tr class="${trclass}">
+                                                <td>#UYE${value.Id}</td>
+                                                <td>${value.Ogr.Ad} ${value.Ogr.Soyad}</td>
+                                                <td>${value.TarihSTR.toString("dd.MM.yyyy")}</td>
+                                                <td>${kalangun}</td>
+                                                <td>${parseInt(value.Paket.ToplamGirisHak - value.toplamGiris)}</td>
+                                                <td>${value.BaslangicTarihSTR} / ${value.BitisTarihSTR}</td>
+                                                <td>${value.toplamGiris} Gün</td>
+                                                <td>${durum}</td>
+                                                <td>`; if(value.bugun <= 0){uyelistbody += `<button class="btn btn-info btn-sm btn-block" onclick="giriscikislist(${value.Ogr.Id},1)">Giriş Çıkış Listesi</button><button class="btn btn-success btn-sm btn-block" onclick="GirisAction(1,${value.Ogr.Id})">Giriş Yap</button>`;}else uyelistbody += `<button class="btn btn-info btn-sm btn-block" onclick="giriscikislist(${value.Ogr.Id},1)">Giriş Çıkış Listesi</button>`;{ }uyelistbody += `</td></tr>`;
+                                         });
+                                        $("#uyelistbody").html(uyelistbody);
+                                        $("#drpKisiler").html(optkisiler);
+                }
+            });
+            }
+         window.onload = ogrlist();
+         window.onload = uyelikpaketlist();
+         
+            $('#drpKisiler').select2({
+                dropdownParent: $('#uyelikset')
+            });
+                        $('#drpUyelikPaketler').select2({
+                            dropdownParent: $('#uyelikset')
+                        });
+
+                $(".select2-selection--single").addClass("form-control");
+    </script>
+}

@@ -1,0 +1,384 @@
+﻿@{
+    ViewData["Title"] = "Home Page";
+    Layout = "_Layout";
+}
+
+<style>
+.table-wrp  {
+  max-height: 75vh;
+  overflow-y: auto;
+  display:block;
+}
+.modal{
+    padding-right: 0px !important;
+}
+thead{
+  position:sticky;
+  top:0
+}  
+#mdlOgrenciKayit{
+    padding-right: 0px !important;
+}
+.card{
+    margin-bottom: 0px !important;
+}
+.swal2-popup {
+    width: 100em !important;
+}
+</style>
+<div class="page-container">
+    <div class="main-content">
+        <div class="section__content section__content--p30" style="padding:0px !important;">
+            <div class="container-fluid">
+                <div class="row">
+                    <div class="col-md-12">
+                        <h2 class="title-1 m-b-25">Kategori Kartları</h2>
+                        <hr/>
+                        <button type="button" class="btn btn-success" data-toggle="modal" data-target="#mdlyenikategori">Yeni Kategori</button>  
+                        <button type="button" class="btn btn-danger" onclick="x();">Diğer Şubelere Aktar</button>
+                        <hr/>
+                        <div class="spinner-border" role="status">
+                            <span class="sr-only">Loading...</span>
+                        </div>
+                    </div>
+                </div>          
+                <div class="row" id="kategoriarea">
+                </div>
+            </div>          
+        </div>
+    </div>
+</div>
+<div class="modal fade" id="mdlyenikategori" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-lg" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="mdlStokKartTitle">Ana Kategori Kartı</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body">
+      
+                <div class="card">
+                    <div class="card-body">
+                        <form>
+                            <div class="form-group row">
+                                <label for="txtYeniAnaKategori" class="col-sm-2 col-form-label">Başlık:</label>
+                                <div class="col-sm-10">
+                                    <input type="text" class="form-control" id="txtYeniAnaKategori" placeholder="Ana Kategori Başlık">
+                                </div>
+                            </div>
+                     
+                        </form>
+                    </div>
+                </div>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-primary" onclick="anakategoriadd();">Kaydet</button>
+                <button type="button" class="btn btn-secondary" data-dismiss="modal">Kapat</button>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="modal fade" id="mdlyenialtkategori" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog modal-lg" role="document">
+    <div class="modal-content">
+        <div class="modal-header">
+        <h5 class="modal-title" id="mdlStokKartTitle">Alt Kategori Kartı</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+        <div class="modal-body">
+      
+            <div class="card">
+                <div class="card-body">
+                  <form>
+                      <div class="form-group row">
+                      <label for="txtAltkatBaslik" class="col-sm-2 col-form-label">Başlık:</label>
+                          <div class="col-sm-10">
+                              <input type="text" class="form-control" id="txtAltkatBaslik" placeholder="Alt Kategori Başlık">
+                          </div>
+                      </div>
+                     
+                  </form>
+                </div>
+            </div>
+        </div>
+        <div class="modal-footer">
+            <button id="btnAltKatAdd" type="button" class="btn btn-primary">Kaydet</button>
+            <button type="button" class="btn btn-secondary" data-dismiss="modal">Kapat</button>
+        </div>
+    </div>
+  </div>
+</div>
+<div class="modal fade" id="mdlwhatsappGrup" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog modal-lg" role="document">
+    <div class="modal-content">
+        <div class="modal-header">
+            <div id="wpgruptopbutton"></div>
+            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                <span aria-hidden="true">&times;</span>
+            </button>
+        </div>
+        <div class="modal-body">
+            <table class="table table-sm table-striped table-bordered">
+                <thead>
+                <tr>
+                    <th>Grup Başlık</th>
+                    <th>Link</th>
+                    <th></th>
+                </tr>
+                </thead>
+                <tbody id="tblWpLinksBody"></tbody>
+            </table>
+        </div>
+        <div class="modal-footer">
+            <button type="button" class="btn btn-secondary" data-dismiss="modal">Kapat</button>
+        </div>
+    </div>
+  </div>
+</div>
+<div class="modal fade" id="mdlWpLinkAdd" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog modal-lg" role="document">
+    <div class="modal-content">
+        <div class="modal-header">
+        <h5 class="modal-title" id="mdlWpLinkAddTitle">Whatsapp Link Tanımlama Ekranı</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+        <div class="modal-body">
+      
+            <div class="card">
+                <div class="card-body">
+                  <form>
+                      <div class="form-group row">
+                      <label for="txtwpbaslik" class="col-sm-2 col-form-label">Başlık:</label>
+                          <div class="col-sm-10">
+                              <input type="text" class="form-control" id="txtwpbaslik" placeholder="Grup Adı">
+                          </div>
+                      </div>
+                      <div class="form-group row">
+                           <label for="txtwpbaslik" class="col-sm-2 col-form-label">Link:</label>
+                               <div class="col-sm-10">
+                                   <input type="text" class="form-control" id="txtwplink" placeholder="Grup Link">
+                               </div>
+                           </div>
+                  </form>
+                </div>
+            </div>
+        </div>
+        <div class="modal-footer">
+            <button id="btnwpadd" type="button" class="btn btn-primary">Kaydet</button>
+            <button type="button" class="btn btn-secondary" data-dismiss="modal">Kapat</button>
+        </div>
+    </div>
+  </div>
+</div>
+
+@section Scripts{
+    <script>
+                              function x(){
+                                         $.ajax({
+                                                  url: '/KategoriAction/kategoriAllsubeSet/',
+                                                  type: 'post',
+                                                  dataType: 'json',
+                                                  success: function (data) {
+                                                            Swal.fire(
+                                                                        {
+                                                                            text: "Mevcut Şubedeki Kategoriler, Diğer Tüm Şubelerinize Aktarıldı",
+                                                                            icon: "success",
+                                                                            title: "İşlem Başarılı",
+                                                                            showDenyButton: true,
+                                                                            showConfirmButton: false,
+                                                                            denyButtonText: 'Kapat',
+                                                                        }
+                                                                    )
+                                                  },
+                                
+                              });
+                                         }
+    function whatsappgruplar(katid) {
+        let katwplist = ``;
+        $.ajax({
+            url: '/KategoriAction/WhatsappLinkList/',
+            type: 'post',
+            dataType: 'json',
+            data: { katid: katid },
+            success: function (data) {
+                var jsondata = JSON.parse(data);
+                $("#wpgruptopbutton").html(`<h5 class="modal-title" id="mdlwhatsappgruptitle">Whatsapp Grupları<br/> <button type="button" class="btn btn-info" onclick="wplinkadd(${katid});">Yeni Whatsapp Grup </button></h5>`);
+                    $.each(jsondata, (index, value) => 
+                    { 
+                        katwplist +=    `<tr>    
+                                            <td>${value.LinkBaslik}</td> 
+                                            <td>${value.Link}</td>
+                                            <td><button type="button" class="btn btn-danger" onclick="wplinkdelete(${value.Id},${katid});">Sil</button></td>
+                                        </tr>`;
+                    });
+                $("#tblWpLinksBody").html(katwplist);  
+            },
+            error: function(error) {
+              console.log(error);
+            }
+        });
+
+      
+    }
+            function wplinkdelete(pblkatid,kategori){
+                   $.ajax({
+                        url: '/KategoriAction/wplinkremove/',
+                        type: 'post',
+                        dataType: 'json',
+                        data: { id: pblkatid },
+                        success: function (data) {
+                            whatsappgruplar(kategori);
+                        },
+                        error: function(error) {
+                        }
+                    });
+             
+            }
+
+        function wplinkadd(pblkatid){
+        $("#mdlWpLinkAdd").modal('show');
+                $("#btnwpadd").click(function (){
+                        var wpbaslik = $("#txtwpbaslik").val();
+                                    var wplink = $("#txtwplink").val();
+                                    
+                                    var obj = {
+                                        KatId: pblkatid,
+                                        LinkBaslik: wpbaslik,
+                                        Link:wplink
+                                    }
+                                    console.log(obj);
+                                   $.ajax({
+                                        url: '/KategoriAction/wplinkadd/',
+                                        type: 'post',
+                                        dataType: 'json',
+                                        data: { model: obj },
+                                        success: function (data) {
+                                            
+                                            whatsappgruplar(pblkatid);
+                                        },
+                                        error: function(error) {
+                                            console.log(error); 
+                                        }
+                                    });
+                });
+         
+        }
+    function anakategoriadd(){
+        console.log("çalıştı-1");
+        try {
+            var anakategoriad = $("#txtYeniAnaKategori").val();
+            console.log(anakategoriad);
+            var obj = {
+                AnaKategoriBaslik: anakategoriad,
+            }
+           $.ajax({
+                url: '/KategoriAction/AnaKategoriOP/',
+                type: 'post',
+                dataType: 'json',
+                data: { model: obj, type: 1 },
+                success: function (data) {
+                    kategorilist();
+                },
+                error: function(error) {
+                  
+                }
+            });
+        }catch (e){
+            console.log(e.message);
+        }
+    }
+     function altkategoriadd(katID){
+            try {
+                $("#mdlyenialtkategori").modal('show');
+                $("#btnAltKatAdd").click(function() {
+                  var altkatad = $("#txtAltkatBaslik").val();
+                                  var obj = {
+                                      AltKategoriBaslik: altkatad,
+                                      KatId: katID
+                                  }
+                                 $.ajax({
+                                      url: '/KategoriAction/AltKategoriOp/',
+                                      type: 'post',
+                                      dataType: 'json',
+                                      data: { model: obj, type: 1 },
+                                      success: function (data) {
+                                          kategorilist();
+                                      },
+                                      error: function(error) {
+                                        
+                                      }
+                                  });
+                });
+            }catch (e){
+                console.log(e.message);
+            }
+        }
+                            function mdlopen(id){   
+
+                                      $(id).modal('show');    
+                                      }
+        function kategorilist(){
+                let anakatlist = ``;
+                $.ajax({
+                    url: '/KategoriAction/KategoriList/',
+                    type: 'post',
+                    dataType: 'json',
+                    success: function (data) {
+                        var jsondata = JSON.parse(data);
+                        $("#kategoriarea").html("");
+                        $.each(jsondata, (index, value) => 
+                          { 
+                              anakatlist += `
+                                             <div class="col-12" style="margin-bottom:1rem;">
+                                                <div class="card">
+                                                   <div class="card-header">
+                                                     ${value.AnaKategoriBaslik}
+                                                   </div>
+                                                   <div class="card-body">
+<div class="container-fluid">
+                                                         <div class="row">
+<div class="col-12" style="margin-bottom: 1rem;">
+                                                     <button type="button" class="btn btn-primary" onclick="altkategoriadd(${value.Id})">Alt Kategori Ekle</button>
+                                                     <button type="button" class="btn btn-success" onclick="whatsappgruplar(${value.Id});mdlopen('#mdlwhatsappGrup');">Whatsapp Grupları</button>
+
+</div>`;
+          
+$.each(value.Kategorilers, (altkatindex,altkatval) => 
+{
+
+                       anakatlist +=`<div class="col-md-3">
+<div class="card" style="width: 100%;">
+                     <div class="card-header">
+                       ${altkatval.AltKategoriBaslik}
+                     </div>
+                     <ul class="list-group list-group-flush">
+                       <li class="list-group-item">Toplam Kitapçık <strong>${altkatval.toplamKitapcik}</strong></li>
+                       <li class="list-group-item">Toplam Seans <strong>${altkatval.toplamSeans}</strong></li>
+                     </ul>
+                   </div>                               
+</div>`;
+                           
+ })
+                                                anakatlist += `</div>
+                                                                                       </div>
+                </div>
+                                                 </div>   
+                                             </div>`;    
+
+                          }); 
+                          $("#kategoriarea").html(anakatlist);
+                          
+                   
+                    }
+                });
+          
+            }
+            window.onload = kategorilist();
+    </script>
+}

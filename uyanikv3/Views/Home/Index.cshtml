@@ -1,0 +1,344 @@
+﻿@using Microsoft.EntityFrameworkCore.Metadata.Internal
+@using Microsoft.AspNetCore.Http
+@inject IHttpContextAccessor Accessor
+@{
+    ViewData["Title"] = "Home Page";
+    Layout = "_Layout";
+}
+<style>
+    .au-btn{
+        width: 100% !important;
+        line-height: 115px !important;
+        text-transform: none !important;
+        padding: 0px !important;
+    }
+    .modal-backdrop{
+        z-index:-1 !important;
+    }
+    .header-desktop {
+        z-index: 1090;
+    }
+    #mdlGunlukYoklamaList {
+        padding-right: 0px !important;
+    }
+</style>
+<div class="page-container">
+    <!-- HEADER DESKTOP-->
+    <!-- HEADER DESKTOP-->
+    <!-- MAIN CONTENT-->
+    <div class="main-content">
+        <div class="section__content section__content--p30">
+            <div class="container-fluid">
+                <div class="row m-t-25">
+                    <div class="col-md-12 mb-3">
+                        <h3>@DateTime.Now.ToString("dd.MM.yyyy - dddd")</h3>
+                    </div>
+                    <div class="col-sm-6 col-lg-3">
+                        <div class="overview-item overview-item--c1" style="height: 120px;">
+                            <div class="overview__inner">
+                                <div class="overview-box clearfix">
+                                    <div class="text">
+                                        <h2 id="gunluktoplamseanskaydi"></h2>
+                                        <span>TOPLAM SEANS KAYDI</span>
+                                    </div>
+                                </div>
+
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-sm-6 col-lg-3">
+                        <div class="overview-item overview-item--c2" style="height: 120px;">
+                            <div class="overview__inner">
+                                <div class="overview-box clearfix">
+                                    <div class="text">
+                                        <h2 id="gunluktoplamseansciro"></h2>
+                                        <span>TOPLAM CİRO</span>
+                                    </div>
+                                </div>
+
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-sm-6 col-lg-3">
+                        <div class="overview-item overview-item--c3" style="height: 120px;">
+                            <div class="overview__inner">
+                                <div class="overview-box clearfix">
+                                    <div class="text">
+                                        <h2 id="gunluktoplamseansiban"></h2>
+                                        <span>IBAN/HAVALE TOPLAM</span>
+                                    </div>
+                                </div>
+
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-sm-6 col-lg-3">
+                        <div class="overview-item overview-item--c4" style="height: 120px;">
+                            <div class="overview__inner">
+                                <div class="overview-box clearfix">
+                                    <div class="text">
+                                        <h2 id="gunluktoplamseansnakit"></h2>
+                                        <span>NAKİT/KREDİ KARTI TOPLAM</span>
+                                    </div>
+                                </div>
+
+                            </div>
+                        </div>
+                    </div>                 
+                    <div class="col-md-6">
+                        <button type="button" class="btn btn-success btn-lg btn-block" data-toggle="modal" data-target="#mdlGunlukYoklamaList">BU GÜNKÜ SINAVLAR</button>
+                    </div>
+                </div>
+                <div class="row m-t-25">
+                    <div class="col-sm-6 col-lg-2">
+                        <button class="au-btn au-btn-icon au-btn--blue" onclick="GoPage('Seans');">
+                            <i class="zmdi zmdi-plus"></i>Seans Kartları
+                        </button>
+                    </div>
+                    <div class="col-sm-6 col-lg-2">
+                        <button class="au-btn au-btn-icon au-btn--green" onclick="GoPage('Ogrenci');">
+                            <i class="zmdi zmdi-plus"></i>Öğrenci Kartları
+                        </button>
+                    </div>
+                    <div class="col-sm-6 col-lg-2">
+                        <button class="au-btn au-btn-icon au-btn--blue" onclick="GoPage('Rapor');">
+                            <i class="zmdi zmdi-plus"></i>Raporlar
+                        </button>
+                    </div>
+                    <div class="col-sm-6 col-lg-2">
+                        <button class="au-btn au-btn-icon au-btn--green" onclick="GoPage('Kitapciklar');">
+                            <i class="zmdi zmdi-plus"></i>Kitapçık İşlemleri
+                        </button>
+                    </div>
+                    <div class="col-sm-6 col-lg-2">
+                        <button class="au-btn au-btn-icon au-btn--blue" onclick="GoPage('Yayinlar');">
+                            <i class="zmdi zmdi-plus"></i>Yayın İşlemleri
+                        </button>
+                    </div>
+                    <div class="col-sm-6 col-lg-2">
+                        <button class="au-btn au-btn-icon au-btn--green" onclick="GoPage('Kategoriler');">
+                            <i class="zmdi zmdi-plus"></i>Kategoriler
+                        </button>
+                    </div>
+
+                </div>
+                <div class="row m-t-25">
+                    <div class="col-md-6">      
+                        <div class="card">
+                            <div class="card-body">
+                                <h4 class="text-danger">Azalan Kitapçıklar</h4>
+                                <table class="table table-bordered table-danger text-danger table-sm">
+                                    <thead>
+                                    <tr>
+                                        <th>#</th>
+                                        <th>Yayın</th>
+                                        <th>Kategori</th>
+                                        <th>Kitapçık Adı</th>
+                                        <th>İlk Stok</th>
+                                        <th>Dolu Stok</th>
+                                        <th>Kalan Stok</th>
+                                    </tr>
+                                    </thead>
+                                    <tbody id="kalankitapciktbody">
+                                    </tbody>
+                                </table>
+                            </div>      
+                        </div>
+                        </div>
+                                                                                               <div class="col-md-6">
+                                                                   <div class="card">
+                                                                       <div class="card-body">  
+                                                                           <strong>                                                                           Seans - Günlük Alınan Kayıtlar
+</strong>
+                                                                           <table class="table table-info table-sm table-bordered">
+                                                                               <thead>
+                                                                               <tr>
+                                                                                   <th>Seans</th>
+                                                                                   <th>Toplam Alınan Kayıt</th>
+                                                                               </tr>
+                                                                               </thead>
+                                                                               <tbody id="tblgunlukseansdurum"></tbody>
+                                                                           </table>
+                                                                       </div>
+                                                                       </div>
+
+                    </div>
+                </div>
+            </div>
+
+
+            <div class="modal fade" id="mdlGunlukYoklamaList" role="dialog" aria-labelledby="mdlOgrenciKayit" aria-hidden="true" data-backdrop="static" style="padding-right: 0px !important;">
+                <div class="modal-dialog modal-lg" role="document" style="max-width: 100% !important; width: 100% !important; margin: 0 !important;">
+                    <div class="modal-content" style="width:100% !important; max-width:100% !important;">
+                        <div class="modal-header">
+                            <h5 class="modal-title" id="largeModalLabel">Günlük Seans-Öğrenci Kontrol Ekranı</h5>
+                            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                <span aria-hidden="true">&times;</span>
+                            </button>
+                        </div>
+                        <div class="modal-body">
+                            <div class="card" style="height: 100% !important;">
+                                <div class="card-body">
+                                    <h3>Günlük Seans-Öğrenci Kontrol Ekranı</h3>
+                                    <hr />
+                                    <h2 id="gunluktoplamogr"></h2>
+                                    <input type="text" id="seansograraInSeans" onkeyup="myFunctionInSeans()" placeholder="Öğrenci Ara..." class="form-control">
+                                    <div class="table-responsive table--no-card" style="    height: 880px; margin-top:1rem;">
+
+                                        <table id="tblogr" class="table table-borderless table-striped table-earning">
+                                            <thead>
+                                                <tr>
+                                                    <th>Ad Soyad</th>
+                                                    <th>Kayıt Tarihi</th>
+
+                                                    <th>Seans Adı</th>
+                                                    <th>Telefon</th>
+                                                    <th>Kayıt Durumu</th>
+                                                    <th>Yoklama İşlemi</th>
+                                                </tr>
+                                            </thead>
+                                            <tbody id="seansogrlistbody">
+                                            </tbody>
+                                        </table>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="modal-footer">
+                            <button type="button" class="btn btn-secondary" data-dismiss="modal">Kapatß</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            @section Scripts
+            {
+                <script type="text/javascript">
+                function GoPage(action) {
+                        window.location.href = "/Home/" + action;
+                    }
+                    let guncelseanslar;
+                    function gunlukDashboard() {
+                        $.ajax({
+                            url: '/Home/gunluk_dashboard',
+                            type: 'post',
+                            dataType: 'json',
+                            success: function (data) {
+                                console.log(data);
+                                $("#gunluktoplamseanskaydi").html(data.gunluk_kayit_toplam);
+                                $("#gunluktoplamseansciro").html(data.gunluk_ciro_toplam);
+                                $("#gunluktoplamseansiban").html(data.gunluk_iban_toplam);
+                                $("#gunluktoplamseansnakit").html(data.gunluk_nakit_toplam);
+                                $("#gunluktoplamogr").html(`Toplam: ` + data.gunluk_sinav_toplam_kisi);
+                                let kalankitapciktbody = ``;
+                                let seansgunlukkayittoplam = ``;
+                                $.each(data.gunlukSeansDurumList, (index, value) => {
+                                    seansgunlukkayittoplam += `
+                                    <tr>    
+                                        <td>${value.yayinBaslik} / ${value.kategoriBaslik} / ${value.kitapcikBaslik} / ${value.tarihSTR} - ${value.saat} </td>
+                                        <td>${value.kayitliOgrenci} </td>
+                                    </tr>
+                                    `;
+                                });
+                                $("#tblgunlukseansdurum").html(seansgunlukkayittoplam);
+                                $.each(data.kalankitapcik, (index, value) => {
+                                    kalankitapciktbody += 
+                                    `<tr>
+                                        <td>${value.id}</td>
+                                        <td>${value.yayinBaslik}</td>
+                                        <td>${value.kategoriBaslik}</td>
+                                        <td>${value.denemeBaslik}</td>
+                                        <td>${value.toplamStok}</td>
+                                        <td>${value.doluStok}</td>
+                                        <td>${value.toplamStok - value.doluStok}</td>
+                                    </tr>`;
+                                });
+                                $("#kalankitapciktbody").html(kalankitapciktbody);
+                                $.each(data.seanslist, (index, value) => {
+                                    let btn1 = ``;
+                                    let btn2 = ``;
+                                    let btn3 = ``;
+                                    var yoklama = "";
+                                    if (value.durum == 2) {
+                                        yoklama = "Katılım Sağladı";
+                                        btn1 += ``;
+                                        btn2 += `<button type="button" class="btn btn-outline-info" onclick="ogryoklama(${value.ogr.id},${value.Id},4,${value.seansId});">Kitapçık Aldı</button>`;
+                                        btn3 += `<button type="button" class="btn btn-outline-danger" onclick="ogrseanskayitsil(${value.id},${value.ogr.id});">Sil</button>`;
+                                    } else if (value.durum == 4) {
+                                        yoklama = "Kitapçık Aldı";
+                                        btn1 += `<button type="button" class="btn btn-outline-success" onclick="ogryoklama(${value.ogr.id},${value.id},2,${value.seansId});">Katılım Sağladı</button>`;
+                                        btn2 += ``;
+                                        btn3 += `<button type="button" class="btn btn-outline-danger" onclick="ogrseanskayitsil(${value.id},${value.ogr.id});">Sil</button>`;
+                                    } else if (value.durum == 1) {
+                                        yoklama = "Kesin Kayıt";
+                                        btn1 += `<button type="button" class="btn btn-outline-success" onclick="ogryoklama(${value.ogr.id},${value.id},2,${value.seansId});">Katılım Sağladı</button>`
+                                        btn2 += `<button type="button" class="btn btn-outline-info" onclick="ogryoklama(${value.ogr.id},${value.id},4,${value.seansId});">Kitapçık Aldı</button>`;
+                                        btn3 += `<button type="button" class="btn btn-outline-danger" onclick="ogrseanskayitsil(${value.id},${value.ogr.id});">Sil</button>`;
+                                    } else if (value.durum == 0) {
+                                        yoklama = "Ön Kayıt";
+                                    }
+
+                                    guncelseanslar += `
+                                <tr>
+                                    <td>${value.ogr.ad} ${value.ogr.soyad}</td>
+                                    <td>${value.seansKayitTarihSTR}</td>
+                                    <td>${value.denemeAd}</td>
+                                    <td>${value.ogr.telefon}</td>
+                                    <td>${yoklama}</td>
+                                  
+                                    <td id="btn2">${btn1} ${btn2} ${btn3}</td>
+                                </tr>
+                            `;
+                                    $("#seansogrlistbody").html(guncelseanslar);
+                                });
+                            }
+                        });
+                    }
+
+                    function ogryoklama(ogrid, seanskayitno, type, seansid) {
+                        var islemonay = "Öğrenci Yoklama Onayı";
+                        var mesaj = "";
+                        if (type == 2) {
+                            mesaj = "Katılım Sağladı, İşlemi Onaylıyor musunuz?";
+                        } else if (type == 4) {
+                            mesaj = "Kitapçığını Teslim Aldı, İşlemi Onaylıyor musunuz?";
+                        }
+                        Swal.fire({
+                            title: islemonay,
+                            text: mesaj,
+                            icon: 'info',
+                            showDenyButton: true,
+                            showCancelButton: false,
+                            confirmButtonText: 'Onaylıyorum',
+                            denyButtonText: `Vazgeç`,
+                        }).then((result) => {
+                            if (result.isConfirmed) {
+                                $.ajax({
+                                    url: '/SeansAction/OgrSeansYoklama',
+                                    type: 'post',
+                                    dataType: 'json',
+                                    data: { ogrid: ogrid, seanskayitno: seanskayitno, type: type },
+                                    success: function (data) {
+                                        gunlukDashboard();
+                                    },
+                                    error: function (error) {
+                                        var mesajbaslik = error._mesajbaslik;
+                                        var mesaj = error._mesaj;
+                                        var mesajicon = error._MesajIcon;
+                                        sweetalertmethod(mesajbaslik.replace('"Hata Oluştu"', 'Hata Oluştu'), mesaj, mesajicon.replace('"error"', 'error'))
+                                    }
+                                });
+                            } else if (result.isDenied) {
+                                Swal.fire('Herhangi Bir İşlem Yapılmadı', '', 'info')
+                            }
+                        })
+                    }
+
+                    window.onload = gunlukDashboard();
+            </script>
+            }
+
+
+
+
+

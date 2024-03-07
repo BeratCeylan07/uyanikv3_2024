@@ -1,0 +1,44 @@
+@using Microsoft.AspNetCore.Http;
+
+@inject IHttpContextAccessor HttpContextAccessor
+@{
+    Layout = "Ogr_Layout";
+}
+
+<div class="header-large-title text-center">
+    <img src="~/OgrMobil/assets/uynklogov3.png" width="150" />
+    <h1 class="title">Uyanık Kütüphane</h1>
+    <h4 class="subtitle">Hoş Geldiniz</h4>
+</div>
+
+<div class="section full mb-3">
+    <div class="section-title">Duyurular</div>
+
+    <div class="carousel-single owl-carousel owl-theme owl-loaded owl-drag">
+
+
+
+        <div class="owl-stage-outer">
+            <div class="owl-stage" style="transform: translate3d(-724px, 0px, 0px); transition: all 0s ease 0s; width: 2594px; padding-left: 30px; padding-right: 30px;">
+                <div class="owl-item cloned" style="width: 346px; margin-right: 16px;">
+                    <div class="item">
+                        <img src="~/OgrMobil/assets/img/sample/photo/11.png" alt="alt" class="imaged w-100">
+                    </div>
+                </div>
+
+                <div class="owl-item cloned" style="width: 346px; margin-right: 16px;">
+                    <div class="item">
+                        <img src="~/OgrMobil/assets/img/sample/photo/22.png" alt="alt" class="imaged w-100">
+                    </div>
+                </div>
+                <div class="owl-item active" style="width: 346px; margin-right: 16px;">
+                    <div class="item">
+                        <img src="~/OgrMobil/assets/img/sample/photo/33.png" alt="alt" class="imaged w-100">
+                    </div>
+                </div>
+
+            </div>
+        </div><div class="owl-nav disabled"><button type="button" role="presentation" class="owl-prev"><span aria-label="Previous">‹</span></button><button type="button" role="presentation" class="owl-next"><span aria-label="Next">›</span></button></div><div class="owl-dots disabled"></div>
+    </div>
+
+</div>

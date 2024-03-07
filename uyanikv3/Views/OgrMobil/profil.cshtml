@@ -1,0 +1,374 @@
+@using Microsoft.AspNetCore.Http;
+
+@inject IHttpContextAccessor HttpContextAccessor
+
+@{
+    Layout = "~/Views/Shared/Ogr_Layout.cshtml";
+}
+<div class="appHeader bg-primary text-light">
+    <div class="left">
+        <a href="javascript:;" class="headerButton goBack">
+            <ion-icon name="chevron-back-outline" role="img" class="md hydrated" aria-label="chevron back outline"></ion-icon>
+        </a>
+    </div>
+    <div class="pageTitle">Üye Profil</div>
+    <div class="right">
+    </div>
+</div>
+<div id="snList" style="margin-top:5rem;"></div>
+<style>
+    .item {
+        padding: 0px !important;
+    }
+
+    a.item:after {
+        background-image: none !important;
+    }
+</style>
+<div class="section mt-2">
+    <div class="profile-head">
+        <div class="avatar">
+            <img src="~/assets/uynklogov3.png" alt="avatar" class="imaged w64">
+        </div>
+        <div class="in">
+            <h3 class="name">@HttpContextAccessor.HttpContext.Session.GetString("ogrAd") @HttpContextAccessor.HttpContext.Session.GetString("ogrSoyad")</h3>
+            <h5 class="subtext">Uyanık Üye</h5>
+        </div>
+    </div>
+</div>
+
+<div class="section mt-1 mb-2">
+
+    </div>
+<div class="section full">
+    <div class="wide-block transparent p-0">
+        <ul class="nav nav-tabs lined iconed" role="tablist">
+            <li class="nav-item">
+                <a class="nav-link" data-toggle="tab" href="#denemeSinavlarim" role="tab">
+                    <ion-icon name="grid-outline"></ion-icon> Deneme Sınavlarım
+                </a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" data-toggle="tab" href="#divUyeGirislerim" role="tab">
+                    <ion-icon name="calendar-outline"></ion-icon> Üyelik Girişlerim
+                </a>
+            </li>
+
+            <li class="nav-item">
+                <a class="nav-link" data-toggle="tab" href="#uyelikBilgiler" role="tab">
+                    <ion-icon name="information-outline"></ion-icon> Üyelilk Bilgilerim
+                </a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" data-toggle="tab" href="#uyeGirisIkramHak" role="tab">
+                    <ion-icon name="cafe-outline"></ion-icon> Günlük İkram
+                </a>
+            </li>
+        </ul>
+    </div>
+</div>
+
+
+<!-- tab content -->
+<div class="section full mb-2">
+    <div class="tab-content">
+
+        <!-- feed -->
+        <div class="tab-pane fade show active" id="feed" role="tabpanel">
+            <div class="mt-2 pr-2 pl-2">
+
+            </div>
+
+        </div>
+        <!-- * feed -->
+        <!-- * friends -->
+        <div class="tab-pane fade" id="divUyeGirislerim" role="tabpanel">
+
+        </div>
+        <!-- * friends -->
+        <!--  bookmarks -->
+        <div class="tab-pane fade" id="denemeSinavlarim" role="tabpanel">
+
+        </div>
+        <!-- * bookmarks -->
+        <div class="tab-pane fade" id="uyeGirisIkramHak" role="tabpanel">
+
+        </div>
+        <div class="tab-pane fade" id="uyelikBilgiler" role="tabpanel">
+
+        </div>
+    
+    </div>
+</div>
+@section ogrScripts{
+    <script>
+       
+
+        $(document).ready(function () {
+
+            $.ajax({
+                url: '/Ogr/ogrSeansGetir/',
+                type: 'Get',
+                contentType: 'application/json; charset=utf-8;',
+                dataType: 'json',
+                success: function (data) {
+                    var seansObjData = jQuery.parseJSON(data);
+                    let durumText = ``;
+                    let durumcolor;
+                    let denemeSeanslar = `<ul class="listview image-listview media flush transparent pt-1">`;
+       
+
+            
+            $.each(seansObjData, (index, value) => {
+
+                        if (value.ogrseansDurum == 2) {
+                            durumText = `Ön Kayıt Talebiniz Alındı`;
+                            durumcolor = `warning`;
+                        } else if (value.ogrseansDurum == 1) {
+                            durumText = `Kesin Kayıt`;
+                            durumcolor = "success";
+                }
+                denemeSeanslar += `<li>
+                    <a href="#" class="item">
+                        <div class="imageWrapper">
+                            <img src="${value.yayinLogo}" alt="image" class="imaged w64">
+                        </div>
+                        <div class="in" style="padding:30px;">
+                            <div>
+                                ${value.yayinBaslik} <br> ${value.kitapcikBaslik}
+                                <div class="text-muted">Tarih: ${value.TarihSTR} <br> Gün: ${value.SeansGun} <br> Saat: ${value.Saat} </div>
+                            </div>
+                            <span class="badge badge-${durumcolor}" style="width: 180px;">${durumText}</span>
+                        </div>
+          
+                        </div>
+                    </a>
+                </li>`;
+                    
+            });
+                    denemeSeanslar += `</ul>`;
+                    $("#denemeSinavlarim").html(denemeSeanslar);
+                },
+                Error: function (data) {
+
+                }
+            });
+            $.ajax({
+                url: '/Ogr/uyeGirisHareketler/',
+                type: 'Get',
+                contentType: 'application/json; charset=utf-8;',
+                dataType: 'json',
+                success: function (data) {
+                    console.log(data);
+                    var uyeGirisData = jQuery.parseJSON(data);
+                    let durumText = ``;
+                    let durumcolor;
+ 
+                    let uyeGirislerim = `<ul class="listview image-listview media flush transparent pt-1">`;
+
+                    $.each(uyeGirisData, (index, value) => {
+                        uyeGirislerim += `<li>
+                    <a href="#" class="item">
+                        <div class="imageWrapper">
+    <ion-icon name="arrow-forward-circle-outline" style="font-size: 64px;"></ion-icon>
+                        </div>
+                        <div class="in" style="padding:30px;">
+                            <div>
+                                Üye giriş
+                                <div class="text-muted">Tarih: ${value.tarihStr} <br> Gün: ${value.gun} <br> Saat: ${value.Saat} </div>
+                            </div>
+                            <span class="badge badge-${durumcolor}" style="width: 180px;">${durumText}</span>
+                        </div>
+          
+                        </div>
+                    </a>
+                </li>`;
+                    });
+
+                    uyeGirislerim += `</ul>`;
+                    $("#divUyeGirislerim").html(uyeGirislerim);
+                },
+                Error: function (data) {
+
+                }
+            });
+            $.ajax({
+                url: '/Ogr/uyeGirisIkramControl/',
+                type: 'Get',
+                contentType: 'application/json; charset=utf-8;',
+                dataType: 'json',
+                success: function (data) {
+                    var jsonIkramHakdata = jQuery.parseJSON(data.ikramListJSON);
+                    console.log(jsonIkramHakdata);
+                    console.log(data.ikramListJSON);
+                    let ikramHakList = `<div class="section mt-2">
+            <div class="row">`;
+                    if (jsonIkramHakdata.length == 0) {
+
+                        ikramHakList += ` <div class="col-12">
+             
+                            <div class="alert alert-warning" role="alert">
+                    <h4 class="alert-title"><ion-icon name="warning-outline"></ion-icon> İkram Hakkı Bulunamadı</h4>
+                </div>
+
+                        </div>`;
+                    } else {
+
+                        $.each(jsonIkramHakdata, (index, value) => {
+                            ikramHakList += ` <div class="col-6">
+                        <div class="card product-card">
+                            <div class="card-body">
+                                    <img src="/assets/img/drink.png" class="image" style="height: 150px;"  alt="product image">
+                                    <h2 class="title">${value.IkramBaslik}</h2>
+                                    <p class="text">${value.Adet} Adet</p>
+                                    <div class="price">Ücretsiz</div>
+                        </div>
+                            </div>
+                        </div>`;
+                        });
+
+                    }
+                   
+           ikramHakList += `</div>
+        </div>`;
+                    $("#uyeGirisIkramHak").html(ikramHakList);
+               
+                },
+                Error: function (data) {
+
+                }
+            });
+            $.ajax({
+                url: '/OgrMobil/uyelikBilgilerim/',
+                type: 'Get',
+                contentType: 'application/json; charset=utf-8;',
+                dataType: 'json',
+                success: function (data) {
+                    var jsonUyelikBilgiler = jQuery.parseJSON(data.jsonPaketBilgilerim);
+                    console.log(jsonUyelikBilgiler)
+                    let uyelikPaketBilgiler = ``;
+                    if (jsonUyelikBilgiler.length == 0) {
+
+                        uyelikPaketBilgiler += ` <div class="col-12">
+             
+                            <div class="alert alert-warning" role="alert">
+                    <h4 class="alert-title"><ion-icon name="warning-outline"></ion-icon> Üyelik Paketiniz Bulunmamaktadır.</h4>
+                </div>
+
+                        </div>`;
+                    } else {
+                      if (jsonUyelikBilgiler.paketStatus === true)
+                      {
+                            uyelikPaketBilgiler += `        <ul class="listview image-listview">
+                                      <li style="padding: 0px 5px 0px 5px;">
+                                          <a href="#" class="item">
+                                              <div class="icon-box bg-primary">
+                          <ion-icon name="chevron-forward-outline"></ion-icon>
+                          </div>
+                                              <div class="in">
+                                                  Üyelik Adı: ${jsonUyelikBilgiler.paketAd}
+                                              </div>
+                                          </a>
+                                      </li>
+                                      <li style="padding: 0px 5px 0px 5px;">
+                                          <a href="#" class="item">
+                                              <div class="icon-box bg-primary">
+                          <ion-icon name="chevron-forward-outline"></ion-icon>
+                          </div>
+                                              <div class="in">
+                                                  Başlangıç Tarihi: ${jsonUyelikBilgiler.baslangicTarih}
+                                              </div>
+                                          </a>
+                                      </li>
+                                      <li style="padding: 0px 5px 0px 5px;">
+                                          <a href="#" class="item">
+                                              <div class="icon-box bg-primary">
+                          <ion-icon name="chevron-forward-outline"></ion-icon>
+                          </div>
+                                              <div class="in">
+                                                  Bitiş Tarihi: ${jsonUyelikBilgiler.bitisTarih}
+                                              </div>
+                                          </a>
+                                      </li>
+                                      <li style="padding: 0px 5px 0px 5px;">
+                                          <a href="#" class="item">
+                                              <div class="icon-box bg-primary">
+                          <ion-icon name="chevron-forward-outline"></ion-icon>
+                          </div>
+                                              <div class="in">
+                                                  Paketin Geçerlilik Süresi: ${jsonUyelikBilgiler.gecerlilikGun}
+                                              </div>
+                                          </a>
+                                      </li>
+                                      <li style="padding: 0px 5px 0px 5px;">
+                                          <a href="#" class="item">
+                                              <div class="icon-box bg-primary">
+                          <ion-icon name="chevron-forward-outline"></ion-icon>
+                          </div>
+                                              <div class="in">
+                                                  Toplam Giriş Hakkı: ${jsonUyelikBilgiler.toplamGirisHak}
+                                              </div>
+                                          </a>
+                                      </li>
+                                      <li style="padding: 0px 5px 0px 5px;">
+                                          <a href="#" class="item">
+                                              <div class="icon-box bg-danger">
+                          <ion-icon name="chevron-forward-outline"></ion-icon>
+                          </div>
+                                              <div class="in">
+                                                  Kalan Giriş Hakkı: ${jsonUyelikBilgiler.kalanGirisHak}
+                                              </div>
+                                          </a>
+                                      </li>
+                                  </ul>
+                          <div class="row" style="margin-top: 1rem;">`;
+                                                  if (jsonUyelikBilgiler.tanimliIkramlar.length !== 0) {
+                                                        uyelikPaketBilgiler+= `<div class="col-md-12"><h4 style="margin-left:12px; margin-top:12px;">Paketine Tanımlı ikramlar</h4></div>`;
+                                                      $.each(jsonUyelikBilgiler.tanimliIkramlar, (index, value) => {
+                                                          uyelikPaketBilgiler += ` <div class="col-6" style="padding: 20px;">
+                                                  <div class="card product-card">
+                                                      <div class="card-body">
+                                                              <img src="/assets/img/drink.png" class="image" style="height: 135px;" alt="product image">
+                                                              <h2 class="title">${value.IkramBaslik}</h2>
+                                                              <p class="text">${value.Adet} Adet</p>
+                                                              <div class="price">Ücretsiz</div>
+                                                  </div>
+                                                      </div>
+                                                  </div>`;
+                                                      });
+                                                  } else {
+                                                      uyelikPaketBilgiler += ` <div class="col-12">
+                                       
+                                                      <div class="alert alert-warning" role="alert">
+                                              <h4 class="alert-title"><ion-icon name="warning-outline"></ion-icon> Üyelik Paketine Tanımlı İkram Bulunamadı.</h4>
+                                          </div>
+                          
+                                                  </div>`;
+                                  }
+                                                
+
+                      }else
+                      {
+                                                  uyelikPaketBilgiler += ` <div class="col-12" style="margin-top: 1rem;">
+                                       
+                                                      <div class="alert alert-warning" role="alert">
+                                              <h4 class="alert-title"><ion-icon name="warning-outline"></ion-icon> Kütüphane Üyelik Hakkınız Sona Ermiştir.</h4>
+                                          </div>
+                          
+                                      </div>`;
+                       }
+                    }
+                    uyelikPaketBilgiler += `</div>`;
+                 
+                    $("#uyelikBilgiler").html(uyelikPaketBilgiler);
+
+                },
+                Error: function (data) {
+
+                }
+            });
+
+        });
+
+    </script>
+}

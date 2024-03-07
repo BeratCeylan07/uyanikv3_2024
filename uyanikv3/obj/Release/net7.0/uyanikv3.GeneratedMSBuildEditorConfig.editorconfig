@@ -1,0 +1,143 @@
+is_global = true
+build_property.TargetFramework = net7.0
+build_property.TargetPlatformMinVersion = 
+build_property.UsingMicrosoftNETSdkWeb = true
+build_property.ProjectTypeGuids = 
+build_property.InvariantGlobalization = 
+build_property.PlatformNeutralAssembly = 
+build_property.EnforceExtendedAnalyzerRules = 
+build_property._SupportedPlatformList = Linux,macOS,Windows
+build_property.RootNamespace = uyanikv3
+build_property.RootNamespace = uyanikv3
+build_property.ProjectDir = /Users/beratceylan/Desktop/lastrev/uyanikappv3/uyanikv3/
+build_property.EnableComHosting = 
+build_property.EnableGeneratedComInterfaceComImportInterop = 
+build_property.RazorLangVersion = 7.0
+build_property.SupportLocalizedComponentNames = 
+build_property.GenerateRazorMetadataSourceChecksumAttributes = true
+build_property.MSBuildProjectDirectory = /Users/beratceylan/Desktop/lastrev/uyanikappv3/uyanikv3
+build_property._RazorSourceGeneratorDebug = 
+
+[/Users/beratceylan/Desktop/lastrev/uyanikappv3/uyanikv3/wwwroot/OgrMobil/Component.razor]
+build_metadata.AdditionalFiles.TargetPath = d3d3cm9vdC9PZ3JNb2JpbC9Db21wb25lbnQucmF6b3I=
+build_metadata.AdditionalFiles.CssScope = 
+
+[/Users/beratceylan/Desktop/lastrev/uyanikappv3/uyanikv3/Pages/OgrMobil/guncelSeanslar.cshtml]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXMvT2dyTW9iaWwvZ3VuY2VsU2VhbnNsYXIuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[/Users/beratceylan/Desktop/lastrev/uyanikappv3/uyanikv3/Pages/OgrMobil/Index.cshtml]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXMvT2dyTW9iaWwvSW5kZXguY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[/Users/beratceylan/Desktop/lastrev/uyanikappv3/uyanikv3/Pages/OgrMobil/profil.cshtml]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXMvT2dyTW9iaWwvcHJvZmlsLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[/Users/beratceylan/Desktop/lastrev/uyanikappv3/uyanikv3/Pages/QRView/Index.cshtml]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXMvUVJWaWV3L0luZGV4LmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[/Users/beratceylan/Desktop/lastrev/uyanikappv3/uyanikv3/Views/AppAuth/Index.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3MvQXBwQXV0aC9JbmRleC5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[/Users/beratceylan/Desktop/lastrev/uyanikappv3/uyanikv3/Views/AppAuth/Login.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3MvQXBwQXV0aC9Mb2dpbi5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[/Users/beratceylan/Desktop/lastrev/uyanikappv3/uyanikv3/Views/Home/Index.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3MvSG9tZS9JbmRleC5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[/Users/beratceylan/Desktop/lastrev/uyanikappv3/uyanikv3/Views/Home/Kategoriler.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3MvSG9tZS9LYXRlZ29yaWxlci5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[/Users/beratceylan/Desktop/lastrev/uyanikappv3/uyanikv3/Views/Home/Kitapciklar.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3MvSG9tZS9LaXRhcGNpa2xhci5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[/Users/beratceylan/Desktop/lastrev/uyanikappv3/uyanikv3/Views/Home/KutuphaneUyelik.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3MvSG9tZS9LdXR1cGhhbmVVeWVsaWsuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[/Users/beratceylan/Desktop/lastrev/uyanikappv3/uyanikv3/Views/Home/Ogrenci.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3MvSG9tZS9PZ3JlbmNpLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[/Users/beratceylan/Desktop/lastrev/uyanikappv3/uyanikv3/Views/Home/Rapor.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3MvSG9tZS9SYXBvci5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[/Users/beratceylan/Desktop/lastrev/uyanikappv3/uyanikv3/Views/Home/Seans.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3MvSG9tZS9TZWFucy5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[/Users/beratceylan/Desktop/lastrev/uyanikappv3/uyanikv3/Views/Home/Sube.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3MvSG9tZS9TdWJlLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[/Users/beratceylan/Desktop/lastrev/uyanikappv3/uyanikv3/Views/Home/Yayinlar.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3MvSG9tZS9ZYXlpbmxhci5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[/Users/beratceylan/Desktop/lastrev/uyanikappv3/uyanikv3/Views/OgrAuth/OgrLogin.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3MvT2dyQXV0aC9PZ3JMb2dpbi5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[/Users/beratceylan/Desktop/lastrev/uyanikappv3/uyanikv3/Views/OgrAuth/OgrSignIn.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3MvT2dyQXV0aC9PZ3JTaWduSW4uY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[/Users/beratceylan/Desktop/lastrev/uyanikappv3/uyanikv3/Views/OgrMobil/guncelSeanslar.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3MvT2dyTW9iaWwvZ3VuY2VsU2VhbnNsYXIuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[/Users/beratceylan/Desktop/lastrev/uyanikappv3/uyanikv3/Views/OgrMobil/Index.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3MvT2dyTW9iaWwvSW5kZXguY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[/Users/beratceylan/Desktop/lastrev/uyanikappv3/uyanikv3/Views/OgrMobil/ogrSeanslar.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3MvT2dyTW9iaWwvb2dyU2VhbnNsYXIuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[/Users/beratceylan/Desktop/lastrev/uyanikappv3/uyanikv3/Views/OgrMobil/profil.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3MvT2dyTW9iaWwvcHJvZmlsLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[/Users/beratceylan/Desktop/lastrev/uyanikappv3/uyanikv3/Views/OnKayit/Index.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3MvT25LYXlpdC9JbmRleC5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[/Users/beratceylan/Desktop/lastrev/uyanikappv3/uyanikv3/Views/OnKayit/OgrLogin.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3MvT25LYXlpdC9PZ3JMb2dpbi5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[/Users/beratceylan/Desktop/lastrev/uyanikappv3/uyanikv3/Views/QRAction/Index.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3MvUVJBY3Rpb24vSW5kZXguY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[/Users/beratceylan/Desktop/lastrev/uyanikappv3/uyanikv3/Views/QRView/Index.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3MvUVJWaWV3L0luZGV4LmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[/Users/beratceylan/Desktop/lastrev/uyanikappv3/uyanikv3/Views/Shared/Ogr_Layout.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3MvU2hhcmVkL09ncl9MYXlvdXQuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[/Users/beratceylan/Desktop/lastrev/uyanikappv3/uyanikv3/Views/Shared/Ogr_Login_Layout.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3MvU2hhcmVkL09ncl9Mb2dpbl9MYXlvdXQuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[/Users/beratceylan/Desktop/lastrev/uyanikappv3/uyanikv3/Views/_ViewStart.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3MvX1ZpZXdTdGFydC5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[/Users/beratceylan/Desktop/lastrev/uyanikappv3/uyanikv3/Views/Shared/Login_Layout.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3MvU2hhcmVkL0xvZ2luX0xheW91dC5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = b-rxqhtvslqg
+
+[/Users/beratceylan/Desktop/lastrev/uyanikappv3/uyanikv3/Views/Shared/_Layout.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3MvU2hhcmVkL19MYXlvdXQuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = b-y7akovt95a

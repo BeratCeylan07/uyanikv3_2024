@@ -1,0 +1,2158 @@
+﻿@{
+    ViewData["Title"] = "Home Page";
+    Layout = "_Layout";
+}
+<style>
+    .table-wrp {
+        max-height: 75vh;
+        overflow-y: auto;
+        display: block;
+    }
+
+    thead {
+        position: sticky;
+        top: 0
+    }
+
+
+    #mdlseanssettings{
+        overflow-y: scroll !important;
+    }
+    #mdlOgrenciKayit {
+        padding-right: 0px !important;
+    }
+
+    .card {
+        margin-bottom: 0px !important;
+    }
+    #mdlgecmisseanlar{
+        padding-right:0px !important;
+    }
+    
+
+</style>
+<div class="page-container">
+
+    <div class="modal fade" id="mdlseansbilgikart" role="dialog" tabindex="-1" aria-labelledby="mdlseansbilgikart" aria-hidden="true" data-backdrop="static" style="padding-right: 0px !important;">
+        <div class="modal-dialog modal-lg" role="document" style="max-width: 100% !important;width: 100% !important; margin:0 !important;">
+            <div class="modal-content" style="padding-right: 0px !important;    max-height: 2500px !important;
+                    height: 100% !important;">
+                <div class="modal-header">
+
+                    <h5 class="modal-title" id="largeModalLabel">
+                        <i class="far fa-hourglass fa-2x"></i>
+                        <br>   Seans Bilgi Kartı
+                    </h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">×</span>
+                    </button>
+                </div>
+                <div class="modal-body" style="padding:0px !important;">
+                    <div class="container-fluid" style="padding:0px !important;">
+                        <div class="row">
+                            <div class="col-md-2" style="padding-right:0px !important;">
+                                <div class="card" style="width: 100%;">
+                                    <div id="yayinfotoarea" style="height: 288px;"></div>
+                                    <div class="card-body">
+                                        <h5 class="card-title" id="seansad"></h5>
+                                    </div>
+                                    <ul class="list-group list-group-flush">
+                                        <li class="list-group-item">Tarih / Saat <b id="tariihsaat"></b></li>
+                                        <li class="list-group-item">Kontenjan <b id="kontenjan"></b></li>
+                                        <li class="list-group-item">Toplam kayıt <b id="toplamayitli"></b></li>
+                                        <li class="list-group-item">Katılım Sağlayan <b id="toplamkatilimsaglayan"></b></li>
+                                        <li class="list-group-item">Kitapçık Teslim Alan <b id="toplamkitapcikteslimalan"></b></li>
+                                        <li class="list-group-item">Kalan Kontenjan <b id="kalankontenjan"></b></li>
+                                    </ul>
+                                </div>
+                            </div>
+                            <div class="col-md-10" style="padding-left:0px !important;">
+                                <div class="row">
+                                    <div class="col-md-3 col-sm-12">
+                                        <div class="au-card recent-report" style="padding:15px !important; margin-bottom:0px !important;">
+                                            <div class="au-card-inner">
+                                                <h3 class="title-2 text-center">Seans Doluluk Oranı</h3>
+
+                                                <div class="recent-report__chart m-t-50" id="snchartarea">
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-9 col-sm-12">
+                                        <div id="btnseansdetay" class="row">
+
+                                        </div>
+                                    </div>
+                                    <div class="col-md-12">
+                                        <div class="card" style="height: 100% !important;">
+                                            <div class="card-body">
+                                                <h3>Seansa Kayıtlı Öğrenci Listesi</h3>
+
+                                                <input type="text" id="seansograraInSeans" onkeyup="myFunctionInSeans()" placeholder="Öğrenci Ara..." class="form-control">
+                                                <div class="table-responsive table--no-card" style="    height: 880px; margin-top:1rem;">
+
+                                                    <table id="tblogr" class="table table-borderless table-striped table-earning">
+                                                        <thead>
+                                                            <tr>
+                                                                <th>Kayıt Tarihi</th>
+                                                                <th>Ad Soyad</th>
+                                                                <th>Telefon</th>
+                                                                <th>Kayıt Durumu</th>
+                                                                <th>Yoklama İşlemi</th>
+                                                            </tr>
+                                                        </thead>
+                                                        <tbody id="seansogrlistbody">
+                                                        </tbody>
+                                                    </table>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+
+                            </div>
+
+                        </div>
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Kapat</button>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="modal fade" id="mdlseanslistforogr" tabindex="-1" role="dialog" aria-labelledby="mdlseanslistforogr" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="exampleModalCenterTitle">Öğrencinin kayıt Olabileceği Deneme Sınavları</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body">
+
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Vazgeç</button>
+                    <button type="button" class="btn btn-primary">Kaydet</button>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="modal fade" id="mdlgecmisseanlar" role="dialog" tabindex="-1" aria-labelledby="mdlOgrenciKayit" aria-hidden="true" data-backdrop="static">
+        <div class="modal-dialog modal-lg" role="document" style="width: 100% !important;
+                                                                      max-width: 100% !important;
+                                                                      margin: 0px !important;">
+            <div class="modal-content" style="padding-right: 0px !important;    max-height: 2500px !important;
+                    height: 100% !important;">
+                <div class="modal-header">
+
+                    <h5 class="modal-title" id="largeModalLabel">
+                        <i class="far fa-hourglass fa-2x"></i>
+                        <br>   Geçmiş Seanslar
+                    </h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">×</span>
+                    </button>
+                </div>
+                <div class="modal-body" style="padding:0px !important;">
+                    <div class="container-fluid" style="padding:0px !important;">
+                        <div class="row" style="padding-left: 15px !important;">
+
+                            <div class="col-md-12" style="padding-left:0px !important;">
+                                <div class="card" style="height: 100% !important;">
+                                    <div class="card-body">
+                                        <h3>Sona Ermiş Seanslar</h3>
+                                        <div class="table-responsive table--no-card m-b-40" style="height: 880px; margin-top:1rem;">
+                                            <table id="tblseansafter" class="table table-borderless table-striped table-earning">
+                                                <thead>
+                                                    <tr>
+                                                        <th>Seans</th>
+                                                        <th>Tarih / Saat</th>
+                                                        <th>Toplam / Güncel Kontenjan</th>
+                                                        <th></th>
+                                                        <th></th>
+                                                        <th></th>
+                                                    </tr>
+                                                </thead>
+                                                <tbody id="seansListAfterBody">
+                                                </tbody>
+                                            </table>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                        </div>
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancel</button>
+                    <button type="button" class="btn btn-primary" onclick="ogradd();">Kaydet</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="modal fade" id="mdlogrlistforseansonkayit" role="dialog" tabindex="-1" aria-labelledby="mdlogrlistforseansonkayit" aria-hidden="true" data-backdrop="static" style="padding-left: 15px !important;">
+        <div class="modal-dialog modal-lg" role="document" style="max-width: 100% !important;">
+            <div class="modal-content" style="padding-right: 0px !important;    max-height: 2500px !important;
+                    height: 100% !important;">
+                <div class="modal-header">
+
+                    <h5 class="modal-title" id="largeModalLabel">
+                        <i class="far fa-hourglass fa-2x"></i>
+                        <br>   Seans Ön Kayıt Talepleri
+                    </h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">×</span>
+                    </button>
+                </div>
+                <div class="modal-body" style="padding:0px !important;">
+                    <div class="container-fluid" style="padding:0px !important;">
+                        <div class="row" style="padding-left: 15px;">
+
+                            <div class="col-md-12" >
+                                    <div id="seansonkayitlistarea" class="table-responsive table--no-card m-b-40" style="height: 880px; margin-top:1rem;">
+                        
+                                                                    <input type="text" id="seansograraonkayit" onkeyup="myFunction3()" placeholder="Öğrenci Ara..." class="form-control">
+                                                                    <div class="table-responsive table--no-card" style="    height: 880px; margin-top:1rem;">
+                        
+                                                                        <table id="tblogronkayit" class="table table-borderless table-striped table-earning">
+                                                                            <thead>
+                                                                                <tr>
+                                                                                    <th>Kayıt Tarihi</th>
+                                                                                    <th>Ad Soyad</th>
+                                                                                    <th>Telefon</th>
+                                                                                    <th>Kayıt Durumu</th>
+                                                                                    <th>İşlem</th>
+                                                                                </tr>
+                                                                            </thead>
+                                                                            <tbody id="seansogrlistonkayitbody">
+                                                                            </tbody>
+                                                                        </table>
+                        
+                                                                    </div>
+                                                                </div>
+
+
+                            </div>
+                        </div>
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancel</button>
+                        <button type="button" class="btn btn-primary" onclick="ogradd();">Kaydet</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+              <div class="modal fade" id="mdlgunlukkayitlist" role="dialog" tabindex="-1" aria-labelledby="mdlogrlistforseansonkayit" aria-hidden="true" data-backdrop="static">
+                  <div class="modal-dialog modal-lg" role="document" style="max-width: 100% !important;">
+                      <div class="modal-content" style="padding-right: 0px !important;    max-height: 2500px !important;
+                              height: 100% !important;">
+                          <div class="modal-header">
+          
+                              <h5 class="modal-title" id="largeModalLabel">
+                                  <i class="far fa-hourglass fa-2x"></i>
+                                  <br>  Günlük Seans Kayıtları
+                              </h5>
+                              <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                  <span aria-hidden="true">×</span>
+                              </button>
+                          </div>
+                          <div class="modal-body" style="padding:0px !important;">
+                              <div class="card" style="
+                                       height: 100% !important;
+                                   ">
+                                                                       <div class="card-body">
+                                                                           <h3>Kesin Kayıt Listesi</h3>
+                                   
+                                                                           <div id="seansonkayitlistarea" class="table-responsive table--no-card m-b-40" style="height: 880px; margin-top:1rem;">
+                                   
+                                                                               <input type="text" id="gunlukkayitlist" onkeyup="myFunction5()" placeholder="Öğrenci Ara..." class="form-control">
+                                                                               <div class="table-responsive table--no-card" style="    height: 880px; margin-top:1rem;">
+                                                                                   
+                                                                                   <table id="tblgunlukkayitlist" class="table table-borderless table-striped table-earning">
+                                                                                       <thead>
+                                                                                           <tr>
+                                                                                               <th>Kayıt Tarihi</th>
+                                                                                               <th>Ad Soyad</th>
+                                                                                               <th>Telefon</th>
+                                                                                               <th>Seans</th>
+                                                                                               <th>Seans Tarih / Saat</th> 
+                                                                                               <th>Durum</th>
+                                                                                               <th>İşlem</th>
+                                                                                           </tr>
+                                                                                       </thead>
+                                                                                       <tbody id="gunlukkayitlisttbody">
+                                                                                       </tbody>
+                                                                                   </table>
+                                   
+                                                                               </div>
+                                                                           </div>
+                                                                       </div>
+                                                                   </div>
+                              <div class="modal-footer">
+                                  <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancel</button>
+                              </div>
+                          </div>
+                      </div>
+                  </div>
+              </div>    
+
+    <div class="modal fade" id="mdlseansonkayittaleplist" role="dialog" tabindex="-1" aria-labelledby="mdlogrlistforseansonkayit" aria-hidden="true" data-backdrop="static">
+        <div class="modal-dialog modal-lg" role="document" style="max-width: 100% !important;">
+            <div class="modal-content" style="padding-right: 0px !important;    max-height: 2500px !important;
+                    height: 100% !important;">
+                <div class="modal-header">
+
+                    <h5 class="modal-title" id="largeModalLabel">
+                        <i class="far fa-hourglass fa-2x"></i>
+                        <br>   Seans Ön Kayıt Talepleri
+                    </h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">×</span>
+                    </button>
+                </div>
+                <div class="modal-body" style="padding:0px !important;">
+                    <div class="container-fluid" style="padding:0px !important;">
+                        <div class="row" style="padding-left: 15px;">
+
+                            <div class="col-md-12">
+    
+                                        <h3>Seans Ön Başvuru Listesi</h3>
+
+                                        <div id="seansonkayitlistarea" class="table-responsive" style="height: 880px; margin-top:1rem;">
+
+                                            <input type="text" id="seansograraonkayit" onkeyup="myFunction3()" placeholder="Öğrenci Ara..." class="form-control">
+                                            <div class="table-responsive table--no-card" style="    height: 880px; margin-top:1rem;">
+
+                                                <table id="tblogronkayittalep" class="table table-borderless table-striped table-earning">
+                                                    <thead>
+                                                        <tr>
+                                                            <th>Kayıt Tarihi</th>
+                                                            <th>Ad Soyad</th>
+                                                            <th>Telefon</th>
+                                                            <th>Seans</th>
+                                                            <th>Seans Tarih / Saat</th>
+                                                            <th>Durum</th>
+                                                            <th>İşlem</th>
+                                                        </tr>
+                                                    </thead>
+                                                    <tbody id="seansogrlistonkayittaleptbody">
+                                                    </tbody>
+                                                </table>
+
+                                            </div>
+                                        </div>
+                                    </div>
+        
+                        </div>
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancel</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>    
+<div class="modal fade" id="mdlSeansPaketler" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-lg" style="max-width:100%;">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="exampleModalLabel">Deneme Seansı Paketleri                 <button type="button" class="btn btn-success" data-toggle="modal" data-target="#mdlYeniseansPaket">Yeni Paket Tanımı</button></h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body">
+                <table class="table table-bordered table-hover table-striped">
+                    <thead>
+                    <tr>
+                        <th>#</th>
+                        <th>Paket Adı</th> 
+                        <th>Fiyat</th>
+                        <th>Adet</th>
+                        <th>İşlemler</th>
+                    </tr>
+                    </thead>
+                    <tbody id="seanspaketlistbody"></tbody>
+                </table>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-dismiss="modal">Kapat</button>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="modal fade" id="mdlYeniseansPaket" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="exampleModalLabel">Yeni Deneme Seans Paketi</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body">
+                <div class="form-group">
+                    <label for="txtSeansPaketAd">Paket Adı</label>
+                    <input type="text" class="form-control" id="txtSeansPaketAd">
+                </div>
+                <div class="form-group">
+                    <label for="txtPaketFiyat">Fiyat</label>
+                    <input type="number" class="form-control" id="txtPaketFiyat">
+                </div>
+                <div class="form-group">
+                    <label for="txtPaketSeansAdet">Adet</label>
+                    <input type="number" class="form-control" id="txtPaketSeansAdet">
+                </div>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-primary" onclick="paketAdd();">Kaydet</button>    
+                <button type="button" class="btn btn-secondary" data-dismiss="modal">Vazgeç</button>
+
+            </div>
+        </div>
+    </div>
+</div>
+<div class="modal fade" id="mdlSeansPaketDetay" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog" style="max-width: 100%;">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="titleSeansPaket"></h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+          <div class="container-fluid">
+              <div class="row">
+                  <div class="col-md-3 col-sm-6">
+                       <div class="form-group">
+                           <label for="txtSeansPaketAd">Paket Adı</label>
+                           <input type="text" class="form-control" id="txtSeansPaketAdDetail">
+                        </div>
+                  </div>        
+                  <div class="col-md-3 col-sm-6">
+                      <div class="form-group">
+                          <label for="txtPaketFiyat">Fiyat</label>
+                          <input type="text" class="form-control" id="txtPaketFiyatDetail">
+                      </div>
+                  </div>    
+                  <div class="col-md-3 col-sm-6">
+                      <div class="form-group">
+                         <label for="txtPaketSeansAdet">Adet</label>
+                         <input type="text" class="form-control" id="txtPaketSeansAdetDetail">
+                      </div>
+                  </div>   
+                  <div class="col-md-3 col-sm-6">  
+                        
+                      <button type="button" class="btn btn-primary btn-block w-100 h-100" onclick="paketUpdate();">Güncelle</button>        
+                      </div>
+              </div> 
+              <div class="row mt-2">                                 
+                  <div class="col-md-9 col-sm-12">
+                      <select id="drpSeansListForSeansPaket" class="form-control form-control-lg"></select>
+                  </div>                 
+                  <div class="col-md-3 col-sm-12">
+                      <button id="btnpaketseanstanimla" type="button" class="btn btn-info btn-lg btn-block">Seans Tanımla</button>
+                  </div>
+                  <div class="col-md-12 mt-2">
+                                    <div class="table-responsive">
+                                        <table class="table table-bordered table-striped table-hover">
+                                            <thead>
+                                            <tr>
+                                                <th>#</th>
+                                                <th>Seans Adı</th> 
+                                                <th>Tarih / Saat</th>
+                                                <th>Ücret</th>   
+                                                <th></th>
+                                            </tr>
+                                            </thead>       
+                                            <tbody id="seanspaketinseans"></tbody>
+                                        </table>
+                                    </div>
+                                </div>
+
+              </div>
+          </div>
+      </div>
+      <div class="modal-footer">
+                  <button type="button" class="btn btn-secondary" data-dismiss="modal">Vazgeç</button>
+
+      </div>
+    </div>
+  </div>
+</div>
+<div class="modal fade" id="mdlseanssettings" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal-dialog" role="document" style="width: 100% !important;max-width: 80% !important;">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="exampleModalLabel">Seans Ayar Kartı</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body">
+                    <form>
+
+                        <div class="form-group row">
+                            <label for="colFormLabelLg" class="col-sm-2 col-form-label col-form-label-lg">Kontenjan</label>
+                            <div class="col-sm-10">
+                                <input type="number" class="form-control form-control-lg" id="txtDenemeSeansKontenjanSetting" placeholder="Deneme Sınavı Kontenjanı">
+                            </div>
+                        </div>
+
+                        <div class="form-group row">
+                            <label for="colFormLabelLg" class="col-sm-2 col-form-label col-form-label-lg">Tarih</label>
+                            <div class="col-sm-10">
+                                <input type="date" class="form-control form-control-lg" id="txtDenemeSeansTarihSetting" placeholder="Deneme Sınavı Kontenjanı">
+                            </div>
+                        </div>
+
+                        <div class="form-group row">
+                            <label for="colFormLabelLg" class="col-sm-2 col-form-label col-form-label-lg">Saat</label>
+                            <div class="col-sm-10">
+                                <input type="time" class="form-control form-control-lg" id="txtDenemeSeansSaatSetting" placeholder="Deneme Sınavı Saati">
+                            </div>
+                        </div>
+                        <div class="form-group row">
+                            <label for="colFormLabelLg" class="col-sm-2 col-form-label col-form-label-lg">Ücret</label>
+                            <div class="col-sm-10">
+                                <input type="number" class="form-control form-control-lg" id="txtDenemeSeansUcretSetting" placeholder="Deneme Sınavı Ücreti">
+                            </div>
+                        </div>
+                        <div class="form-group row">
+                            <label for="colFormLabelLg" class="col-sm-2 col-form-label col-form-label-lg">Kitapçık:</label>
+                            <div class="col-sm-10">
+                                <select id="drpSeansKitapcikSetting" class="js-example-basic-single"></select>
+                            </div>
+                        </div>
+                        <div class="form-group row">
+                            <label for="colFormLabelLg" class="col-sm-2 col-form-label col-form-label-lg">Kayıt Durumu:</label>
+                            <div class="col-sm-10" id="btnseanskayitaktifpasif">
+
+                            </div>
+                        </div>
+
+                    </form>
+                </div>
+                <div id="seansdetayfooter" class="modal-footer">
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="modal fade" id="mdlOgrSeansChange" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal-dialog" role="document" >
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="exampleModalLabel">Seans Kaydı Değişikliği</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body">
+                    <select id="drpYayinListforSeanschange" class="form-control"></select>
+                    <div id="seanslistforchangediv"></div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="modal fade" id="mdlseansbildirimcard" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal-dialog" role="document" style="width: 100% !important;max-width: 80% !important;">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="exampleModalLabel">Bildirim Kartı</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body">
+                    <form>
+
+                        <div class="form-group row">
+                            <label for="txtPnsBaslik" class="col-sm-2 col-form-label col-form-label-lg">Başlık</label>
+                            <div class="col-sm-10">
+                                <input type="text" class="form-control form-control-lg" id="txtPnsBaslik" placeholder="Başlık">
+                            </div>
+                        </div>
+
+                        <div class="form-group row">
+                            <label for="txtPnsMesaj" class="col-sm-2 col-form-label col-form-label-lg">Mesaj</label>
+                            <div class="col-sm-10">
+                                <textarea type="text" class="form-control form-control-lg" id="txtPnsMesaj" placeholder="Mesaj"></textarea>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Kapat</button>
+                    <button id="btnpnsforseanspush" type="button" class="btn btn-primary">Gönder</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="modal fade" id="mdlSeansBildirimler" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal-dialog" role="document" style="width: 100% !important;max-width: 80% !important;">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="exampleModalLabel">Seans Bildirim Mesajları</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body">
+                    <div class="accordion" id="acdSeansBildirimList" style="overflow-y:auto;">
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Kapat</button>
+                    <button type="button" class="btn btn-primary">Kaydet</button>
+                    <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#mdlseansbildirimcard">Bildirim Kartı</button>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="modal fade" id="mdlyeniseans" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal-dialog" role="document" style="width: 100% !important;
+                                                         max-width: 100% !important;
+                                                         margin: 0px !important;">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="exampleModalLabel">Yeni Seans Kartı</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body">
+                    <form>
+                        <div class="form-group row">
+                            <label for="drpKitapcikList" class="col-sm-2 col-form-label col-form-label-lg">Kitapçık:</label>
+                            <div class="col-sm-10">
+                                <select id="drpKitapcikList" class="js-example-basic-single"></select>
+                            </div>
+                        </div>
+                        <div class="form-group row">
+                            <label for="txtYeniSeanskontenjan" class="col-sm-2 col-form-label col-form-label-lg">Kontenjan</label>
+                            <div class="col-sm-10">
+                                <input type="number" class="form-control form-control-lg" id="txtYeniSeanskontenjan" placeholder="Deneme Sınavı Kontenjanı">
+                            </div>
+                        </div>
+
+                        <div class="form-group row">
+                            <label for="txtYeniseansTarih" class="col-sm-2 col-form-label col-form-label-lg">Tarih</label>
+                            <div class="col-sm-10">
+                                <input type="date" class="form-control form-control-lg" id="txtYeniseansTarih" placeholder="Seans Tarih">
+                            </div>
+                        </div>
+
+                        <div class="form-group row">
+                            <label for="txtYeniseansSaat" class="col-sm-2 col-form-label col-form-label-lg">Saat</label>
+                            <div class="col-sm-10">
+                                <input type="time" class="form-control form-control-lg" id="txtYeniseansSaat" placeholder="Seans Saat">
+                            </div>
+                        </div>
+                        <div class="form-group row">
+                            <label for="txtYeniseansUcret" class="col-sm-2 col-form-label col-form-label-lg">Ücret</label>
+                            <div class="col-sm-10">
+                                <input type="number" class="form-control form-control-lg" id="txtYeniseansUcret" placeholder="Seans ücreti">
+                            </div>
+                        </div>
+
+
+                    </form>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Kapat</button>
+                    <button type="button" class="btn btn-primary" onclick="yeniseans()">Kaydet</button>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="modal fade bd-example-modal-lg" id="mdlogrlistregforseans" tabindex="-1" role="dialog" aria-labelledby="exampleModalLongTitle" aria-hidden="true">
+        <div class="modal-dialog modal-lg" style="    width: 100% !important;
+                                                max-width: 45% !important;">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="exampleModalLongTitle">Kayıt Olabileceği Deneme Seansları</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body">
+                    <button type="button" class="btn btn-primary float-right m-b-15" onclick="ogrtopluogrkayit();">Kaydet</button>
+                    <br />
+                    <input type="text" id="ograraforsnlast" onkeyup="myFunction4()" placeholder="Öğrenci Ara" class="form-control">
+                    <br />
+                    <div class="table-responsive" id="mdlogrlistforseansarea">
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Kapat</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="main-content">
+        <div class="section__content section__content--p30" style="padding:0px !important;">
+            <div class="container-fluid">
+                <div class="row">
+                    <div class="col-md-12">
+                        <h2 class="title-1 m-b-25">Seans İşlemleri</h2>
+                        <div class="spinner-border" role="status">
+                            <span class="sr-only">Loading...</span>
+                        </div>
+                    </div>
+
+                    <div class="col-md-12" style="margin-top:1rem;">
+                            <button type="button" class="btn btn-success" data-toggle="modal" data-target="#mdlyeniseans">Yeni Seans Oluştur</button>
+                            <button type="button" class="btn btn-secondary" data-toggle="modal" data-target="#mdlgecmisseanlar">Geçmiş Seanslar</button>
+                            <button type="button" class="btn btn-danger" onclick="onkayitList(1),$('#mdlseansonkayittaleplist').modal('show')">ÖN KAYIT TALEP LİSTESİ</button>    
+                            <button type="button" class="btn btn-warning" onclick="onkayitList(2);">GÜNLÜK KAYIT LİSTESİ</button>                
+                            <button type="button" class="btn btn-info" data-toggle="modal" data-target="#mdlSeansPaketler">Deneme Seansı Paketleri</button>
+                            <input type="text" id="myInput" onkeyup="myFunction()" placeholder="Seans Ara..." class="form-control mt-3">
+                        <div class="table-responsive table--no-card m-b-40" style="height:800px; margin-top:1rem;">
+
+                            <table id="tblseans" class="table table-borderless table-striped table-earning">
+                                <thead>
+                                <tr>
+                                    <th>Seans</th>
+                                    <th>Tarih / Saat</th>
+                                    <th>Toplam / Güncel Kontenjan</th>  
+                                    <th>Bekleyen Ön Kayıt</th>
+                                    <th></th>
+                                </tr>
+                                </thead>
+                                <tbody id="seansListBody">
+                                </tbody>
+                            </table>
+
+                        </div>
+                    </div>
+                    @*                    <div class="col-lg-3">
+                            <h2 class="title-1 m-b-25">Top countries</h2>
+                            <div class="au-card au-card--bg-blue au-card-top-countries m-b-40">
+                                <div class="au-card-inner">
+                                    <div class="table-responsive">
+                                        <table class="table table-top-countries">
+                                            <tbody>
+                                                <tr>
+                                                    <td>United States</td>
+                                                    <td class="text-right">$119,366.96</td>
+                                                </tr>
+                                                <tr>
+                                                    <td>Australia</td>
+                                                    <td class="text-right">$70,261.65</td>
+                                                </tr>
+                                                <tr>
+                                                    <td>United Kingdom</td>
+                                                    <td class="text-right">$46,399.22</td>
+                                                </tr>
+                                                <tr>
+                                                    <td>Turkey</td>
+                                                    <td class="text-right">$35,364.90</td>
+                                                </tr>
+                                                <tr>
+                                                    <td>Germany</td>
+                                                    <td class="text-right">$20,366.96</td>
+                                                </tr>
+                                                <tr>
+                                                    <td>France</td>
+                                                    <td class="text-right">$10,366.96</td>
+                                                </tr>
+                                                <tr>
+                                                    <td>Australia</td>
+                                                    <td class="text-right">$5,366.96</td>
+                                mdl                </tr>
+                                                <tr>
+                                                    <td>Italy</td>
+                                                    <td class="text-right">$1639.32</td>
+                                                </tr>
+                                            </tbody>
+                        </table>*@
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+    @section Scripts{
+        <script>
+                let toplamDeneme = [];
+
+        $(document).ready(function () {
+
+                $('#openBtn').click(() => $('#myModal').modal({
+                    show: true
+                }));
+
+                $(document).on('show.bs.modal', '.modal', function () {
+                    const zIndex = 1040 + 10 * $('.modal:visible').length;
+                    $(this).css('z-index', zIndex);
+                    setTimeout(() => $('.modal-backdrop').not('.modal-stack').css('z-index', zIndex - 1).addClass('modal-stack'));
+                });
+            });
+            function ogrlistnonseans(denemeid) {
+                $.ajax({
+                    url: '/SeansAction/ogrlistfornonseans',
+                    type: 'post',
+                    dataType: 'json',
+                    data: { kitapcikid: denemeid },
+                    success: function (data) {
+                        var jsondata = JSON.parse(data);
+                        let ogrlistfornonseans = `<table id="tblogrnonseans" class="table table-striped table-bordered">
+                                                                                                                       <thead>
+                                                                                                                           <tr>
+                                                                                                                               <th>Seç</th>
+                                                                                                                               <th>Ad Soyad</th>
+                                                                                                                               <th>Telefon</th>
+                                                                                                                               <th>Kategori</th>
+                                                                                                                           </tr>
+                                                                                                                       </thead>
+                                                                                                                       <tbody>
+                                                                                                                       `;
+                        $.each(jsondata, (index, value) => {
+                            ogrlistfornonseans += `
+                                                                                           <tr id="snrow-${value.Id}">
+                                                                                               <td>
+                                                                                                   <div class="form-check form-check-inline">
+                                                                                                           <input class="form-check-input" type="checkbox" id="ogr-${value.Id}" onclick="ogrsec(this.id);" style="width: 20px; height: 20px;">
+                                                                                                           <label class="form-check-label" for="sn-${value.Id}">SEÇ</label>
+                                                                                                   </div>
+                                                                                               </td>
+                                                                                               <td>${value.Ad} ${value.Soyad}</td>
+                                                                                               <td>${value.Telefon}</td>
+                                                                                               <td>${value.Kategori.AnaKategoriBaslik}</td>
+                                                                                           </tr>
+                                                                                           `;
+
+                        });
+                        $("#mdlogrlistforseansarea").html(ogrlistfornonseans);
+                        $("#mdlogrlistregforseans").modal('show');
+
+                    },
+                    error: function (data) {
+
+                    }
+                });
+
+            }
+            function seanslist() {
+                let ogrbody = ``;
+                let ogrbodyafter = ``;
+                var baslik;
+                var mesaj;
+                var icon;
+                $("#seansListBody").html(ogrbody);
+                $("#seansListAfterBody").html(ogrbody);
+                $.ajax({
+                    url: '/SeansAction/SeansList/',
+                    type: 'post',
+                    dataType: 'json',                     
+                    success: function (data) {
+
+                        if (data._MesajIcon == "error") {
+                            var mesajbaslik = data._mesajbaslik;
+                            var mesaj = data._mesaj;
+                            var mesajicon = data._MesajIcon;
+                            sweetalertmethod(mesajbaslik.replace('"Hata Oluştu"', 'Hata Oluştu'), mesaj, mesajicon.replace('"error"', 'error'))
+                        } else {
+                            var jsondata = jQuery.parseJSON(data);
+                            console.log(jsondata);
+                            $("#seansListBody").html("");
+
+                            $.each(jsondata, (index, value) => {
+                                var rowstyle = "";
+                                var kontenjanalertmsg = "";
+                                if (value.GuncelKontenjan < 10){
+                                       rowstyle = "table-danger";
+                                       kontenjanalertmsg = "Kontenjan azalıyor";
+                                }
+                                var Durum = "";
+                                var DurumText = "";
+                                if (value.Durum == 1) {
+                                    Durum = "success";
+                                    DurumText = "Aktif";
+                                } else if (value.Durum == 2) {
+                                    Durum = "secondary";
+                                    DurumText = "Onay Bekliyor";
+                                } else if (value.Durum == 3) {
+                                    Durum = "danger";
+                                    DurumText = "İptal";
+                                } else if (value.Durum == 4) {
+                                    Durum = "warning";
+                                    DurumText = "Kayıt Alımı Durduruldu";
+                                }
+                                // <td><button type="button" class="btn btn-primary" onclick="ogrlistnonseans(${value.DenemeId}); toplamDeneme.push(${value.Id})"> Öğrenci Kayıt</button></td>
+                                ogrbody += `<tr class="${rowstyle}">
+                                                            <td>${value.yayinKategoriBaslik} / ${value.yayinBaslik} / ${value.kitapcikBaslik}</td>
+                                                            <td>${value.TarihSTR} - ${value.SeansGun} / ${value.Saat} </td>
+                                                                            <td style="width: 40px !important;">${value.Kontenjan} / ${value.GuncelKontenjan} ${kontenjanalertmsg}</td>
+<td>${value.onkayitliOgrenci}</td>
+                                                                                        <td><button type="button" class="btn btn-info" onclick="seansdetaykart(${value.Id})">Seans Bilgileri</button> <button type="button" class="btn btn-outline-danger" onclick="seanskayitaktifpasif(${value.Id},4);">Kayıt Alımını Durdur<button></td>
+                                                        </tr>`;
+                            });
+                            $("#seansListBody").html(ogrbody);
+                        }
+
+                    }
+                });
+                $.ajax({
+                    url: '/SeansAction/SeansListAfter/',
+                    type: 'post',
+                    dataType: 'json',
+                    success: function (data) {
+
+                        if (data._MesajIcon == "error") {
+                            var mesajbaslik = data._mesajbaslik;
+                            var mesaj = data._mesaj;
+                            var mesajicon = data._MesajIcon;
+                            sweetalertmethod(mesajbaslik.replace('"Hata Oluştu"', 'Hata Oluştu'), mesaj, mesajicon.replace('"error"', 'error'))
+                        } else {
+                            var jsondata = jQuery.parseJSON(data);
+                            $("#seansListAfterBody").html("");
+
+                            $.each(jsondata, (index, value) => {
+
+                                var Durum = "";
+                                var DurumText = "";
+                                if (value.Durum == 1) {
+                                    Durum = "success";
+                                    DurumText = "Aktif";
+                                } else if (value.Durum == 2) {
+                                    Durum = "secondary";
+                                    DurumText = "Onay Bekliyor";
+                                } else if (value.Durum == 3) {
+                                    Durum = "danger";
+                                    DurumText = "İptal";
+                                }
+
+                                ogrbodyafter += `<tr>
+                                                                        <td>${value.kitapcikBaslik}</td>
+                                                                        <td>${value.TarihSTR} - ${value.SeansGun} / ${value.Saat} </td>
+                                                                                        <td style="width: 40px !important;">${value.Kontenjan} / ${value.GuncelKontenjan}</td>
+                                                                        <td><span class="badge badge-${Durum}">${DurumText}</span></td>
+                                                                        <td><button type="button" class="btn btn-primary">Öğrenci Kayıt</button></td>
+                                                                                                    <td><button type="button" class="btn btn-info" onclick="seansdetaykart(${value.Id})">Seans Bilgileri</button></td>
+                                                                    </tr>`;
+                            });
+                            $("#seansListAfterBody").html(ogrbodyafter);
+                        }
+
+                    }
+                });
+
+                $.ajax({
+                    url: '/DenemeAction/DenemeList/',
+                    type: 'Post',
+                    dataType: 'json',
+                    success: function (data) {
+
+                        if (data._MesajIcon == "error") {
+                            var mesajbaslik = data._mesajbaslik;
+                            var mesaj = data._mesaj;
+                            var mesajicon = data._MesajIcon;
+                            sweetalertmethod(mesajbaslik.replace('"Hata Oluştu"', 'Hata Oluştu'), mesaj, mesajicon.replace('"error"', 'error'))
+                        } else {
+                            var jsondata = jQuery.parseJSON(data);
+                            console.log(jsondata);
+                            $("#drpSeansKitapcikSetting").html("");
+                            $("#drpKitapcikList").html("");
+                            let denemeler = ``;
+                            $.each(jsondata, (index, value) => {
+
+                                denemeler += `<option value="${value.Id}">${value.DenemeBaslik} (Yayın: ${value.YayinBaslik}) (Kategori: ${value.Kategori.AltKategoriBaslik})</option>`;
+
+                            });
+                            $("#drpSeansKitapcikSetting").html(denemeler);
+                            $("#drpKitapcikList").html(denemeler);
+                        }
+
+                    }
+                });
+            }
+            function bildirimGonder(type, seansid) {
+                var baslik = $("#txtPnsBaslik").val();
+                var mesaj = $("#txtPnsMesaj").val();
+                Swal.fire({
+                    title: ',İşlem Onayı',
+                    text: 'İlgili seansa kayıtlı olan öğrenciler için bildirim gönderilecektir',
+                    icon: 'info',
+                    showDenyButton: true,
+                    showCancelButton: false,
+                    confirmButtonText: 'Onaylıyorum',
+                    denyButtonText: `Vazgeç`,
+                }).then((result) => {
+                    $.ajax({
+                        url: '/SeansAction/multipushnotification',
+                        type: 'post',
+                        dataType: 'json',
+                        data: { type: type, seansID: seansid, baslik: baslik, mesaj: mesaj },
+                        success: function (data) {
+
+                        }
+                    });
+                });
+
+            }
+            function seansiptal(seansid) {
+                var islemonay = "Lütfen Dikkat, Seans İptal İşlemini Onaylıyor musunuz?";
+                var mesaj = "Deneme Seansı Kalıcı Olarak İptal Edilecek & Tüm kayıtlı Öğrencilerin Kayıtları Silinecektir Bu İşlem Geri Alınamaz";
+                Swal.fire({
+                    title: islemonay,
+                    text: mesaj,
+                    icon: 'info',
+                    showDenyButton: true,
+                    showCancelButton: false,
+                    confirmButtonText: 'Onaylıyorum',
+                    denyButtonText: `Vazgeç`,
+                }).then((result) => {
+                    if (result.isConfirmed) {
+                        $.ajax({
+                            url: '/SeansAction/seansiptal',
+                            type: 'post',
+                            dataType: 'json',
+                            data: { seansid: seansid },
+                            success: function (data) {
+                                var mesajbaslik = jQuery.parseJSON(data.baslik);
+                                var mesaj = jQuery.parseJSON(data.mesaj);
+                                var mesajicon = jQuery.parseJSON(data.icon);
+                                sweetalertmethod(mesajbaslik, mesaj, mesajicon);
+                                $("#mdlseansbilgikart").modal('hide');
+                                seanslist();
+                            },
+                            error: function (error) {
+                                var mesajbaslik = jQuery.parseJSON(data.baslik);
+                                var mesaj = jQuery.parseJSON(data.mesaj);
+                                var mesajicon = jQuery.parseJSON(data.icon);
+                                sweetalertmethod(mesajbaslik, mesaj, mesajicon);
+                                $("#mdlseansbilgikart").modal('hide');
+                                seanslist();
+                            }
+                        });
+                    } else if (result.isDenied) {
+                        Swal.fire('Herhangi Bir İşlem Yapılmadı', '', 'info')
+                    }
+                })
+            }
+            function modalclose(modalid) {
+                $(modalid).modal('dispose');
+            }
+            var ajaxpermission = true;
+
+            function chart(kayitli, guncel) {
+                $("#snchartarea").html(``);
+                $("#snchartarea").html(`<canvas id="myChart"></canvas>`);
+                let ctx = document.getElementById('myChart');
+                new Chart(ctx, {
+                    type: 'doughnut',
+                    data: {
+                        labels: ['Dolu Kontenjan', 'Kalan Kontenjan'],
+                        datasets: [{
+                            label: ' ',
+                            data: [kayitli, guncel],
+                            borderWidth: 1
+                        }]
+                    },
+                    options: {
+                        scales: {
+                            y: {
+                                beginAtZero: true
+                            }
+                        }
+                    }
+                });
+
+            }
+            function paketAdd(){
+                var paketAd = $("#txtSeansPaketAd").val();
+                var paketfiyat = $("#txtPaketFiyat").val();
+                var paketAdet = parseInt($("#txtPaketSeansAdet").val());
+                var obj = {
+                    PaketAdi: paketAd,
+                    Fiyat: paketfiyat,
+                    Adet: paketAdet
+                }
+                console.log(obj);
+                 $.ajax({
+                    url: '/SeansAction/seanspaketadd/',
+                    type: 'post',
+                    dataType: 'json',         
+                    data: { model: obj },            
+                    success: function (data) {
+                        seanspaketlist();
+                    }
+                });
+            }
+            function seanspaketlist(){
+                   $.ajax({
+                        url: '/SeansAction/seansPaketList/',
+                        type: 'get',
+                        dataType: 'json',                     
+                        success: function (data) {
+                           var jsondata = jQuery.parseJSON(data);
+                           console.log(jsondata);
+                           let seanspaketlistdata = ``;
+                           $.each(jsondata, (index, value) => {
+                               seanspaketlistdata += `<tr>
+                                                        <td>${value.Id}</td>
+                                                        <td>${value.PaketAdi}</td>
+                                                        <td>${value.Fiyat.toFixed(2)}
+                                                        <td>${value.Adet}</td>
+                                                        <td><button type="button" class="btn btn-warning" onclick="SeansPaketDetay(${value.Id});">Paket İçeriği</button> <button type="button" class="btn btn-danger">Paketi Sil</button> </td>
+                                                     </tr>`;
+                           });
+                           $("#seanspaketlistbody").html(seanspaketlistdata);
+                        }
+                   });
+            }
+            function  SeansPaketDetay(paketid){
+                $.ajax({
+                    url: '/SeansAction/SeansPaketDetay/',          
+                    type: 'get',
+                    dataType: 'json',
+                    data: { paketid: paketid },
+                    success: function (data){
+                           var jsondata = jQuery.parseJSON(data);
+                           let seanstanimlistbody = ``;
+                           console.log(jsondata);
+                            $("#txtSeansPaketAdDetail").val(jsondata.PaketAdi);
+                            $("#titleSeansPaket").html(jsondata.PaketAdi);
+                            $("#txtPaketFiyatDetail").val(jsondata.Fiyat);
+                            $("#txtPaketSeansAdetDetail").val(jsondata.Adet);
+                            $.each(jsondata.SeansPaketTanims, (index, value) => {
+                                // Input date string
+                                const dateString = value.Seans.Tarih;
+                                
+                                // Create a Date object by parsing the input string
+                                const dateObject = new Date(dateString);
+                                
+                                // Format the date components
+                                const day = dateObject.getDate().toString().padStart(2, '0');
+                                const month = (dateObject.getMonth() + 1).toString().padStart(2, '0'); // Months are zero-based
+                                const year = dateObject.getFullYear();
+                                
+                                // Create the formatted date string
+                                const formattedDate = `${day}.${month}.${year}`;
+                                seanstanimlistbody += `<tr><td>${index++}</td><td>${value.Seans.Deneme.Yayin.YayinBaslik} / ${value.Seans.Deneme.Kategori.AltKategoriBaslik} / ${value.Seans.Deneme.DenemeBaslik}</td><td>${formattedDate} / ${value.Seans.Saat}</td><td>${value.Seans.SeansUcret.toFixed(2)} TL</td><td><button type="button" class="btn btn-danger btn-sm">Sil</button> </td></tr>`;
+                            });
+                            $("#seanspaketinseans").html(seanstanimlistbody);
+                            let optionvalue = `<option value="">Seans Seçiniz</option>`;
+                             $.ajax({
+                                url: '/SeansAction/seanslitfornonpaket/',          
+                                type: 'get',
+                                dataType: 'json',
+                                data: { paketid: paketid },
+                                success: function (data){
+                                    var seanslistnondata = JSON.parse(data);
+                                    $.each(seanslistnondata, (index, value) => {
+                                        optionvalue += `<option value="${value.Id}">${value.yayinBaslik} / ${value.KategoriBaslik} / ${value.kitapcikBaslik} / ${value.TarihSTR.replace("-","/")} - ${value.Saat}</option>`;
+                                    });
+                                    $("#drpSeansListForSeansPaket").html(optionvalue);
+                                }
+                            });
+                             
+                            $("#mdlSeansPaketDetay").modal('show');
+                            
+                            $("#btnpaketseanstanimla").click(function () 
+                            {
+                                               var islemonay = "İşlem Onayı";
+                                               var mesaj = "İlgili Seans Paketi İçin Yeni Deneme Seansı Tanımlanacaktır, İşlemi Onaylıyor musunuz?";
+                                               Swal.fire({
+                                                   title: islemonay,
+                                                   text: mesaj,
+                                                   icon: 'info',
+                                                   showDenyButton: true,
+                                                   showCancelButton: false,
+                                                   confirmButtonText: 'Onaylıyorum',
+                                                   denyButtonText: `Vazgeç`,
+                                               }).then((result) => {
+                                                   if (result.isConfirmed) {
+                                                       var seansid = $("#drpSeansListForSeansPaket option:selected").val();
+                                                       $.ajax({
+                                                           url: '/SeansAction/seansaddinpaket',
+                                                           type: 'post',
+                                                           dataType: 'json',
+                                                           data: { seansid: seansid, paketid: paketid },
+                                                           success: function (data) {
+                                                               console.log(data);
+                                                               var mesajbaslik = data.mesajBaslik;
+                                                               var mesaj = data.mesaj;
+                                                               var mesajicon = data.mesajIcon;
+                                                               sweetalertmethod(mesajbaslik, mesaj, mesajicon);
+                                                               SeansPaketDetay(paketid);
+                                                           },
+                                                           error: function (error) {
+                                                                var mesajbaslik = error.mesajBaslik;
+                                                                var mesaj = error.mesaj;
+                                                                var mesajicon = error.mesajIcon;
+                                                               sweetalertmethod(mesajbaslik, mesaj, mesajicon);
+                                                               SeansPaketDetay(paketid);
+                                                           }
+                                                       });
+                                                   } else if (result.isDenied) {
+                                                       Swal.fire('Herhangi Bir İşlem Yapılmadı', '', 'info')
+                                                   }
+                                               }) 
+                            })
+                    }
+                });
+            }
+            function onkayitList(param) {
+                $.ajax({
+                    url: '/SeansAction/onKayitList',
+                    type: 'post',
+                    dataType: 'json',
+                    success: function (data) {
+                          if (param == 1)
+                          {
+                                    var jsondata = jQuery.parseJSON(data.jsonresult);
+                                                      console.log(jsondata);
+                                                      let onkayitlist = ``;
+                                                      $.each(jsondata, (index, value) => {
+                                                          onkayitlist += ` <tr>
+                                                                                                              <td>${value.tarihSaat}</td>
+                                                                                                              <td>${value.Ogr.Ad} ${value.Ogr.Soyad}</td>
+                                                                                                              <td>${value.Ogr.Telefon}</td>
+                                                                                                              <td>${value.yayinAd} / ${value.kategoriBaslik} / ${value.denemeAd}</td>
+                                                                                                              <td>${value.seansTarih}</td>
+                                                                                                              <td>Ön Kayıt</td>
+                                                                                                              <td><button type="button" class="btn btn-success" onclick="ogryoklama(${value.Ogr.Id},${value.Id},1,${value.SeansId},1);">Ön Kayıt Onay</button> <button type="button" class="btn btn-danger" onclick="ogrseanskayitsil(${value.Id},${value.SeansId});">Ön Kayıt İptal</button></td></tr>`;
+                                                      });
+                                                      $("#seansogrlistonkayittaleptbody").html(onkayitlist);
+                                                      
+                                                      
+                          }else if (param == 2){
+                                  var jsondata2 = jQuery.parseJSON(data.jsonresult2);
+                                                    console.log(jsondata);
+                                                    let onkayitlist2 = ``;
+                                                    let durum = "";
+                                                    $.each(jsondata2, (index, value) => {
+                                                        if (value.Durum == 1)
+                                                        { 
+                                                            durum = "Kesin Kayıt";
+                                                        }else if (value.Durum == 2)
+                                                        {
+                                                            durum = "Katılım Sağladı";
+                                                        }else if (value.Durum == 3)
+                                                        {
+                                                            
+                                                        }else if (value.Durum == 4)
+                                                        {
+                                                             durum = "Kitapçık Aldı";
+                                                        }
+                                                        onkayitlist2 += ` <tr>
+                                                                                                            <td>${value.tarihSaat}</td>
+                                                                                                            <td>${value.Ogr.Ad} ${value.Ogr.Soyad}</td>
+                                                                                                            <td>${value.Ogr.Telefon}</td>
+                                                                                                            <td>${value.yayinAd} / ${value.kategoriBaslik} / ${value.denemeAd}</td>
+                                                                                                            <td>${value.seansTarih}</td>
+                                                                                                            <td>${durum}</td>
+                                                                                                            <td><button type="button" class="btn btn-danger" onclick="ogrseanskayitsil(${value.Id},${value.SeansId});">Kayıt Sil</button></td></tr>`;
+                                                    });
+                                                    $("#gunlukkayitlisttbody").html(onkayitlist2);
+                                                    $("#mdlgunlukkayitlist").modal('show');
+                          }
+
+                    }
+                });
+            }
+            function seansdetaykart(seansid) {
+
+                if (ajaxpermission == false) {
+                    $("#mdlseansbilgikart").modal('show');
+                    
+                } else {
+                    $.ajax({
+                        url: '/SeansAction/seansbilgigetir',
+                        type: 'post',
+                        dataType: 'json',
+                        data: { seansid: seansid },
+                        success: function (data) {
+                            var jsondata = jQuery.parseJSON(data);
+                            chart(jsondata.KayitliOgrenci, jsondata.GuncelKontenjan);
+                            $("#txtDenemeSeansKontenjanSetting").val("");
+                            $("#txtDenemeSeansKontenjanSetting").val(jsondata.Kontenjan);
+                            $("#txtDenemeSeansTarihSetting").val("");
+                            $("#txtDenemeSeansSaatSetting").val("");
+                            $("#txtDenemeSeansSaatSetting").val(jsondata.Saat);
+                            $("#txtDenemeSeansUcretSetting").val("");
+                            $("#txtDenemeSeansUcretSetting").val(jsondata.SeansUcret);
+                            let drpselect = document.getElementById("drpSeansKitapcikSetting");
+                            drpselect.value = jsondata.DenemeId;
+                            console.log("kitapcik id: " + jsondata.DenemeId);
+                            var dt = jsondata.Tarih.toString().replace("T00:00:00", "").split('-');
+                            console.log(dt);
+                            var date = dt[0] + "-" + dt[1] + "-" + dt[2];
+                            document.getElementById("btnpnsforseanspush").setAttribute("onclick", "bildirimGonder(2," + seansid + ");");
+                            $("#txtDenemeSeansTarihSetting").val(date);
+
+
+
+                            /////////
+                            $("#tariihsaat").html("");
+                            $("#tariihsaat").html(jsondata.TarihSTR);
+                            $("#kontenjan").html("");
+                            $("#kontenjan").html(jsondata.Kontenjan);
+                            $("#toplamayitli").html("");
+                            $("#toplamayitli").html(jsondata.KayitliOgrenci);
+                            $("#kalankontenjan").html("");
+                            $("#kalankontenjan").html(jsondata.GuncelKontenjan);
+                            $("#toplamkatilimsaglayan").html("");
+                            $("#toplamkatilimsaglayan").html(jsondata.KatilimSaglayanToplam);
+                            $("#toplamkitapcikteslimalan").html("");
+                            $("#toplamkitapcikteslimalan").html(jsondata.KitapcikAlanToplam);
+                            $("#seansad").html("");
+                            $("#seansad").html(jsondata.kitapcikBaslik + " - " + jsondata.KategoriBaslik + " - " + jsondata.yayinBaslik);
+                            $("#yayinfotoarea").html("");
+                            let yayinfoto = `<img style="width: 100% !important; height: 300px !important;" class="card-img-top" src="${jsondata.yayinLogo}">`;
+                            $("#yayinfotoarea").html(yayinfoto);
+                            ogrlistforseans(seansid);
+                            seansbildirimlist(seansid);
+                            let seansdetaybuttons = `
+                            <div class="col">
+                                <button type="button" data-toggle="modal" data-target="#mdlseanssettings" class="btn btn-primary  btnfll">Ayarlar</button>
+                                <button type="button" class="btn btn-info  btnfll" data-toggle="modal" data-target="#mdlSeansBildirimler">Bildirimler</button>
+                                <button type="button" onclick="seansiptal(${jsondata.Id})" class="btn btn-danger  btnfll">Seans İptal</button>
+                            </div>`;
+                            $("#btnseansdetay").html(seansdetaybuttons);
+                            let seanskayitactions = ``;
+                            if (jsondata.Durum == 4) {
+                                seanskayitactions += `<div class="col"><b class="text-danger">Kayıt Alımı Durduruldu</b> <button type="button" class="btn btn-outline-success" onclick="seanskayitaktifpasif(${seansid},1);">Kayıt Alımını Başlat<button></div>`;
+                            } else {
+                                seanskayitactions += `<div class="col"><b class="text-success">Kayıt Alımı Aktif</b> <button type="button" class="btn btn-outline-danger" onclick="seanskayitaktifpasif(${seansid},4);">Kayıt Alımını Durdur<button></div>`;
+                            }
+                            $("#btnseanskayitaktifpasif").html(seanskayitactions);
+                            $("#seansdetayfooter").html(`<div class="col"><button type="button" class="btn btn-secondary" data-dismiss="modal">Kapat</button> <button type="button" class="btn btn-primary" onclick="seanssettingschange(${jsondata.Id});">Kaydet</button></div>
+`)
+                        }
+                    });
+
+                    $("#mdlseansbilgikart").modal('show');
+
+
+                }
+            }
+            function seanskartref(seansid) {
+                $.ajax({
+                    url: '/SeansAction/seansbilgigetir',
+                    type: 'post',
+                    dataType: 'json',
+                    data: { seansid: seansid },
+                    success: function (data) {
+                        var jsondata = jQuery.parseJSON(data);
+                        $("#txtDenemeSeansKontenjanSetting").val("");
+                        $("#txtDenemeSeansKontenjanSetting").val(jsondata.Kontenjan);
+                        $("#txtDenemeSeansTarihSetting").val("");
+                        $("#txtDenemeSeansSaatSetting").val("");
+                        $("#txtDenemeSeansSaatSetting").val(jsondata.Saat);
+                        $("#txtDenemeSeansUcretSetting").val("");
+                        $("#txtDenemeSeansUcretSetting").val(jsondata.SeansUcret);
+                        let drpselect = document.getElementById("drpSeansKitapcikSetting");
+                        drpselect.value = jsondata.DenemeId;
+
+                        var dt = jsondata.Tarih.toString().replace("T00:00:00", "").split('-');
+                        console.log(dt);
+                        var date = dt[0] + "-" + dt[1] + "-" + dt[2];
+
+                        $("#txtDenemeSeansTarihSetting").val(date);
+
+
+
+                        /////////
+                        $("#tariihsaat").html("");
+                        $("#tariihsaat").html(jsondata.TarihSTR);
+                        $("#kontenjan").html("");
+                        $("#kontenjan").html(jsondata.Kontenjan);
+                        $("#toplamayitli").html("");
+                        $("#toplamayitli").html(jsondata.KayitliOgrenci);
+                        $("#kalankontenjan").html("");
+                        $("#kalankontenjan").html(jsondata.GuncelKontenjan);
+                        $("#toplamkatilimsaglayan").html("");
+                        $("#toplamkatilimsaglayan").html(jsondata.KatilimSaglayanToplam);
+                        $("#toplamkitapcikteslimalan").html("");
+                        $("#toplamkitapcikteslimalan").html(jsondata.KitapcikAlanToplam);
+                        $("#seansad").html("");
+                        $("#seansad").html(jsondata.kitapcikBaslik + " - " + jsondata.KategoriBaslik + " - " + jsondata.yayinBaslik);
+                        $("#yayinfotoarea").html("");
+                        let yayinfoto = `<img style="width: 100% !important; height: 300px !important;" class="card-img-top" src="${jsondata.yayinLogo}">`;
+                        $("#yayinfotoarea").html(yayinfoto);
+                        ogrlistforseans(seansid);
+                        seansbildirimlist(seansid);
+                        let seansdetaybuttons = `  <div class="col-md-3 col-sm-12"> <button type="button" onclick="seansiptal(${jsondata.Id})" class="btn btn-danger ">Seans İptal</button></div>
+                                                                                  <div class="col-md-3 col-sm-12">  <button type="button" data-toggle="modal" data-target="#mdlseanssettings" class="btn btn-primary ">Ayarlar</button></div>
+                                                                                   <div class="col-md-3 col-sm-12"> <button type="button" class="btn btn-info " data-toggle="modal" data-target="#mdlSeansBildirimler">Bildirimler</button></div>
+                                                                               <div class="col-md-3 col-sm-12"> <button type="button" class="btn btn-secondary " data-toggle="modal" data-target="#mdlogrlistforseansonkayit">Ön Kayıt Talepleri</button></div>   
+                                                                                    <div class="col-md-3 col-sm-12"><a href="#" class="btn btn-warning btn-block">Öğrenci Kayıt</a></div>`;
+                        $("#btnseansdetay").html(seansdetaybuttons);
+                        let seanskayitactions = ``;
+                        if (jsondata.Durum == 4) {
+                            seanskayitactions += `<div class="col-md-3 col-sm-12"><b class="text-danger">Kayıt Alımı Durduruldu</b> <button type="button" class="btn btn-outline-success " onclick="seanskayitaktifpasif(${seansid},1);">Kayıt Alımını Başlat<button></div>`;
+                        } else {
+                            seanskayitactions += `<div class="col-md-3 col-sm-12"><b class="text-success">Kayıt Alımı Aktif</b> <button type="button" class="btn btn-outline-danger " onclick="seanskayitaktifpasif(${seansid},4);">Kayıt Alımını Durdur<button></div>`;
+                        }
+                        $("#btnseanskayitaktifpasif").html(seanskayitactions);
+                        $("#seansdetayfooter").html(`<button type="button" class="btn btn-secondary" data-dismiss="modal">Kapat</button> <button type="button" class="btn btn-primary " onclick="seanssettingschange(${jsondata.Id});">Kaydet</button>
+                               `)
+                    }
+                });
+
+            }
+            function seanskayitaktifpasif(seansid, type) {
+                var islemonay = "İşlem Onayı";
+                var mesaj = "";
+                if (type == 1) {
+                    mesaj = "Seans Kayıt Alımına Açılacaktır, İşlemi Onaylıyor musunuz?";
+                } else if (type == 4) {
+                    mesaj = "Seans Kayıt Alımına Kapatılacaktır, İşlemi Onaylıyor musunuz?";
+                }
+                Swal.fire({
+                    title: islemonay,
+                    text: mesaj,
+                    icon: 'info',
+                    showDenyButton: true,
+                    showCancelButton: false,
+                    confirmButtonText: 'Onaylıyorum',
+                    denyButtonText: `Vazgeç`,
+                }).then((result) => {
+                    if (result.isConfirmed) {
+                        $.ajax({
+                            url: '/SeansAction/seanskayitaktifpasif',
+                            type: 'post',
+                            dataType: 'json',
+                            data: { seansid: seansid, type: type },
+                            success: function (data) {
+                                var mesajbaslik = jQuery.parseJSON(data.baslik);
+                                var mesaj = jQuery.parseJSON(data.mesaj);
+                                var mesajicon = jQuery.parseJSON(data.icon);
+                                sweetalertmethod(mesajbaslik, mesaj, mesajicon);
+                            },
+                            error: function (error) {
+                                var mesajbaslik = jQuery.parseJSON(error.baslik);
+                                var mesaj = jQuery.parseJSON(error.mesaj);
+                                var mesajicon = jQuery.parseJSON(error.icon);
+                                sweetalertmethod(mesajbaslik, mesaj, mesajicon);
+                            }
+                        });
+                    }
+
+
+                });
+
+            }
+            $('#mdlseansbilgikart').on('shown.bs.modal', function (e) {
+                ajaxpermission = false;
+            });
+
+            $('#mdlseansbilgikart').on('hidden.bs.modal', function (e) {
+                ajaxpermission = true;
+            });
+            function seansbildirimlist(seansid) {
+                $.ajax({
+                    url: '/SeansAction/seansbildirimlist',
+                    type: 'post',
+                    dataType: 'json',
+                    data: { seansid: seansid },
+                    success: function (data) {
+                        if (data._MesajIcon == "error") {
+                            var mesajbaslik = JSON.parse(data._mesajbaslik);
+                            var mesaj = JSON.parse(data._mesaj);
+                            var mesajicon = data._MesajIcon;
+                            sweetalertmethod(mesajbaslik, mesaj, mesajicon)
+                        }
+                        else {
+
+                            let bildirimlist = ``;
+                            var jsondata = JSON.parse(data);
+                            $.each(jsondata, (index, value) => {
+                                bildirimlist += `                                            <div class="card">
+                                                                                                               <div class="card-header" id="bildirimbaslik-${value.Id}">
+                                                                                                                 <h5 class="mb-0">
+                                                                                                                   <button class="btn btn-link" type="button" data-toggle="collapse" data-target="#bildirimcollapse-${value.Id}" aria-expanded="true" aria-controls="bildirimcollapse-${value.Id}">
+                                                                                                                        ${value.Bildirim.Baslik} // ${value.LogTarih}
+                                                                                                                   </button>
+                                                                                                                 </h5>
+                                                                                                               </div>
+
+                                                                                                               <div id="bildirimcollapse-${value.Id}" class="collapse" aria-labelledby="bildirimcollapse-${value.Id}" data-parent="#acdSeansBildirimList">
+                                                                                                                 <div class="card-body">
+                                                                                                                      Bildirim Mesajı: ${value.Bildirim.Mesaj}
+                                                                                                                 </div>
+                                                                                                               </div>
+                                                                                                             </div>`;
+                            });
+                            if (jsondata.length == 0) {
+                                bildirimlist += `<div class="alert alert-warning" role="alert">
+                                                                    Bildirim Kaydı Bulunamadı
+                                                                 </div>`;
+                            }
+                            $("#acdSeansBildirimList").html(bildirimlist);
+                        }
+                    },
+                    error: function (data) {
+
+                    }
+                });
+            }
+            function ogrseanskayitsil(id, seansid) {
+                var islemonay = "Dikkat";
+                var mesaj = "Öğrenci'nin Seans Kaydı siliniecektir, İşlemi onaylıyor musunuz?";
+
+                Swal.fire({
+                    title: islemonay,
+                    text: mesaj,
+                    icon: 'info',
+                    showDenyButton: true,
+                    showCancelButton: false,
+                    confirmButtonText: 'Onaylıyorum',
+                    denyButtonText: `Vazgeç`,
+                }).then((result) => {
+                    if (result.isConfirmed) {
+                        $.ajax({
+                            url: '/SeansAction/ogrseanskayitsil',
+                            type: 'post',
+                            dataType: 'json',
+                            data: { id: id },
+                            success: function (data) {
+                                ajaxpermission = true;
+                                ogrlistforseans(seansid);
+                                onkayitList(1);
+
+                            },
+                            error: function (error) {
+                                var mesajbaslik = error._mesajbaslik;
+                                var mesaj = error._mesaj;
+                                var mesajicon = error._MesajIcon;
+                                sweetalertmethod(mesajbaslik.replace('"Hata Oluştu"', 'Hata Oluştu'), mesaj, mesajicon.replace('"error"', 'error'))
+                            }
+                        });
+                    } else if (result.isDenied) {
+                        Swal.fire('Herhangi Bir İşlem Yapılmadı', '', 'info')
+                    }
+                })
+            }
+            function ogryoklama(ogrid, seanskayitno, type, seansid, ontalep) {
+                var islemonay = "Öğrenci Yoklama Onayı";
+                var mesaj = "";
+                if (type == 2) {
+                    mesaj = "Katılım Sağladı, İşlemi Onaylıyor musunuz?";
+                } else if (type == 4) {
+                    mesaj = "Kitapçığını Teslim Aldı, İşlemi Onaylıyor musunuz?";
+                } else if (type == 1) {
+                    mesaj = "ÖN KAYIT TALEBİ ONAYLANACAKTIR, İşlemi Onaylıyor musunuz?";
+
+                }
+                Swal.fire({
+                    title: islemonay,
+                    text: mesaj,
+                    icon: 'info',
+                    showDenyButton: true,
+                    showCancelButton: false,
+                    confirmButtonText: 'Onaylıyorum',
+                    denyButtonText: `Vazgeç`,
+                }).then((result) => {
+                    if (result.isConfirmed) {
+                        $.ajax({
+                            url: '/SeansAction/OgrSeansYoklama',
+                            type: 'post',
+                            dataType: 'json',
+                            data: { ogrid: ogrid, seanskayitno: seanskayitno, type: type },
+                            success: function (data) {
+                                if (ontalep === 1){
+                                    onkayitList(1);
+                                }else{
+                                ajaxpermission = true;
+                                seansdetaykart(seansid);
+                                ogrlistforseans(seansid);
+                                }
+
+                            },
+                            error: function (error) {
+                                var mesajbaslik = error._mesajbaslik;
+                                var mesaj = error._mesaj;
+                                var mesajicon = error._MesajIcon;
+                                sweetalertmethod(mesajbaslik.replace('"Hata Oluştu"', 'Hata Oluştu'), mesaj, mesajicon.replace('"error"', 'error'))
+                            }
+                        });
+                    } else if (result.isDenied) {
+                        Swal.fire('Herhangi Bir İşlem Yapılmadı', '', 'info')
+                    }
+                })
+            }
+            function ogrlistforseans(seansid, param) {
+                $.ajax({
+                    url: '/SeansAction/ogrlistforseans',
+                    type: 'post',
+                    dataType: 'json',
+                    data: { seansid: seansid, param: param },
+                    success: function (data) {
+                        var jsondata = jQuery.parseJSON(data.jsonresult);
+                        let ogrlistforseans = ``;
+                        let ogrlistforseansonkayit = ``;
+                        $("#seansogrlistbody").html(ogrlistforseans);
+                        
+                        $.each(jsondata, (index, value) => {
+                            var Durum = "";
+                            var rowclass = "";
+                            let btns = ``;
+                            if (value.Durum == 1) {
+                                Durum = "Kesin Kayıt / Yoklama Bekliyor";
+                                rowclass = "table-info";
+                                btns += `<button type="button" class="btn btn-success" onclick="ogryoklama(${value.Id},${value.snsetid},2,${seansid});">Katılım Sağladı</button> <button type="button" class="btn btn-info" onclick="ogryoklama(${value.Id},${value.snsetid},4,${seansid});">Kitapçık Aldı</button>`; 
+                                if (data.auth == 1) {
+                                    btns += ` <button type="button" class="btn btn-danger" onclick="ogrseanskayitsil(${value.snsetid},${seansid});">Kayıt Sil</button> <button type="button" class="btn btn-warning" onclick="yayingetir(${value.Id},${value.snsetid});">Seans Değiştir</button>`;
+                                }
+                            }
+                            else  if (value.Durum == 0) {                                                            
+
+                                 Durum = "Ön Kayıt";
+                                 rowclass = "table-warning";
+                                 btns += `<button type="button" class="btn btn-success" onclick="ogryoklama(${value.Id},${value.snsetid},1,${seansid},1);">Ön Kayıt Onay</button> <button type="button" class="btn btn-danger" onclick="ogrseanskayitsil(${value.snsetid},${value.SeansId});">Ön Kayıt İptal</button>`;
+                             }
+                            else if (value.Durum == 2) {
+                                Durum = "Katılım Sağladı";
+                                rowclass = "table-success";
+                                btns += `<button type="button" class="btn btn-secondary" onclick="ogryoklama(${value.Id},${value.snsetid},1,${seansid});">Yoklama İptal</button> <button type="button" class="btn btn-info" onclick="ogryoklama(${value.Id},${value.snsetid},4,${seansid});">Kitapçık Aldı</button>`; 
+                                if (data.auth == 1) {
+                                    btns += ` <button type="button" class="btn btn-danger" onclick="ogrseanskayitsil(${value.snsetid},${seansid});">Kayıt Sil</button>`;
+                                }
+
+                            }
+                            else if (value.Durum == 4) {
+                                Durum = "Kitapçık Aldı";
+                                rowclass = "table-primary";
+                                btns += `<button type="button" class="btn btn-secondary" onclick="ogryoklama(${value.Id},${value.snsetid},1,${seansid});">Yoklama İptal</button>  <button type="button" class="btn btn-success" onclick="ogryoklama(${value.Id},${value.snsetid},2,${seansid});">Katılım Sağladı</button>`; 
+                                if (data.auth == 1) {
+                                    btns += ` <button type="button" class="btn btn-danger" onclick="ogrseanskayitsil(${value.snsetid},${seansid});">Kayıt Sil</button>`;
+                                }
+                            }
+                            ogrlistforseans += `
+                                                    <tr class="${rowclass}">
+                                                        <td>${value.KtarihSTR}</td>
+                                                        <td>${value.Ad} ${value.Soyad}</td>
+                                                        <td>${value.Telefon}</td>
+                                                        <td><b>${Durum}</b></td>
+                                                        <td>${btns}</td>
+                                                    </tr>
+                                                                `;
+                        });
+                        $("#seansogrlistbody").html(ogrlistforseans);
+                        var onkayitogrlist = jsondata.filter(s => s.Durum == 0);
+                        console.log(onkayitogrlist);
+              
+                    
+                    }
+                });
+
+            }
+            function seansforogr(ogrid) {
+                $("#ogrseanskayit").html(ogrbody);
+                let seansforyayinlist = `<div class="accordion" id="acdyayinlist">
+
+                                                    </div>`;
+                $.ajax({
+                    url: '/OgrenciAction/SeansListForOgr/',
+                    type: 'post',
+                    data: { ogrid: ogrid },
+                    dataType: 'json',
+                    success: function (data) {
+                        var jsondata = jQuery.parseJSON(data);
+
+                    },
+                    error: function (error) {
+                        alert(error.Mesaj);
+                    }
+                });
+            }
+
+            function myFunction() {
+                // Declare variables
+                var input, filter, table, tr, td, i, txtValue;
+                input = document.getElementById("myInput");
+                filter = input.value.toUpperCase();
+                table = document.getElementById("tblseans");
+                tr = table.getElementsByTagName("tr");
+
+                // Loop through all table rows, and hide those who don't match the search query
+                for (i = 0; i < tr.length; i++) {
+                    td = tr[i].getElementsByTagName("td")[0];
+                    if (td) {
+                        txtValue = td.textContent || td.innerText;
+                        if (txtValue.toUpperCase().indexOf(filter) > -1) {
+                            tr[i].style.display = "";
+                        } else {
+                            tr[i].style.display = "none";
+                        }
+                    }
+                }
+
+
+            }
+
+            function myFunction2() {
+                // Declare variables
+                var input, filter, table, tr, td, i, txtValue;
+                input = document.getElementById("seansograra");
+                filter = input.value.toUpperCase();
+                table = document.getElementById("tblogr");
+                tr = table.getElementsByTagName("tr");
+
+                // Loop through all table rows, and hide those who don't match the search query
+                for (i = 0; i < tr.length; i++) {
+                    td = tr[i].getElementsByTagName("td")[0];
+                    if (td) {
+                        txtValue = td.textContent || td.innerText;
+                        if (txtValue.toUpperCase().indexOf(filter) > -1) {
+                            tr[i].style.display = "";
+                        } else {
+                            tr[i].style.display = "none";
+                        }
+                    }
+                }
+
+
+            }
+
+            function myFunctionInSeans() {
+                // Declare variables
+                var input, filter, table, tr, td, i, txtValue;
+                input = document.getElementById("seansograraInSeans");
+                filter = input.value.toUpperCase();
+                table = document.getElementById("tblogr");
+                tr = table.getElementsByTagName("tr");
+
+                // Loop through all table rows, and hide those who don't match the search query
+                for (i = 0; i < tr.length; i++) {
+                    td = tr[i].getElementsByTagName("td")[1];
+                    if (td) {
+                        txtValue = td.textContent || td.innerText;
+                        if (txtValue.toUpperCase().indexOf(filter) > -1) {
+                            tr[i].style.display = "";
+                        } else {
+                            tr[i].style.display = "none";
+                        }
+                    }
+                }
+
+
+            }
+            function myFunction3() {
+                // Declare variables
+                var input, filter, table, tr, td, i, txtValue;
+                input = document.getElementById("seansograraonkayit");
+                filter = input.value.toUpperCase();
+                table = document.getElementById("tblogronkayit");
+                tr = table.getElementsByTagName("tr");
+
+                // Loop through all table rows, and hide those who don't match the search query
+                for (i = 0; i < tr.length; i++) {
+                    td = tr[i].getElementsByTagName("td")[1];
+                    if (td) {
+                        txtValue = td.textContent || td.innerText;
+                        if (txtValue.toUpperCase().indexOf(filter) > -1) {
+                            tr[i].style.display = "";
+                        } else {
+                            tr[i].style.display = "none";
+                        }
+                    }
+                }
+
+
+            }
+                 function myFunction3() {
+                                // Declare variables
+                                var input, filter, table, tr, td, i, txtValue;
+                                input = document.getElementById("seansograraonkayit");
+                                filter = input.value.toUpperCase();
+                                table = document.getElementById("tblogronkayit");
+                                tr = table.getElementsByTagName("tr");
+                
+                                // Loop through all table rows, and hide those who don't match the search query
+                                for (i = 0; i < tr.length; i++) {
+                                    td = tr[i].getElementsByTagName("td")[1];
+                                    if (td) {
+                                        txtValue = td.textContent || td.innerText;
+                                        if (txtValue.toUpperCase().indexOf(filter) > -1) {
+                                            tr[i].style.display = "";
+                                        } else {
+                                            tr[i].style.display = "none";
+                                        }
+                                    }
+                                }
+                
+                
+                            }
+                                           function myFunction5() {
+                                                            // Declare variables
+                                                            var input, filter, table, tr, td, i, txtValue;
+                                                            input = document.getElementById("gunlukkayitlist");        
+                                                            filter = input.value.toUpperCase();
+                                                            table = document.getElementById("tblgunlukkayitlist");
+                                                            tr = table.getElementsByTagName("tr");
+                                            
+                                                            // Loop through all table rows, and hide those who don't match the search query
+                                                            for (i = 0; i < tr.length; i++) {
+                                                                td = tr[i].getElementsByTagName("td")[1];
+                                                                if (td) {
+                                                                    txtValue = td.textContent || td.innerText;
+                                                                    if (txtValue.toUpperCase().indexOf(filter) > -1) {
+                                                                        tr[i].style.display = "";
+                                                                    } else {
+                                                                        tr[i].style.display = "none";
+                                                                    }
+                                                                }
+                                                            }
+                                            
+                                            
+                                                        }
+            function myFunction4() {
+                // Declare variables
+                var input, filter, table, tr, td, i, txtValue;
+                input = document.getElementById("ograraforsnlast");
+                filter = input.value.toUpperCase();
+                table = document.getElementById("tblogrnonseans");
+                tr = table.getElementsByTagName("tr");
+
+                // Loop through all table rows, and hide those who don't match the search query
+                for (i = 0; i < tr.length; i++) {
+                    td = tr[i].getElementsByTagName("td")[1];
+                    if (td) {
+                        txtValue = td.textContent || td.innerText;
+                        if (txtValue.toUpperCase().indexOf(filter) > -1) {
+                            tr[i].style.display = "";
+                        } else {
+                            tr[i].style.display = "none";
+                        }
+                    }
+                }
+
+
+            }
+            function seanssettingschange(seansid) {
+                Swal.fire({
+                    title: 'Seans Bilgileri Güncellenecektir, İşlemi Onaylıyor musunuz?',
+                    showDenyButton: true,
+                    showCancelButton: false,
+                    showConfirmButton: true,
+                    confirmButtonText: 'Onaylıyorum',
+                    denyButtonText: `Vazgeç`,
+                }).then((result) => {
+                    if (result.isConfirmed) {
+                        var kitapcikid = $("#drpSeansKitapcikSetting option:selected").val();
+                        var seanskontenjan = $("#txtDenemeSeansKontenjanSetting").val();
+                        var seanstarih = $("#txtDenemeSeansTarihSetting").val();
+                        var seanssaat = $("#txtDenemeSeansSaatSetting").val();
+                        var seansucret = $("#txtDenemeSeansUcretSetting").val();
+                        var obj = {
+                            id: seansid,
+                            DenemeId: kitapcikid,
+                            Tarih: seanstarih,
+                            Saat: seanssaat,
+                            Kontenjan: seanskontenjan,
+                            SeansUcret: seansucret
+                        }
+                        $.ajax({
+                            url: '/SeansAction/SeansAction',
+                            type: 'post',
+                            dataType: 'json',
+                            data: { model: obj, type: 2 },
+                            success: function (data) {
+                                baslik = jQuery.parseJSON(data.title);
+                                mesaj = jQuery.parseJSON(data.msg);
+                                icon = jQuery.parseJSON(data.icon);
+                                if (icon == "error" || icon == "warning" || icon == "info") {
+                                    seanslist();
+                                    seanskartref(seansid);
+                                } else {
+                                    seanslist();
+                                    seanskartref(seansid);
+                                }
+                                sweetalertmethod(baslik, mesaj, icon);
+                            },
+                            error: function (error) {
+                                sweetalertmethod(error.MesajBaslik, error.Mesaj, error.MesajIcon);
+                                seanslist();
+
+                            }
+                        });
+                    }
+                });
+
+            }
+
+
+            function yeniseans() {
+                Swal.fire({
+                    title: 'Yeni Seans Oluşturulacaktır, İşlemi Onaylıyor musunuz?',
+                    showDenyButton: true,
+                    showCancelButton: false,
+                    confirmButtonText: 'Onaylıyorum',
+                    denyButtonText: `Vazgeç`,
+                }).then((result) => {
+                    if (result.isConfirmed) {
+                        var Kitapcik = $("#drpKitapcikList option:selected").val();
+                        var Tarih = $("#txtYeniseansTarih").val();
+                        var Saat = $("#txtYeniseansSaat").val();
+                        var Kontenjan = $("#txtYeniSeanskontenjan").val();
+                        var Ucret = $("#txtYeniseansUcret").val();
+                        var obj = {
+                            DenemeId: Kitapcik,
+                            Tarih: Tarih,
+                            Saat: Saat,
+                            Kontenjan: Kontenjan,
+                            SeansUcret: Ucret
+                        }
+                        $.ajax({
+                            url: '/SeansAction/SeansAction',
+                            type: 'post',
+                            dataType: 'json',
+                            data: { model: obj, type: 1 },
+                            success: function (data) {
+
+                                baslik = JSON.parse(data.title);
+                                mesaj = JSON.parse(data.msg);
+                                icon = JSON.parse(data.icon);
+                                if (icon == "error" || icon == "warning" || icon == "info") {
+                                    seanslist();
+                                } else {
+                                    seanslist();
+                                }
+                                sweetalertmethod(baslik, mesaj, icon);
+                            },
+                            error: function (error) {
+                                sweetalertmethod(error.MesajBaslik, error.Mesaj, error.MesajIcon);
+                                seanslist();
+
+                            }
+                        });
+
+                    } else if (result.isDenied) {
+                        sweetalertmethod('İşlem İptal Edildi', '', 'info');
+                    }
+                });
+            }
+            function sweetalertmethod(title, mesaj, icon) {
+                Swal.fire(
+                    {
+                        html: mesaj,
+                        icon: icon,
+                        title: title,
+                        showDenyButton: true,
+                        showConfirmButton: false,
+                        denyButtonText: 'Kapat',
+                    }
+                )
+            }
+            function kategorilist(yayinid, ogrid) {
+
+                var kategori = $("#drpogrkategori option:selected").val();
+                $("#kategoriforyayinarea-" + yayinid).html("");
+                $.ajax({
+                    url: '/KategoriAction/AltKategoriList',
+                    type: 'post',
+                    dataType: 'json',
+                    data: { type: 1, katid: kategori },
+                    success: function (data) {
+                        var jsondata = jQuery.parseJSON(data);
+                        let ogrseansforkategoriarea = ``;
+                        $.each(jsondata, (index, value) => {
+                            ogrseansforkategoriarea += `  <button class="btn btn-primary" type="button" onclick="seansforyayin(${value.Id},${yayinid},${ogrid});" style="width: 150px; margin-bottom: 1rem;">
+                                                                            ${value.AltKategoriBaslik}
+                                                                            </button>
+                                                                        </p>
+                                                                        <div class="collapse" id="clpyseansforyayinarea-${value.Id}${yayinid}-${ogrid}">
+                                                                                                        <div class="card card-body"  style="margin-bottom:1rem;">
+                                                                                                        <div class="table-responsive" id="yayinseanstblarea-${yayinid}-${value.Id}">
+
+                                                                            </div>
+
+                                                                            </div>
+                                                                        </div>`;
+                        });
+                        var clpid = "#collapseOne-" + yayinid;
+                        $("#kategoriforyayinarea-" + yayinid).html(ogrseansforkategoriarea);
+                        $(clpid).collapse('toggle');
+
+                    }
+                });
+            }
+            function seansforyayin(kategoriid, yayinid, ogrid) {
+                var clpid = "#clpyseansforyayinarea-" + kategoriid + yayinid + "-" + ogrid;
+                $(clpid).collapse('toggle');
+                clpajaxpermission(clpid);
+                if (ajaxpermission == false) {
+                    $.ajax({
+                        url: '/SeansAction/SeansListForOgr',
+                        type: 'post',
+                        dataType: 'json',
+                        data: { ogrid: ogrid, kategoriID: kategoriid, yayinid: yayinid },
+                        success: function (data) {
+                            var jsondata = jQuery.parseJSON(data);
+                            console.log(jsondata)
+                            let ogrseansforkategoriarea = `<table class="table table-striped">
+                                                                                                    <thead>
+                                                                                                        <tr>
+                                                                                                            <th>Seç</th>
+                                                                                                            <th>Yayın & Kategori</th>
+                                                                                                            <th>Seans</th>
+                                                                                                            <th>Tarih</th>
+                                                                                                            <th>Saat</th>
+                                                                                                            <th>Güncel Kontenjan</th>
+                                                                                                        </tr>
+                                                                                                    </thead>
+                                                                                                    <tbody>
+                                                                                                    `;
+                            $.each(jsondata, (index, value) => {
+                                ogrseansforkategoriarea += `
+                                                                        <tr id="snrow-${value.Id}">
+                                                                            <td>
+                                                                                <div class="form-check form-check-inline">
+                                                                                                              <input class="form-check-input" type="checkbox" id="inlineCheckbox-${value.Id}" value="option1" style="width: 20px; height: 20px;">
+                                                                                                              <label class="form-check-label" for="inlineCheckbox-${value.Id}">SEÇ</label>
+                                                                                </div>
+                                                                            </td>
+                                                                            <td>${value.yayinBaslik} - ${value.KategoriBaslik}</td>
+                                                                            <td>${value.kitapcikBaslik}</td>
+                                                                            <td>${value.TarihSTR}</td>
+                                                                            <td>${value.Saat}</td>
+                                                                            <td>${value.GuncelKontenjan}</td>
+                                                                        </tr>
+                                                                       `;
+                            });
+                            ogrseansforkategoriarea += `</tbody></table>`;
+                            console.log(ogrseansforkategoriarea);
+                            $("#yayinseanstblarea-" + yayinid + "-" + kategoriid).html(ogrseansforkategoriarea);
+
+                        }
+                    });
+
+                } else {
+                    $(clpid).collapse('toggle');
+
+                }
+            }
+            function seansforogr(ogrid) {
+                let yayinaccordion = `<div class="accordion" id="accordionExample" style="margin-top: 1.25rem;">
+
+</div>`;
+                $.ajax({
+                    url: '/YayinAction/YayinList',
+                    type: 'post',
+                    dataType: 'json',
+                    success: function (data) {
+                        var jsondata = jQuery.parseJSON(data);
+                        $.each(jsondata, (index, value) => {
+                            yayinaccordion += `<div class="card">
+                                                        <div class="card-header" id="headingOne">
+                                                          <h5 class="mb-0">
+                                                                                        <button class="btn btn-link" type="button" onclick="kategorilist(${value.Id},${ogrid})">
+                                                                ${value.YayinBaslik}
+                                                            </button>
+                                                          </h5>
+                                                        </div>
+
+                                                        <div id="collapseOne-${value.Id}" class="collapse" aria-labelledby="headingOne" data-parent="#accordionExample">
+                                                          <div class="card-body" id="kategoriforyayinarea-${value.Id}">
+
+                                                          </div>
+                                                        </div>
+                                                      </div>`;
+                            $("#snynlistograrea").html(yayinaccordion);
+                        });
+
+                    }
+                });
+            }
+              $(".modal").on('hide.bs.modal', function(){
+                    document.getElementById("mdlseansbilgikart").style.overflow = "auto";
+
+              });
+            //  data-toggle="collapse" data-target="#collapseOne-${value.Id}" aria-expanded="true" aria-controls="collapseOne"
+            function clpajaxpermission(clpid) {
+
+                $(clpid).on('shown.bs.collapse', function () {
+                    ajaxpermission = true;
+                    console.log("çalıştı");
+                });
+
+                $(clpid).on('hidden.bs.collapse', function () {
+                    ajaxpermission = false;
+                });
+            }
+            window.onload = seanslist();
+            function ogrsec(id) {
+
+                var diziElelman = id.toString().replace("ogr-", "");
+                var diziSearch = toplamDeneme.indexOf(diziElelman);
+
+                if (diziSearch == -1) {
+                    toplamDeneme.push(diziElelman);
+                } else {
+                    toplamDeneme.pop(diziSearch, 1);
+                }
+                console.log(toplamDeneme);
+
+            }
+            function yayingetir(ogrid,snsetid) {
+                $.ajax({
+                    url: '/OgrenciAction/ogrKatSet',
+                    type: 'post',
+                    dataType: 'json',
+                    data: { ogrid: ogrid },
+                    success: function (data) {
+                        var jsondata = JSON.parse(data);
+                        let options = `<option value="">Yayın Seçiniz</option>`;
+                        $.each(jsondata, (index, value) => {
+                            options += `<option value="${value.Id}">${value.YayinBaslik}</option>`;
+                        });
+                        $("#drpYayinListforSeanschange").html(options);
+                        $("#mdlOgrSeansChange").modal('show');
+                        $("#drpYayinListforSeanschange").on("change", function () {
+                            let seanslist;
+                            let yayinid = $("#drpYayinListforSeanschange option:selected").val();
+                            $.ajax({
+                                url: '/SeansAction/SeansListForOgr',
+                                type: 'post',
+                                dataType: 'json',
+                                data: { ogrid: ogrid, yayinid: yayinid },
+                                success: function (data) {
+                                    seanslist = JSON.parse(data);
+                                    let seanslistforchange = ``;
+                                    let seanslistdata;
+                                    console.log(seanslist.length);
+                                    if (seanslist.length > 0) {
+                                        seanslistforchange += `<hr /><select id="drpSeansListForChange" class="form-control">`;
+                                        $.each(seanslist, (index, value) => {
+                                            seanslistforchange += `<option value="${value.Id}">Seans: ${value.TarihSTR} / ${value.Saat}</option>`;
+                                        });
+                                        seanslistforchange += `</select><hr /><button type="button" class="btn btn-success" onclick="doseanschange(${snsetid})"> Seans Değiştir</button>`;
+                                    }
+                                    $("#seanslistforchangediv").html(seanslistforchange);
+                                }
+                            });
+                        });
+                    }
+                });
+            }
+            function doseanschange(beforeseans){
+                let yeniseansid = $("#drpSeansListForChange option:selected").val();
+                    $.ajax({
+                        url: '/SeansAction/seanschange',
+                        type: 'post',
+                        dataType: 'json',
+                        data: { snsetid: beforeseans, yeniseansid: yeniseansid },
+                        success: function (data) {
+                            sweetalertmethod("İşlem Başarılı","Seans değişikliği Yapıldı","success");
+                            $("#mdlOgrSeansChange").modal('hide');
+                            $("#seanslistforchangediv").html("");
+                        }
+                    });
+            }
+            window.onload = seanspaketlist();
+            </script>
+    }

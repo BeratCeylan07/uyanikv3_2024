@@ -1,0 +1,360 @@
+@using Microsoft.AspNetCore.Http;
+
+@inject IHttpContextAccessor HttpContextAccessor
+
+@{
+    Layout = "~/Views/Shared/Ogr_Layout.cshtml";
+}
+
+<div style="margin-top:1rem;">
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-12">
+                <div class="row">
+                    <div class="col-6">
+                        <img src="~/assets/uyaniklogo.png" width="150"></img>
+                    </div>
+                    <div class="col-6">
+                        <strong>Hoş Geldiniz <br/>
+                            Sn. @HttpContextAccessor.HttpContext.Session.GetString("OgrAd" ?? "") @HttpContextAccessor.HttpContext.Session.GetString("OgrSoyad" ?? "")
+                            @HttpContextAccessor.HttpContext.Session.GetString("OgrTel" ?? "")</strong>
+                    </div>
+                    <div class="col-6">
+                                                <a href="~/OnKayit/OturumKapat/" class="btn btn-danger float-right btn-block" onclick="">Çıkış</a>
+                    </div>
+                    <div class="col-6">
+                                                <button type="button" class="btn btn-primary float-right btn-block" onclick="ogrseanslar()">Başvurularım</button>
+                    </div>
+                </div>
+            </div>
+            <div class="col-12 mt-1">
+                <strong>Şubeler</strong>
+                <select id="drpSube" class="form-control" onchange="gunclerSeanslar();"></select>
+            </div>
+        </div>
+        <div class="row mt-1">
+            <div class="col-md-12" style="margin-bottom: 1rem;">
+            </div>
+        </div>
+        <div id="snList" class="row"></div>
+    </div>
+</div>
+<style>
+    .item{
+        padding:0px !important;
+    }
+
+    a.item:after {
+        background-image: none !important;
+    } 
+</style>
+
+        <!-- Modal Basic -->
+        <div class="modal fade modalbox" id="mdlSeansBasvurularim" data-bs-backdrop="static" tabindex="-1" role="dialog">
+            <div class="modal-dialog" role="document">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title">Seans Başvurularım</h5>
+                        <a href="~/OnKayit/OturumKapat" data-dismiss="modal">Kapat</a>
+                    </div>
+                    <div class="modal-body">
+                        <h4 class="text-danger">TOPLAM TUTAR: <span id="toplamtutar"></span></h4>
+                        <hr/>
+                        <table class="table table-sm table-borderless">
+                            <thead>
+                            <tr>
+                                <th>Başvuru Tarihi</th>
+                                <th>Şube</th>
+                                <th>Seans Adı</th>
+                                <th>Seans Tarihi</th>
+                                <th>Ücret</th>
+                                <th></th>
+                            </tr>
+                            </thead>
+                            <tbody id="ogrseanstbody"></tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- * Modal Basic -->
+
+@section ogrScripts{
+    <script>
+    var bnk = "";
+                    var ibn = "";
+                    var kas = "";
+                    var explanation = "";
+        function mdlopen(){
+            $("#mdlSeansBasvurularim").modal('show');
+        }
+        function ogrseanslar() {
+            var subeid = $("#drpSube option:selected").val();
+            let ogrseansbody = ``;
+            var obj = {
+                                    KutuphaneId: subeid,
+                                    Ad: "@HttpContextAccessor.HttpContext.Session.GetString("OgrAd" ?? "")",
+                                    Soyad: "@HttpContextAccessor.HttpContext.Session.GetString("OgrSoyad" ?? "")",
+                                    Telefon: "@HttpContextAccessor.HttpContext.Session.GetString("OgrTel" ?? "")",
+                                }   
+            $.ajax({
+                url: '/OnKayit/ogrSeansGetir/',
+                type: 'post',
+                data: { model: obj },
+                dataType: 'json',
+                success: function (data) {
+                    console.log(data);
+                    $("#ogrseanstbody").html("");
+                    if (data.msgIcon == "error")
+                        {
+                            alert(data.msg);   
+                        }else{
+                         var seansObjData = jQuery.parseJSON(data.jsonSeansList);
+                                                     console.log(data.jsonSeansList);
+                                            var toplamUcret = jQuery.parseJSON(data.ucret).toFixed(2);
+                                            let durumText = ``;
+                                            let durumcolor;
+                                            let seansListSonuc = ``;
+                                            $.each(seansObjData, (index, value) => {
+                                                if (value.ogrseansDurum == 0) {
+                                                    durumText = `Ön Kayıt Talebiniz Alındı`;
+                                                    durumcolor = `warning`;
+                                                } else if (value.ogrseansDurum == 1) {
+                                                    durumText = `Kesin Kayıt`;
+                                                    durumcolor = "success";
+                                                }
+                                                ogrseansbody += `
+                                                    <tr>
+                                                        <td>${value.ogrSeansKayitTarih}</td>
+<td>${value.subeinfo}</td>
+                                                        <td>${value.yayinBaslik} / ${value.KategoriBaslik} / ${value.kitapcikBaslik}</td>
+                                                        <td>${value.TarihSTR}</td>
+                                                        <td>${value.kitapcikucret.toFixed(2)} TL</td>
+                                                        <td><button type="button" class="btn btn-danger" onclick="onkayitiptal(${value.Id});"> Başvuruyu İptal Et</td>
+                                                    </tr>
+                                                `;
+                                              
+                                            });
+                                            $("#ogrseanstbody").html(ogrseansbody);
+                                            $("#toplamtutar").html(toplamUcret + ` TL`);
+                                            mdlopen();
+                        }
+                   
+                },
+                Error: function (data) {
+                }
+            });
+        }
+                    function onkayitiptal(id) {
+                        var islemonay = "Dikkat";
+                        var mesaj = "Ön Kayıt Başvurunuz İptal Edilecektir, Bu işlem Geri Alınamaz, İşlemi Onaylıyor musunuz?";
+        
+                        Swal.fire({
+                            title: islemonay,
+                            text: mesaj,
+                            icon: 'info',
+                            showDenyButton: true,
+                            showCancelButton: false,
+                            confirmButtonText: 'Onaylıyorum',
+                            denyButtonText: `Vazgeç`,
+                        }).then((result) => {
+                            if (result.isConfirmed) {
+                                $.ajax({
+                                    url: '/OnKayit/ogrseanskayitsil',
+                                    type: 'post',
+                                    dataType: 'json',
+                                    data: { id: id },
+                                    success: function (data) {
+                                        ogrseanslar();
+                                        gunclerSeanslar();
+                                    },
+                                    error: function (error) {
+                                    }
+                                });
+                            } else if (result.isDenied) {
+                                Swal.fire('Herhangi Bir İşlem Yapılmadı', '', 'info')
+                            }
+                        })
+                    }
+
+        function ogrOnSeansPush(id) {
+            const swalWithBootstrapButtons = Swal.mixin({
+                customClass: {
+                    confirmButton: 'btn btn-success',
+
+                    cancelButton: 'btn btn-danger swButton'
+                },
+                buttonsStyling: false
+            });
+
+            swalWithBootstrapButtons.fire({
+                title: 'İşlemi Onaylıyor musunuz?',
+                text: "Seçtiğiniz Deneme Seansı İçin Ön Kayıt Talebiniz Alınacaktır",
+                icon: 'warning',
+                showCancelButton: true,
+                confirmButtonText: 'Onaylıyorum',
+                cancelButtonText: 'İptal Et',
+                allowOutsideClick: false,
+                allowEscapeKey: false,
+                reverseButtons: true
+            }).then((result) => {
+                if (result.isConfirmed) {
+                           var subeid = $("#drpSube option:selected").val();
+                           var obj = {
+                               KutuphaneId: subeid,
+                               Ad: "@HttpContextAccessor.HttpContext.Session.GetString("OgrAd" ?? "")",
+                               Soyad: "@HttpContextAccessor.HttpContext.Session.GetString("OgrSoyad" ?? "")",
+                               Telefon: "@HttpContextAccessor.HttpContext.Session.GetString("OgrTel" ?? "")",
+                               seansid: id
+                           }   
+                    $.ajax({
+                        url: '/OnKayit/SeansOnKayit/',
+                        type: 'Post',
+                        data: { model: obj },
+                        dataType: 'json',
+                        success: function (data) {
+                            var ibnmsg = ``;
+                            if (ibn != null){
+                                ibnmsg = ` 
+                                            
+                                    <hr />
+                                    <h4><strong>BANKA BİLGİLERİ:<br /><b>Alıcı: ${kas} </b> <br /> <b>IBAN: ${ibn}</b> <br/> Banka: ${bnk}</strong></h4>
+
+                                
+    </br>
+                  ${explanation}
+    </br>`;
+                            }
+                            Swal.fire({
+                                allowOutsideClick: false,
+                                allowEscapeKey: false,
+                                title: data.msgTitle,
+                                html: data.msg + ibnmsg,
+                                icon: data.msgIcon,
+                                confirmButtonColor: '#3085d6',
+                                confirmButtonText: 'Tamam'
+                            }).then((result) => {
+                                if (result.isConfirmed) {
+                                    if (data.msgIcon == "success") {
+                                        gunclerSeanslar();
+                                    } 
+                                }
+                            })
+
+                        }
+                    });
+
+                } else if (
+                    result.dismiss === Swal.DismissReason.cancel
+                ) {
+                    Swal.fire({
+                        title: '<strong>İşlem İptal Edildi</strong>',
+                        icon: 'info',
+                        html:
+                            '<b>Herhangi Bir İşlem Yapılmadı</b>',
+
+                        confirmButtonText:
+                            'Kapat'
+                    })
+                }
+            });
+          
+        }
+        let subeopt = ``;
+        $.ajax({
+            url: '/OnKayit/SubeList/',
+            type: 'Get',
+            dataType: 'json',
+            success: function (data) {
+                console.log(data);
+                subeopt += `<option value="">Lütfen Şube Seçiniz</option>`;
+                $.each(data, (index, value) => {
+                    subeopt += `<option value="${value.id}">${value.kutuphaneBaslik}</option>`
+                });
+                $("#drpSube").html(subeopt);
+            }
+        });
+  
+    function gunclerSeanslar() {
+        var subeid = $("#drpSube option:selected").val();
+        var obj = {
+            KutuphaneId: subeid,
+            Ad: "@HttpContextAccessor.HttpContext.Session.GetString("OgrAd" ?? "")",
+            Soyad: "@HttpContextAccessor.HttpContext.Session.GetString("OgrSoyad" ?? "")",
+            Telefon: "@HttpContextAccessor.HttpContext.Session.GetString("OgrTel" ?? "")"
+        }   
+        $.ajax({
+            url: '/OnKayit/seansList/',
+            type: 'Get',
+            data: { Ad: obj.Ad, Soyad: obj.Soyad, Telefon: obj.Telefon, subeid: obj.KutuphaneId },
+            dataType: 'json',
+            success: function (data) {
+                $("#snList").html("");
+                var seansObjData = jQuery.parseJSON(data.jsonSeansList);
+                bnk = data.bank;
+                ibn = data.iban;
+                kas = data.kas;
+                explanation = data.onkayitmsg;
+                let seansListSonuc = ``;
+                $.each(seansObjData, (index, value) => {
+                    seansListSonuc +=
+                        `<div class="col-md-6 col-sm-12">
+                                    <div class="card">
+                                       <!-- <img src="${value.yayinLogo}" class="card-img-top" alt="image"> -->
+                                        <div class="card-body">
+                                               
+                                                <h5 class="card-title">${value.yayinBaslik} / ${value.yayinKategoriBaslik} / ${value.kitapcikBaslik}</h5>
+                                                <ul class="listview flush transparent image-listview">
+                    <li>
+                        <a href="#" class="item">
+                            <div class="in">
+                                Tarih:
+                                <span class="badge badge-primary">${value.TarihSTR} / ${value.SeansGun}</span>
+                            </div>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="#" class="item">
+  
+                            <div class="in">
+                                <div>Saat</div>
+                                <span class="badge badge-primary">${value.Saat}</span>
+                            </div>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="#" class="item">
+        
+                           <!-- <div class="in">
+                                <div>Kalan Kontenjan</div>
+                                <span class="badge badge-primary">${value.GuncelKontenjan}</span>
+                            </div>   -->
+                        </a>
+                    </li>
+     <li>
+                        <a href="#" class="item">
+        
+                            <div class="in">
+                                <div>Ücret</div>
+                                <span class="badge badge-primary">${value.SeansUcret} TL</span>
+                            </div>
+                        </a>
+                    </li>
+                    <li><button type="button" class="btn btn-primary btn-block" onclick="ogrOnSeansPush(${value.Id});" style=" float: right;height: 60px;"><ion-icon name="push-outline"></ion-icon> Ön Başvuru</button></li>
+                            
+                </ul>
+                                        </div>
+                                    </div>
+                                </div>`;
+                });
+                $("#snList").html(seansListSonuc);
+            },
+            Error: function (data) {
+
+            }
+        });
+    }
+
+</script>
+
+}

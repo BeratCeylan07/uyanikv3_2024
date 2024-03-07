@@ -1,0 +1,54 @@
+@{
+    ViewData["Title"] = "signIn";
+    Layout = "Ogr_Login_Layout";
+}
+
+<div id="appCapsule" class="pt-0">
+    <div class="login-form mt-1">
+
+        <div class="section">
+            <img src="~/assets/uyanikv2logo.png" alt="image" class="form-image" style=" border-radius: 60px; ">
+        </div>
+        <div class="section mt-1">
+            <h3>Uyanık Şubelerimiz</h3>
+        </div>
+    </div>
+
+    <div class="section mt-2">
+        <div id="kpLstDiv" class="row">
+
+        </div>
+    </div>
+</div>
+
+@section ogrScripts {
+
+    <script>
+    let kutuphaneListSection = ``;
+        $.ajax({
+            url: '/ogrAuth/franchiseList/',
+            contentType: 'application/json; charset=utf-8;',
+            type: 'Get',
+            dataType: 'json',
+            success: function (data) {
+                var franchiseResult = jQuery.parseJSON(data);
+                $.each(franchiseResult, (index, value) => {
+
+                    kutuphaneListSection += `<div class="col-6" style="margin-bottom: 1rem;">
+                    <div class="card product-card">
+                        <div class="card-body" style="padding: 0px;">
+                            <img src="/assets/uynklogov3.png" class="image" alt="Uyanık Kütüphane">
+                            <h1 class="title text-center" style="height: 40px;">${value.KutuphaneBaslik}</h1><hr/>
+                            <div class="price" style="margin-top:1rem;">${value.Il}</div>
+                            <div class="price">${value.Ilce}</div>
+                            <a href="/OgrAuth/OgrSignIn?id=${value.Id}" class="btn btn-sm btn-primary btn-block" style="height: 60px;">Şube Seçim</a>
+                        </div>
+                    </div>
+                </div>`;
+                });
+                $("#kpLstDiv").html(kutuphaneListSection);
+
+            }
+        });</script>
+
+}

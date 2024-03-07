@@ -1,0 +1,1261 @@
+{
+  "Files": [
+    {
+      "Id": "C:\\TalyaProject\\uyanikv3\\uyanikv3\\obj\\Debug\\net6.0\\scopedcss\\projectbundle\\uyanikv3.bundle.scp.css",
+      "PackagePath": "staticwebassets\\uyanikv3.bundle.scp.css"
+    },
+    {
+      "Id": "C:\\TalyaProject\\uyanikv3\\uyanikv3\\wwwroot\\README.md",
+      "PackagePath": "staticwebassets\\README.md"
+    },
+    {
+      "Id": "C:\\TalyaProject\\uyanikv3\\uyanikv3\\wwwroot\\css\\bootstrap-datetimepicker.min.css",
+      "PackagePath": "staticwebassets\\css\\bootstrap-datetimepicker.min.css"
+    },
+    {
+      "Id": "C:\\TalyaProject\\uyanikv3\\uyanikv3\\wwwroot\\css\\font-face.css",
+      "PackagePath": "staticwebassets\\css\\font-face.css"
+    },
+    {
+      "Id": "C:\\TalyaProject\\uyanikv3\\uyanikv3\\wwwroot\\css\\theme.css",
+      "PackagePath": "staticwebassets\\css\\theme.css"
+    },
+    {
+      "Id": "C:\\TalyaProject\\uyanikv3\\uyanikv3\\wwwroot\\fonts\\poppins\\poppins-v5-latin-100.eot",
+      "PackagePath": "staticwebassets\\fonts\\poppins\\poppins-v5-latin-100.eot"
+    },
+    {
+      "Id": "C:\\TalyaProject\\uyanikv3\\uyanikv3\\wwwroot\\fonts\\poppins\\poppins-v5-latin-100.svg",
+      "PackagePath": "staticwebassets\\fonts\\poppins\\poppins-v5-latin-100.svg"
+    },
+    {
+      "Id": "C:\\TalyaProject\\uyanikv3\\uyanikv3\\wwwroot\\fonts\\poppins\\poppins-v5-latin-100.ttf",
+      "PackagePath": "staticwebassets\\fonts\\poppins\\poppins-v5-latin-100.ttf"
+    },
+    {
+      "Id": "C:\\TalyaProject\\uyanikv3\\uyanikv3\\wwwroot\\fonts\\poppins\\poppins-v5-latin-100.woff",
+      "PackagePath": "staticwebassets\\fonts\\poppins\\poppins-v5-latin-100.woff"
+    },
+    {
+      "Id": "C:\\TalyaProject\\uyanikv3\\uyanikv3\\wwwroot\\fonts\\poppins\\poppins-v5-latin-100.woff2",
+      "PackagePath": "staticwebassets\\fonts\\poppins\\poppins-v5-latin-100.woff2"
+    },
+    {
+      "Id": "C:\\TalyaProject\\uyanikv3\\uyanikv3\\wwwroot\\fonts\\poppins\\poppins-v5-latin-100italic.eot",
+      "PackagePath": "staticwebassets\\fonts\\poppins\\poppins-v5-latin-100italic.eot"
+    },
+    {
+      "Id": "C:\\TalyaProject\\uyanikv3\\uyanikv3\\wwwroot\\fonts\\poppins\\poppins-v5-latin-100italic.svg",
+      "PackagePath": "staticwebassets\\fonts\\poppins\\poppins-v5-latin-100italic.svg"
+    },
+    {
+      "Id": "C:\\TalyaProject\\uyanikv3\\uyanikv3\\wwwroot\\fonts\\poppins\\poppins-v5-latin-100italic.ttf",
+      "PackagePath": "staticwebassets\\fonts\\poppins\\poppins-v5-latin-100italic.ttf"
+    },
+    {
+      "Id": "C:\\TalyaProject\\uyanikv3\\uyanikv3\\wwwroot\\fonts\\poppins\\poppins-v5-latin-100italic.woff",
+      "PackagePath": "staticwebassets\\fonts\\poppins\\poppins-v5-latin-100italic.woff"
+    },
+    {
+      "Id": "C:\\TalyaProject\\uyanikv3\\uyanikv3\\wwwroot\\fonts\\poppins\\poppins-v5-latin-100italic.woff2",
+      "PackagePath": "staticwebassets\\fonts\\poppins\\poppins-v5-latin-100italic.woff2"
+    },
+    {
+      "Id": "C:\\TalyaProject\\uyanikv3\\uyanikv3\\wwwroot\\fonts\\poppins\\poppins-v5-latin-200.eot",
+      "PackagePath": "staticwebassets\\fonts\\poppins\\poppins-v5-latin-200.eot"
+    },
+    {
+      "Id": "C:\\TalyaProject\\uyanikv3\\uyanikv3\\wwwroot\\fonts\\poppins\\poppins-v5-latin-200.svg",
+      "PackagePath": "staticwebassets\\fonts\\poppins\\poppins-v5-latin-200.svg"
+    },
+    {
+      "Id": "C:\\TalyaProject\\uyanikv3\\uyanikv3\\wwwroot\\fonts\\poppins\\poppins-v5-latin-200.ttf",
+      "PackagePath": "staticwebassets\\fonts\\poppins\\poppins-v5-latin-200.ttf"
+    },
+    {
+      "Id": "C:\\TalyaProject\\uyanikv3\\uyanikv3\\wwwroot\\fonts\\poppins\\poppins-v5-latin-200.woff",
+      "PackagePath": "staticwebassets\\fonts\\poppins\\poppins-v5-latin-200.woff"
+    },
+    {
+      "Id": "C:\\TalyaProject\\uyanikv3\\uyanikv3\\wwwroot\\fonts\\poppins\\poppins-v5-latin-200.woff2",
+      "PackagePath": "staticwebassets\\fonts\\poppins\\poppins-v5-latin-200.woff2"
+    },
+    {
+      "Id": "C:\\TalyaProject\\uyanikv3\\uyanikv3\\wwwroot\\fonts\\poppins\\poppins-v5-latin-200italic.eot",
+      "PackagePath": "staticwebassets\\fonts\\poppins\\poppins-v5-latin-200italic.eot"
+    },
+    {
+      "Id": "C:\\TalyaProject\\uyanikv3\\uyanikv3\\wwwroot\\fonts\\poppins\\poppins-v5-latin-200italic.svg",
+      "PackagePath": "staticwebassets\\fonts\\poppins\\poppins-v5-latin-200italic.svg"
+    },
+    {
+      "Id": "C:\\TalyaProject\\uyanikv3\\uyanikv3\\wwwroot\\fonts\\poppins\\poppins-v5-latin-200italic.ttf",
+      "PackagePath": "staticwebassets\\fonts\\poppins\\poppins-v5-latin-200italic.ttf"
+    },
+    {
+      "Id": "C:\\TalyaProject\\uyanikv3\\uyanikv3\\wwwroot\\fonts\\poppins\\poppins-v5-latin-200italic.woff",
+      "PackagePath": "staticwebassets\\fonts\\poppins\\poppins-v5-latin-200italic.woff"
+    },
+    {
+      "Id": "C:\\TalyaProject\\uyanikv3\\uyanikv3\\wwwroot\\fonts\\poppins\\poppins-v5-latin-200italic.woff2",
+      "PackagePath": "staticwebassets\\fonts\\poppins\\poppins-v5-latin-200italic.woff2"
+    },
+    {
+      "Id": "C:\\TalyaProject\\uyanikv3\\uyanikv3\\wwwroot\\fonts\\poppins\\poppins-v5-latin-300.eot",
+      "PackagePath": "staticwebassets\\fonts\\poppins\\poppins-v5-latin-300.eot"
+    },
+    {
+      "Id": "C:\\TalyaProject\\uyanikv3\\uyanikv3\\wwwroot\\fonts\\poppins\\poppins-v5-latin-300.svg",
+      "PackagePath": "staticwebassets\\fonts\\poppins\\poppins-v5-latin-300.svg"
+    },
+    {
+      "Id": "C:\\TalyaProject\\uyanikv3\\uyanikv3\\wwwroot\\fonts\\poppins\\poppins-v5-latin-300.ttf",
+      "PackagePath": "staticwebassets\\fonts\\poppins\\poppins-v5-latin-300.ttf"
+    },
+    {
+      "Id": "C:\\TalyaProject\\uyanikv3\\uyanikv3\\wwwroot\\fonts\\poppins\\poppins-v5-latin-300.woff",
+      "PackagePath": "staticwebassets\\fonts\\poppins\\poppins-v5-latin-300.woff"
+    },
+    {
+      "Id": "C:\\TalyaProject\\uyanikv3\\uyanikv3\\wwwroot\\fonts\\poppins\\poppins-v5-latin-300.woff2",
+      "PackagePath": "staticwebassets\\fonts\\poppins\\poppins-v5-latin-300.woff2"
+    },
+    {
+      "Id": "C:\\TalyaProject\\uyanikv3\\uyanikv3\\wwwroot\\fonts\\poppins\\poppins-v5-latin-300italic.eot",
+      "PackagePath": "staticwebassets\\fonts\\poppins\\poppins-v5-latin-300italic.eot"
+    },
+    {
+      "Id": "C:\\TalyaProject\\uyanikv3\\uyanikv3\\wwwroot\\fonts\\poppins\\poppins-v5-latin-300italic.svg",
+      "PackagePath": "staticwebassets\\fonts\\poppins\\poppins-v5-latin-300italic.svg"
+    },
+    {
+      "Id": "C:\\TalyaProject\\uyanikv3\\uyanikv3\\wwwroot\\fonts\\poppins\\poppins-v5-latin-300italic.ttf",
+      "PackagePath": "staticwebassets\\fonts\\poppins\\poppins-v5-latin-300italic.ttf"
+    },
+    {
+      "Id": "C:\\TalyaProject\\uyanikv3\\uyanikv3\\wwwroot\\fonts\\poppins\\poppins-v5-latin-300italic.woff",
+      "PackagePath": "staticwebassets\\fonts\\poppins\\poppins-v5-latin-300italic.woff"
+    },
+    {
+      "Id": "C:\\TalyaProject\\uyanikv3\\uyanikv3\\wwwroot\\fonts\\poppins\\poppins-v5-latin-300italic.woff2",
+      "PackagePath": "staticwebassets\\fonts\\poppins\\poppins-v5-latin-300italic.woff2"
+    },
+    {
+      "Id": "C:\\TalyaProject\\uyanikv3\\uyanikv3\\wwwroot\\fonts\\poppins\\poppins-v5-latin-500.eot",
+      "PackagePath": "staticwebassets\\fonts\\poppins\\poppins-v5-latin-500.eot"
+    },
+    {
+      "Id": "C:\\TalyaProject\\uyanikv3\\uyanikv3\\wwwroot\\fonts\\poppins\\poppins-v5-latin-500.svg",
+      "PackagePath": "staticwebassets\\fonts\\poppins\\poppins-v5-latin-500.svg"
+    },
+    {
+      "Id": "C:\\TalyaProject\\uyanikv3\\uyanikv3\\wwwroot\\fonts\\poppins\\poppins-v5-latin-500.ttf",
+      "PackagePath": "staticwebassets\\fonts\\poppins\\poppins-v5-latin-500.ttf"
+    },
+    {
+      "Id": "C:\\TalyaProject\\uyanikv3\\uyanikv3\\wwwroot\\fonts\\poppins\\poppins-v5-latin-500.woff",
+      "PackagePath": "staticwebassets\\fonts\\poppins\\poppins-v5-latin-500.woff"
+    },
+    {
+      "Id": "C:\\TalyaProject\\uyanikv3\\uyanikv3\\wwwroot\\fonts\\poppins\\poppins-v5-latin-500.woff2",
+      "PackagePath": "staticwebassets\\fonts\\poppins\\poppins-v5-latin-500.woff2"
+    },
+    {
+      "Id": "C:\\TalyaProject\\uyanikv3\\uyanikv3\\wwwroot\\fonts\\poppins\\poppins-v5-latin-500italic.eot",
+      "PackagePath": "staticwebassets\\fonts\\poppins\\poppins-v5-latin-500italic.eot"
+    },
+    {
+      "Id": "C:\\TalyaProject\\uyanikv3\\uyanikv3\\wwwroot\\fonts\\poppins\\poppins-v5-latin-500italic.svg",
+      "PackagePath": "staticwebassets\\fonts\\poppins\\poppins-v5-latin-500italic.svg"
+    },
+    {
+      "Id": "C:\\TalyaProject\\uyanikv3\\uyanikv3\\wwwroot\\fonts\\poppins\\poppins-v5-latin-500italic.ttf",
+      "PackagePath": "staticwebassets\\fonts\\poppins\\poppins-v5-latin-500italic.ttf"
+    },
+    {
+      "Id": "C:\\TalyaProject\\uyanikv3\\uyanikv3\\wwwroot\\fonts\\poppins\\poppins-v5-latin-500italic.woff",
+      "PackagePath": "staticwebassets\\fonts\\poppins\\poppins-v5-latin-500italic.woff"
+    },
+    {
+      "Id": "C:\\TalyaProject\\uyanikv3\\uyanikv3\\wwwroot\\fonts\\poppins\\poppins-v5-latin-500italic.woff2",
+      "PackagePath": "staticwebassets\\fonts\\poppins\\poppins-v5-latin-500italic.woff2"
+    },
+    {
+      "Id": "C:\\TalyaProject\\uyanikv3\\uyanikv3\\wwwroot\\fonts\\poppins\\poppins-v5-latin-600.eot",
+      "PackagePath": "staticwebassets\\fonts\\poppins\\poppins-v5-latin-600.eot"
+    },
+    {
+      "Id": "C:\\TalyaProject\\uyanikv3\\uyanikv3\\wwwroot\\fonts\\poppins\\poppins-v5-latin-600.svg",
+      "PackagePath": "staticwebassets\\fonts\\poppins\\poppins-v5-latin-600.svg"
+    },
+    {
+      "Id": "C:\\TalyaProject\\uyanikv3\\uyanikv3\\wwwroot\\fonts\\poppins\\poppins-v5-latin-600.ttf",
+      "PackagePath": "staticwebassets\\fonts\\poppins\\poppins-v5-latin-600.ttf"
+    },
+    {
+      "Id": "C:\\TalyaProject\\uyanikv3\\uyanikv3\\wwwroot\\fonts\\poppins\\poppins-v5-latin-600.woff",
+      "PackagePath": "staticwebassets\\fonts\\poppins\\poppins-v5-latin-600.woff"
+    },
+    {
+      "Id": "C:\\TalyaProject\\uyanikv3\\uyanikv3\\wwwroot\\fonts\\poppins\\poppins-v5-latin-600.woff2",
+      "PackagePath": "staticwebassets\\fonts\\poppins\\poppins-v5-latin-600.woff2"
+    },
+    {
+      "Id": "C:\\TalyaProject\\uyanikv3\\uyanikv3\\wwwroot\\fonts\\poppins\\poppins-v5-latin-600italic.eot",
+      "PackagePath": "staticwebassets\\fonts\\poppins\\poppins-v5-latin-600italic.eot"
+    },
+    {
+      "Id": "C:\\TalyaProject\\uyanikv3\\uyanikv3\\wwwroot\\fonts\\poppins\\poppins-v5-latin-600italic.svg",
+      "PackagePath": "staticwebassets\\fonts\\poppins\\poppins-v5-latin-600italic.svg"
+    },
+    {
+      "Id": "C:\\TalyaProject\\uyanikv3\\uyanikv3\\wwwroot\\fonts\\poppins\\poppins-v5-latin-600italic.ttf",
+      "PackagePath": "staticwebassets\\fonts\\poppins\\poppins-v5-latin-600italic.ttf"
+    },
+    {
+      "Id": "C:\\TalyaProject\\uyanikv3\\uyanikv3\\wwwroot\\fonts\\poppins\\poppins-v5-latin-600italic.woff",
+      "PackagePath": "staticwebassets\\fonts\\poppins\\poppins-v5-latin-600italic.woff"
+    },
+    {
+      "Id": "C:\\TalyaProject\\uyanikv3\\uyanikv3\\wwwroot\\fonts\\poppins\\poppins-v5-latin-600italic.woff2",
+      "PackagePath": "staticwebassets\\fonts\\poppins\\poppins-v5-latin-600italic.woff2"
+    },
+    {
+      "Id": "C:\\TalyaProject\\uyanikv3\\uyanikv3\\wwwroot\\fonts\\poppins\\poppins-v5-latin-700.eot",
+      "PackagePath": "staticwebassets\\fonts\\poppins\\poppins-v5-latin-700.eot"
+    },
+    {
+      "Id": "C:\\TalyaProject\\uyanikv3\\uyanikv3\\wwwroot\\fonts\\poppins\\poppins-v5-latin-700.svg",
+      "PackagePath": "staticwebassets\\fonts\\poppins\\poppins-v5-latin-700.svg"
+    },
+    {
+      "Id": "C:\\TalyaProject\\uyanikv3\\uyanikv3\\wwwroot\\fonts\\poppins\\poppins-v5-latin-700.ttf",
+      "PackagePath": "staticwebassets\\fonts\\poppins\\poppins-v5-latin-700.ttf"
+    },
+    {
+      "Id": "C:\\TalyaProject\\uyanikv3\\uyanikv3\\wwwroot\\fonts\\poppins\\poppins-v5-latin-700.woff",
+      "PackagePath": "staticwebassets\\fonts\\poppins\\poppins-v5-latin-700.woff"
+    },
+    {
+      "Id": "C:\\TalyaProject\\uyanikv3\\uyanikv3\\wwwroot\\fonts\\poppins\\poppins-v5-latin-700.woff2",
+      "PackagePath": "staticwebassets\\fonts\\poppins\\poppins-v5-latin-700.woff2"
+    },
+    {
+      "Id": "C:\\TalyaProject\\uyanikv3\\uyanikv3\\wwwroot\\fonts\\poppins\\poppins-v5-latin-700italic.eot",
+      "PackagePath": "staticwebassets\\fonts\\poppins\\poppins-v5-latin-700italic.eot"
+    },
+    {
+      "Id": "C:\\TalyaProject\\uyanikv3\\uyanikv3\\wwwroot\\fonts\\poppins\\poppins-v5-latin-700italic.svg",
+      "PackagePath": "staticwebassets\\fonts\\poppins\\poppins-v5-latin-700italic.svg"
+    },
+    {
+      "Id": "C:\\TalyaProject\\uyanikv3\\uyanikv3\\wwwroot\\fonts\\poppins\\poppins-v5-latin-700italic.ttf",
+      "PackagePath": "staticwebassets\\fonts\\poppins\\poppins-v5-latin-700italic.ttf"
+    },
+    {
+      "Id": "C:\\TalyaProject\\uyanikv3\\uyanikv3\\wwwroot\\fonts\\poppins\\poppins-v5-latin-700italic.woff",
+      "PackagePath": "staticwebassets\\fonts\\poppins\\poppins-v5-latin-700italic.woff"
+    },
+    {
+      "Id": "C:\\TalyaProject\\uyanikv3\\uyanikv3\\wwwroot\\fonts\\poppins\\poppins-v5-latin-700italic.woff2",
+      "PackagePath": "staticwebassets\\fonts\\poppins\\poppins-v5-latin-700italic.woff2"
+    },
+    {
+      "Id": "C:\\TalyaProject\\uyanikv3\\uyanikv3\\wwwroot\\fonts\\poppins\\poppins-v5-latin-800.eot",
+      "PackagePath": "staticwebassets\\fonts\\poppins\\poppins-v5-latin-800.eot"
+    },
+    {
+      "Id": "C:\\TalyaProject\\uyanikv3\\uyanikv3\\wwwroot\\fonts\\poppins\\poppins-v5-latin-800.svg",
+      "PackagePath": "staticwebassets\\fonts\\poppins\\poppins-v5-latin-800.svg"
+    },
+    {
+      "Id": "C:\\TalyaProject\\uyanikv3\\uyanikv3\\wwwroot\\fonts\\poppins\\poppins-v5-latin-800.ttf",
+      "PackagePath": "staticwebassets\\fonts\\poppins\\poppins-v5-latin-800.ttf"
+    },
+    {
+      "Id": "C:\\TalyaProject\\uyanikv3\\uyanikv3\\wwwroot\\fonts\\poppins\\poppins-v5-latin-800.woff",
+      "PackagePath": "staticwebassets\\fonts\\poppins\\poppins-v5-latin-800.woff"
+    },
+    {
+      "Id": "C:\\TalyaProject\\uyanikv3\\uyanikv3\\wwwroot\\fonts\\poppins\\poppins-v5-latin-800.woff2",
+      "PackagePath": "staticwebassets\\fonts\\poppins\\poppins-v5-latin-800.woff2"
+    },
+    {
+      "Id": "C:\\TalyaProject\\uyanikv3\\uyanikv3\\wwwroot\\fonts\\poppins\\poppins-v5-latin-800italic.eot",
+      "PackagePath": "staticwebassets\\fonts\\poppins\\poppins-v5-latin-800italic.eot"
+    },
+    {
+      "Id": "C:\\TalyaProject\\uyanikv3\\uyanikv3\\wwwroot\\fonts\\poppins\\poppins-v5-latin-800italic.svg",
+      "PackagePath": "staticwebassets\\fonts\\poppins\\poppins-v5-latin-800italic.svg"
+    },
+    {
+      "Id": "C:\\TalyaProject\\uyanikv3\\uyanikv3\\wwwroot\\fonts\\poppins\\poppins-v5-latin-800italic.ttf",
+      "PackagePath": "staticwebassets\\fonts\\poppins\\poppins-v5-latin-800italic.ttf"
+    },
+    {
+      "Id": "C:\\TalyaProject\\uyanikv3\\uyanikv3\\wwwroot\\fonts\\poppins\\poppins-v5-latin-800italic.woff",
+      "PackagePath": "staticwebassets\\fonts\\poppins\\poppins-v5-latin-800italic.woff"
+    },
+    {
+      "Id": "C:\\TalyaProject\\uyanikv3\\uyanikv3\\wwwroot\\fonts\\poppins\\poppins-v5-latin-800italic.woff2",
+      "PackagePath": "staticwebassets\\fonts\\poppins\\poppins-v5-latin-800italic.woff2"
+    },
+    {
+      "Id": "C:\\TalyaProject\\uyanikv3\\uyanikv3\\wwwroot\\fonts\\poppins\\poppins-v5-latin-900.eot",
+      "PackagePath": "staticwebassets\\fonts\\poppins\\poppins-v5-latin-900.eot"
+    },
+    {
+      "Id": "C:\\TalyaProject\\uyanikv3\\uyanikv3\\wwwroot\\fonts\\poppins\\poppins-v5-latin-900.svg",
+      "PackagePath": "staticwebassets\\fonts\\poppins\\poppins-v5-latin-900.svg"
+    },
+    {
+      "Id": "C:\\TalyaProject\\uyanikv3\\uyanikv3\\wwwroot\\fonts\\poppins\\poppins-v5-latin-900.ttf",
+      "PackagePath": "staticwebassets\\fonts\\poppins\\poppins-v5-latin-900.ttf"
+    },
+    {
+      "Id": "C:\\TalyaProject\\uyanikv3\\uyanikv3\\wwwroot\\fonts\\poppins\\poppins-v5-latin-900.woff",
+      "PackagePath": "staticwebassets\\fonts\\poppins\\poppins-v5-latin-900.woff"
+    },
+    {
+      "Id": "C:\\TalyaProject\\uyanikv3\\uyanikv3\\wwwroot\\fonts\\poppins\\poppins-v5-latin-900.woff2",
+      "PackagePath": "staticwebassets\\fonts\\poppins\\poppins-v5-latin-900.woff2"
+    },
+    {
+      "Id": "C:\\TalyaProject\\uyanikv3\\uyanikv3\\wwwroot\\fonts\\poppins\\poppins-v5-latin-900italic.eot",
+      "PackagePath": "staticwebassets\\fonts\\poppins\\poppins-v5-latin-900italic.eot"
+    },
+    {
+      "Id": "C:\\TalyaProject\\uyanikv3\\uyanikv3\\wwwroot\\fonts\\poppins\\poppins-v5-latin-900italic.svg",
+      "PackagePath": "staticwebassets\\fonts\\poppins\\poppins-v5-latin-900italic.svg"
+    },
+    {
+      "Id": "C:\\TalyaProject\\uyanikv3\\uyanikv3\\wwwroot\\fonts\\poppins\\poppins-v5-latin-900italic.ttf",
+      "PackagePath": "staticwebassets\\fonts\\poppins\\poppins-v5-latin-900italic.ttf"
+    },
+    {
+      "Id": "C:\\TalyaProject\\uyanikv3\\uyanikv3\\wwwroot\\fonts\\poppins\\poppins-v5-latin-900italic.woff",
+      "PackagePath": "staticwebassets\\fonts\\poppins\\poppins-v5-latin-900italic.woff"
+    },
+    {
+      "Id": "C:\\TalyaProject\\uyanikv3\\uyanikv3\\wwwroot\\fonts\\poppins\\poppins-v5-latin-900italic.woff2",
+      "PackagePath": "staticwebassets\\fonts\\poppins\\poppins-v5-latin-900italic.woff2"
+    },
+    {
+      "Id": "C:\\TalyaProject\\uyanikv3\\uyanikv3\\wwwroot\\fonts\\poppins\\poppins-v5-latin-italic.eot",
+      "PackagePath": "staticwebassets\\fonts\\poppins\\poppins-v5-latin-italic.eot"
+    },
+    {
+      "Id": "C:\\TalyaProject\\uyanikv3\\uyanikv3\\wwwroot\\fonts\\poppins\\poppins-v5-latin-italic.svg",
+      "PackagePath": "staticwebassets\\fonts\\poppins\\poppins-v5-latin-italic.svg"
+    },
+    {
+      "Id": "C:\\TalyaProject\\uyanikv3\\uyanikv3\\wwwroot\\fonts\\poppins\\poppins-v5-latin-italic.ttf",
+      "PackagePath": "staticwebassets\\fonts\\poppins\\poppins-v5-latin-italic.ttf"
+    },
+    {
+      "Id": "C:\\TalyaProject\\uyanikv3\\uyanikv3\\wwwroot\\fonts\\poppins\\poppins-v5-latin-italic.woff",
+      "PackagePath": "staticwebassets\\fonts\\poppins\\poppins-v5-latin-italic.woff"
+    },
+    {
+      "Id": "C:\\TalyaProject\\uyanikv3\\uyanikv3\\wwwroot\\fonts\\poppins\\poppins-v5-latin-italic.woff2",
+      "PackagePath": "staticwebassets\\fonts\\poppins\\poppins-v5-latin-italic.woff2"
+    },
+    {
+      "Id": "C:\\TalyaProject\\uyanikv3\\uyanikv3\\wwwroot\\fonts\\poppins\\poppins-v5-latin-regular.eot",
+      "PackagePath": "staticwebassets\\fonts\\poppins\\poppins-v5-latin-regular.eot"
+    },
+    {
+      "Id": "C:\\TalyaProject\\uyanikv3\\uyanikv3\\wwwroot\\fonts\\poppins\\poppins-v5-latin-regular.svg",
+      "PackagePath": "staticwebassets\\fonts\\poppins\\poppins-v5-latin-regular.svg"
+    },
+    {
+      "Id": "C:\\TalyaProject\\uyanikv3\\uyanikv3\\wwwroot\\fonts\\poppins\\poppins-v5-latin-regular.ttf",
+      "PackagePath": "staticwebassets\\fonts\\poppins\\poppins-v5-latin-regular.ttf"
+    },
+    {
+      "Id": "C:\\TalyaProject\\uyanikv3\\uyanikv3\\wwwroot\\fonts\\poppins\\poppins-v5-latin-regular.woff",
+      "PackagePath": "staticwebassets\\fonts\\poppins\\poppins-v5-latin-regular.woff"
+    },
+    {
+      "Id": "C:\\TalyaProject\\uyanikv3\\uyanikv3\\wwwroot\\fonts\\poppins\\poppins-v5-latin-regular.woff2",
+      "PackagePath": "staticwebassets\\fonts\\poppins\\poppins-v5-latin-regular.woff2"
+    },
+    {
+      "Id": "C:\\TalyaProject\\uyanikv3\\uyanikv3\\wwwroot\\images\\bg-title-01.jpg",
+      "PackagePath": "staticwebassets\\images\\bg-title-01.jpg"
+    },
+    {
+      "Id": "C:\\TalyaProject\\uyanikv3\\uyanikv3\\wwwroot\\images\\bg-title-02.jpg",
+      "PackagePath": "staticwebassets\\images\\bg-title-02.jpg"
+    },
+    {
+      "Id": "C:\\TalyaProject\\uyanikv3\\uyanikv3\\wwwroot\\images\\icon\\Untitled-1.jpg",
+      "PackagePath": "staticwebassets\\images\\icon\\Untitled-1.jpg"
+    },
+    {
+      "Id": "C:\\TalyaProject\\uyanikv3\\uyanikv3\\wwwroot\\images\\icon\\avatar-01.jpg",
+      "PackagePath": "staticwebassets\\images\\icon\\avatar-01.jpg"
+    },
+    {
+      "Id": "C:\\TalyaProject\\uyanikv3\\uyanikv3\\wwwroot\\images\\icon\\avatar-02.jpg",
+      "PackagePath": "staticwebassets\\images\\icon\\avatar-02.jpg"
+    },
+    {
+      "Id": "C:\\TalyaProject\\uyanikv3\\uyanikv3\\wwwroot\\images\\icon\\avatar-03.jpg",
+      "PackagePath": "staticwebassets\\images\\icon\\avatar-03.jpg"
+    },
+    {
+      "Id": "C:\\TalyaProject\\uyanikv3\\uyanikv3\\wwwroot\\images\\icon\\avatar-04.jpg",
+      "PackagePath": "staticwebassets\\images\\icon\\avatar-04.jpg"
+    },
+    {
+      "Id": "C:\\TalyaProject\\uyanikv3\\uyanikv3\\wwwroot\\images\\icon\\avatar-05.jpg",
+      "PackagePath": "staticwebassets\\images\\icon\\avatar-05.jpg"
+    },
+    {
+      "Id": "C:\\TalyaProject\\uyanikv3\\uyanikv3\\wwwroot\\images\\icon\\avatar-06.jpg",
+      "PackagePath": "staticwebassets\\images\\icon\\avatar-06.jpg"
+    },
+    {
+      "Id": "C:\\TalyaProject\\uyanikv3\\uyanikv3\\wwwroot\\images\\icon\\avatar-big-01.jpg",
+      "PackagePath": "staticwebassets\\images\\icon\\avatar-big-01.jpg"
+    },
+    {
+      "Id": "C:\\TalyaProject\\uyanikv3\\uyanikv3\\wwwroot\\images\\icon\\logo-blue.png",
+      "PackagePath": "staticwebassets\\images\\icon\\logo-blue.png"
+    },
+    {
+      "Id": "C:\\TalyaProject\\uyanikv3\\uyanikv3\\wwwroot\\images\\icon\\logo-mini.png",
+      "PackagePath": "staticwebassets\\images\\icon\\logo-mini.png"
+    },
+    {
+      "Id": "C:\\TalyaProject\\uyanikv3\\uyanikv3\\wwwroot\\images\\icon\\logo-white.png",
+      "PackagePath": "staticwebassets\\images\\icon\\logo-white.png"
+    },
+    {
+      "Id": "C:\\TalyaProject\\uyanikv3\\uyanikv3\\wwwroot\\images\\icon\\logo.png",
+      "PackagePath": "staticwebassets\\images\\icon\\logo.png"
+    },
+    {
+      "Id": "C:\\TalyaProject\\uyanikv3\\uyanikv3\\wwwroot\\js\\bootstrap-datetimepicker.js",
+      "PackagePath": "staticwebassets\\js\\bootstrap-datetimepicker.js"
+    },
+    {
+      "Id": "C:\\TalyaProject\\uyanikv3\\uyanikv3\\wwwroot\\js\\main.js",
+      "PackagePath": "staticwebassets\\js\\main.js"
+    },
+    {
+      "Id": "C:\\TalyaProject\\uyanikv3\\uyanikv3\\wwwroot\\js\\moment.js",
+      "PackagePath": "staticwebassets\\js\\moment.js"
+    },
+    {
+      "Id": "C:\\TalyaProject\\uyanikv3\\uyanikv3\\wwwroot\\media\\9606031aabebde32fa96edeff071a132.jpg",
+      "PackagePath": "staticwebassets\\media\\9606031aabebde32fa96edeff071a132.jpg"
+    },
+    {
+      "Id": "C:\\TalyaProject\\uyanikv3\\uyanikv3\\wwwroot\\vendor\\animsition\\animsition.min.css",
+      "PackagePath": "staticwebassets\\vendor\\animsition\\animsition.min.css"
+    },
+    {
+      "Id": "C:\\TalyaProject\\uyanikv3\\uyanikv3\\wwwroot\\vendor\\animsition\\animsition.min.js",
+      "PackagePath": "staticwebassets\\vendor\\animsition\\animsition.min.js"
+    },
+    {
+      "Id": "C:\\TalyaProject\\uyanikv3\\uyanikv3\\wwwroot\\vendor\\bootstrap-4.1\\bootstrap.min.css",
+      "PackagePath": "staticwebassets\\vendor\\bootstrap-4.1\\bootstrap.min.css"
+    },
+    {
+      "Id": "C:\\TalyaProject\\uyanikv3\\uyanikv3\\wwwroot\\vendor\\bootstrap-4.1\\bootstrap.min.js",
+      "PackagePath": "staticwebassets\\vendor\\bootstrap-4.1\\bootstrap.min.js"
+    },
+    {
+      "Id": "C:\\TalyaProject\\uyanikv3\\uyanikv3\\wwwroot\\vendor\\bootstrap-4.1\\popper.min.js",
+      "PackagePath": "staticwebassets\\vendor\\bootstrap-4.1\\popper.min.js"
+    },
+    {
+      "Id": "C:\\TalyaProject\\uyanikv3\\uyanikv3\\wwwroot\\vendor\\bootstrap-progressbar\\bootstrap-progressbar-3.3.4.min.css",
+      "PackagePath": "staticwebassets\\vendor\\bootstrap-progressbar\\bootstrap-progressbar-3.3.4.min.css"
+    },
+    {
+      "Id": "C:\\TalyaProject\\uyanikv3\\uyanikv3\\wwwroot\\vendor\\bootstrap-progressbar\\bootstrap-progressbar.min.js",
+      "PackagePath": "staticwebassets\\vendor\\bootstrap-progressbar\\bootstrap-progressbar.min.js"
+    },
+    {
+      "Id": "C:\\TalyaProject\\uyanikv3\\uyanikv3\\wwwroot\\vendor\\chartjs\\Chart.bundle.min.js",
+      "PackagePath": "staticwebassets\\vendor\\chartjs\\Chart.bundle.min.js"
+    },
+    {
+      "Id": "C:\\TalyaProject\\uyanikv3\\uyanikv3\\wwwroot\\vendor\\circle-progress\\circle-progress.js",
+      "PackagePath": "staticwebassets\\vendor\\circle-progress\\circle-progress.js"
+    },
+    {
+      "Id": "C:\\TalyaProject\\uyanikv3\\uyanikv3\\wwwroot\\vendor\\circle-progress\\circle-progress.min.js",
+      "PackagePath": "staticwebassets\\vendor\\circle-progress\\circle-progress.min.js"
+    },
+    {
+      "Id": "C:\\TalyaProject\\uyanikv3\\uyanikv3\\wwwroot\\vendor\\countdown\\countdowntime.js",
+      "PackagePath": "staticwebassets\\vendor\\countdown\\countdowntime.js"
+    },
+    {
+      "Id": "C:\\TalyaProject\\uyanikv3\\uyanikv3\\wwwroot\\vendor\\countdown\\jquery.countdown.min.js",
+      "PackagePath": "staticwebassets\\vendor\\countdown\\jquery.countdown.min.js"
+    },
+    {
+      "Id": "C:\\TalyaProject\\uyanikv3\\uyanikv3\\wwwroot\\vendor\\countdown\\moment-timezone-with-data.min.js",
+      "PackagePath": "staticwebassets\\vendor\\countdown\\moment-timezone-with-data.min.js"
+    },
+    {
+      "Id": "C:\\TalyaProject\\uyanikv3\\uyanikv3\\wwwroot\\vendor\\countdown\\moment-timezone.min.js",
+      "PackagePath": "staticwebassets\\vendor\\countdown\\moment-timezone.min.js"
+    },
+    {
+      "Id": "C:\\TalyaProject\\uyanikv3\\uyanikv3\\wwwroot\\vendor\\countdown\\moment.min.js",
+      "PackagePath": "staticwebassets\\vendor\\countdown\\moment.min.js"
+    },
+    {
+      "Id": "C:\\TalyaProject\\uyanikv3\\uyanikv3\\wwwroot\\vendor\\counter-up\\jquery.counterup.min.js",
+      "PackagePath": "staticwebassets\\vendor\\counter-up\\jquery.counterup.min.js"
+    },
+    {
+      "Id": "C:\\TalyaProject\\uyanikv3\\uyanikv3\\wwwroot\\vendor\\counter-up\\jquery.waypoints.min.js",
+      "PackagePath": "staticwebassets\\vendor\\counter-up\\jquery.waypoints.min.js"
+    },
+    {
+      "Id": "C:\\TalyaProject\\uyanikv3\\uyanikv3\\wwwroot\\vendor\\counter-up\\waypoints.min.js",
+      "PackagePath": "staticwebassets\\vendor\\counter-up\\waypoints.min.js"
+    },
+    {
+      "Id": "C:\\TalyaProject\\uyanikv3\\uyanikv3\\wwwroot\\vendor\\css-hamburgers\\hamburgers.css",
+      "PackagePath": "staticwebassets\\vendor\\css-hamburgers\\hamburgers.css"
+    },
+    {
+      "Id": "C:\\TalyaProject\\uyanikv3\\uyanikv3\\wwwroot\\vendor\\css-hamburgers\\hamburgers.min.css",
+      "PackagePath": "staticwebassets\\vendor\\css-hamburgers\\hamburgers.min.css"
+    },
+    {
+      "Id": "C:\\TalyaProject\\uyanikv3\\uyanikv3\\wwwroot\\vendor\\font-awesome-4.7\\HELP-US-OUT.txt",
+      "PackagePath": "staticwebassets\\vendor\\font-awesome-4.7\\HELP-US-OUT.txt"
+    },
+    {
+      "Id": "C:\\TalyaProject\\uyanikv3\\uyanikv3\\wwwroot\\vendor\\font-awesome-4.7\\css\\font-awesome.css",
+      "PackagePath": "staticwebassets\\vendor\\font-awesome-4.7\\css\\font-awesome.css"
+    },
+    {
+      "Id": "C:\\TalyaProject\\uyanikv3\\uyanikv3\\wwwroot\\vendor\\font-awesome-4.7\\css\\font-awesome.min.css",
+      "PackagePath": "staticwebassets\\vendor\\font-awesome-4.7\\css\\font-awesome.min.css"
+    },
+    {
+      "Id": "C:\\TalyaProject\\uyanikv3\\uyanikv3\\wwwroot\\vendor\\font-awesome-4.7\\fonts\\FontAwesome.otf",
+      "PackagePath": "staticwebassets\\vendor\\font-awesome-4.7\\fonts\\FontAwesome.otf"
+    },
+    {
+      "Id": "C:\\TalyaProject\\uyanikv3\\uyanikv3\\wwwroot\\vendor\\font-awesome-4.7\\fonts\\fontawesome-webfont.eot",
+      "PackagePath": "staticwebassets\\vendor\\font-awesome-4.7\\fonts\\fontawesome-webfont.eot"
+    },
+    {
+      "Id": "C:\\TalyaProject\\uyanikv3\\uyanikv3\\wwwroot\\vendor\\font-awesome-4.7\\fonts\\fontawesome-webfont.svg",
+      "PackagePath": "staticwebassets\\vendor\\font-awesome-4.7\\fonts\\fontawesome-webfont.svg"
+    },
+    {
+      "Id": "C:\\TalyaProject\\uyanikv3\\uyanikv3\\wwwroot\\vendor\\font-awesome-4.7\\fonts\\fontawesome-webfont.ttf",
+      "PackagePath": "staticwebassets\\vendor\\font-awesome-4.7\\fonts\\fontawesome-webfont.ttf"
+    },
+    {
+      "Id": "C:\\TalyaProject\\uyanikv3\\uyanikv3\\wwwroot\\vendor\\font-awesome-4.7\\fonts\\fontawesome-webfont.woff",
+      "PackagePath": "staticwebassets\\vendor\\font-awesome-4.7\\fonts\\fontawesome-webfont.woff"
+    },
+    {
+      "Id": "C:\\TalyaProject\\uyanikv3\\uyanikv3\\wwwroot\\vendor\\font-awesome-4.7\\fonts\\fontawesome-webfont.woff2",
+      "PackagePath": "staticwebassets\\vendor\\font-awesome-4.7\\fonts\\fontawesome-webfont.woff2"
+    },
+    {
+      "Id": "C:\\TalyaProject\\uyanikv3\\uyanikv3\\wwwroot\\vendor\\font-awesome-5\\css\\fontawesome-all.min.css",
+      "PackagePath": "staticwebassets\\vendor\\font-awesome-5\\css\\fontawesome-all.min.css"
+    },
+    {
+      "Id": "C:\\TalyaProject\\uyanikv3\\uyanikv3\\wwwroot\\vendor\\font-awesome-5\\webfonts\\fa-brands-400.eot",
+      "PackagePath": "staticwebassets\\vendor\\font-awesome-5\\webfonts\\fa-brands-400.eot"
+    },
+    {
+      "Id": "C:\\TalyaProject\\uyanikv3\\uyanikv3\\wwwroot\\vendor\\font-awesome-5\\webfonts\\fa-brands-400.svg",
+      "PackagePath": "staticwebassets\\vendor\\font-awesome-5\\webfonts\\fa-brands-400.svg"
+    },
+    {
+      "Id": "C:\\TalyaProject\\uyanikv3\\uyanikv3\\wwwroot\\vendor\\font-awesome-5\\webfonts\\fa-brands-400.ttf",
+      "PackagePath": "staticwebassets\\vendor\\font-awesome-5\\webfonts\\fa-brands-400.ttf"
+    },
+    {
+      "Id": "C:\\TalyaProject\\uyanikv3\\uyanikv3\\wwwroot\\vendor\\font-awesome-5\\webfonts\\fa-brands-400.woff",
+      "PackagePath": "staticwebassets\\vendor\\font-awesome-5\\webfonts\\fa-brands-400.woff"
+    },
+    {
+      "Id": "C:\\TalyaProject\\uyanikv3\\uyanikv3\\wwwroot\\vendor\\font-awesome-5\\webfonts\\fa-brands-400.woff2",
+      "PackagePath": "staticwebassets\\vendor\\font-awesome-5\\webfonts\\fa-brands-400.woff2"
+    },
+    {
+      "Id": "C:\\TalyaProject\\uyanikv3\\uyanikv3\\wwwroot\\vendor\\font-awesome-5\\webfonts\\fa-regular-400.eot",
+      "PackagePath": "staticwebassets\\vendor\\font-awesome-5\\webfonts\\fa-regular-400.eot"
+    },
+    {
+      "Id": "C:\\TalyaProject\\uyanikv3\\uyanikv3\\wwwroot\\vendor\\font-awesome-5\\webfonts\\fa-regular-400.svg",
+      "PackagePath": "staticwebassets\\vendor\\font-awesome-5\\webfonts\\fa-regular-400.svg"
+    },
+    {
+      "Id": "C:\\TalyaProject\\uyanikv3\\uyanikv3\\wwwroot\\vendor\\font-awesome-5\\webfonts\\fa-regular-400.ttf",
+      "PackagePath": "staticwebassets\\vendor\\font-awesome-5\\webfonts\\fa-regular-400.ttf"
+    },
+    {
+      "Id": "C:\\TalyaProject\\uyanikv3\\uyanikv3\\wwwroot\\vendor\\font-awesome-5\\webfonts\\fa-regular-400.woff",
+      "PackagePath": "staticwebassets\\vendor\\font-awesome-5\\webfonts\\fa-regular-400.woff"
+    },
+    {
+      "Id": "C:\\TalyaProject\\uyanikv3\\uyanikv3\\wwwroot\\vendor\\font-awesome-5\\webfonts\\fa-regular-400.woff2",
+      "PackagePath": "staticwebassets\\vendor\\font-awesome-5\\webfonts\\fa-regular-400.woff2"
+    },
+    {
+      "Id": "C:\\TalyaProject\\uyanikv3\\uyanikv3\\wwwroot\\vendor\\font-awesome-5\\webfonts\\fa-solid-900.eot",
+      "PackagePath": "staticwebassets\\vendor\\font-awesome-5\\webfonts\\fa-solid-900.eot"
+    },
+    {
+      "Id": "C:\\TalyaProject\\uyanikv3\\uyanikv3\\wwwroot\\vendor\\font-awesome-5\\webfonts\\fa-solid-900.svg",
+      "PackagePath": "staticwebassets\\vendor\\font-awesome-5\\webfonts\\fa-solid-900.svg"
+    },
+    {
+      "Id": "C:\\TalyaProject\\uyanikv3\\uyanikv3\\wwwroot\\vendor\\font-awesome-5\\webfonts\\fa-solid-900.ttf",
+      "PackagePath": "staticwebassets\\vendor\\font-awesome-5\\webfonts\\fa-solid-900.ttf"
+    },
+    {
+      "Id": "C:\\TalyaProject\\uyanikv3\\uyanikv3\\wwwroot\\vendor\\font-awesome-5\\webfonts\\fa-solid-900.woff",
+      "PackagePath": "staticwebassets\\vendor\\font-awesome-5\\webfonts\\fa-solid-900.woff"
+    },
+    {
+      "Id": "C:\\TalyaProject\\uyanikv3\\uyanikv3\\wwwroot\\vendor\\font-awesome-5\\webfonts\\fa-solid-900.woff2",
+      "PackagePath": "staticwebassets\\vendor\\font-awesome-5\\webfonts\\fa-solid-900.woff2"
+    },
+    {
+      "Id": "C:\\TalyaProject\\uyanikv3\\uyanikv3\\wwwroot\\vendor\\fullcalendar-3.10.0\\CHANGELOG.txt",
+      "PackagePath": "staticwebassets\\vendor\\fullcalendar-3.10.0\\CHANGELOG.txt"
+    },
+    {
+      "Id": "C:\\TalyaProject\\uyanikv3\\uyanikv3\\wwwroot\\vendor\\fullcalendar-3.10.0\\CONTRIBUTING.txt",
+      "PackagePath": "staticwebassets\\vendor\\fullcalendar-3.10.0\\CONTRIBUTING.txt"
+    },
+    {
+      "Id": "C:\\TalyaProject\\uyanikv3\\uyanikv3\\wwwroot\\vendor\\fullcalendar-3.10.0\\LICENSE.txt",
+      "PackagePath": "staticwebassets\\vendor\\fullcalendar-3.10.0\\LICENSE.txt"
+    },
+    {
+      "Id": "C:\\TalyaProject\\uyanikv3\\uyanikv3\\wwwroot\\vendor\\fullcalendar-3.10.0\\README.txt",
+      "PackagePath": "staticwebassets\\vendor\\fullcalendar-3.10.0\\README.txt"
+    },
+    {
+      "Id": "C:\\TalyaProject\\uyanikv3\\uyanikv3\\wwwroot\\vendor\\fullcalendar-3.10.0\\fullcalendar.css",
+      "PackagePath": "staticwebassets\\vendor\\fullcalendar-3.10.0\\fullcalendar.css"
+    },
+    {
+      "Id": "C:\\TalyaProject\\uyanikv3\\uyanikv3\\wwwroot\\vendor\\fullcalendar-3.10.0\\fullcalendar.js",
+      "PackagePath": "staticwebassets\\vendor\\fullcalendar-3.10.0\\fullcalendar.js"
+    },
+    {
+      "Id": "C:\\TalyaProject\\uyanikv3\\uyanikv3\\wwwroot\\vendor\\fullcalendar-3.10.0\\fullcalendar.min.css",
+      "PackagePath": "staticwebassets\\vendor\\fullcalendar-3.10.0\\fullcalendar.min.css"
+    },
+    {
+      "Id": "C:\\TalyaProject\\uyanikv3\\uyanikv3\\wwwroot\\vendor\\fullcalendar-3.10.0\\fullcalendar.min.js",
+      "PackagePath": "staticwebassets\\vendor\\fullcalendar-3.10.0\\fullcalendar.min.js"
+    },
+    {
+      "Id": "C:\\TalyaProject\\uyanikv3\\uyanikv3\\wwwroot\\vendor\\fullcalendar-3.10.0\\fullcalendar.print.css",
+      "PackagePath": "staticwebassets\\vendor\\fullcalendar-3.10.0\\fullcalendar.print.css"
+    },
+    {
+      "Id": "C:\\TalyaProject\\uyanikv3\\uyanikv3\\wwwroot\\vendor\\fullcalendar-3.10.0\\fullcalendar.print.min.css",
+      "PackagePath": "staticwebassets\\vendor\\fullcalendar-3.10.0\\fullcalendar.print.min.css"
+    },
+    {
+      "Id": "C:\\TalyaProject\\uyanikv3\\uyanikv3\\wwwroot\\vendor\\fullcalendar-3.10.0\\gcal.js",
+      "PackagePath": "staticwebassets\\vendor\\fullcalendar-3.10.0\\gcal.js"
+    },
+    {
+      "Id": "C:\\TalyaProject\\uyanikv3\\uyanikv3\\wwwroot\\vendor\\fullcalendar-3.10.0\\gcal.min.js",
+      "PackagePath": "staticwebassets\\vendor\\fullcalendar-3.10.0\\gcal.min.js"
+    },
+    {
+      "Id": "C:\\TalyaProject\\uyanikv3\\uyanikv3\\wwwroot\\vendor\\fullcalendar-3.10.0\\lib\\moment.min.js",
+      "PackagePath": "staticwebassets\\vendor\\fullcalendar-3.10.0\\lib\\moment.min.js"
+    },
+    {
+      "Id": "C:\\TalyaProject\\uyanikv3\\uyanikv3\\wwwroot\\vendor\\fullcalendar-3.10.0\\locale-all.js",
+      "PackagePath": "staticwebassets\\vendor\\fullcalendar-3.10.0\\locale-all.js"
+    },
+    {
+      "Id": "C:\\TalyaProject\\uyanikv3\\uyanikv3\\wwwroot\\vendor\\fullcalendar-3.10.0\\locale\\af.js",
+      "PackagePath": "staticwebassets\\vendor\\fullcalendar-3.10.0\\locale\\af.js"
+    },
+    {
+      "Id": "C:\\TalyaProject\\uyanikv3\\uyanikv3\\wwwroot\\vendor\\fullcalendar-3.10.0\\locale\\ar-dz.js",
+      "PackagePath": "staticwebassets\\vendor\\fullcalendar-3.10.0\\locale\\ar-dz.js"
+    },
+    {
+      "Id": "C:\\TalyaProject\\uyanikv3\\uyanikv3\\wwwroot\\vendor\\fullcalendar-3.10.0\\locale\\ar-kw.js",
+      "PackagePath": "staticwebassets\\vendor\\fullcalendar-3.10.0\\locale\\ar-kw.js"
+    },
+    {
+      "Id": "C:\\TalyaProject\\uyanikv3\\uyanikv3\\wwwroot\\vendor\\fullcalendar-3.10.0\\locale\\ar-ly.js",
+      "PackagePath": "staticwebassets\\vendor\\fullcalendar-3.10.0\\locale\\ar-ly.js"
+    },
+    {
+      "Id": "C:\\TalyaProject\\uyanikv3\\uyanikv3\\wwwroot\\vendor\\fullcalendar-3.10.0\\locale\\ar-ma.js",
+      "PackagePath": "staticwebassets\\vendor\\fullcalendar-3.10.0\\locale\\ar-ma.js"
+    },
+    {
+      "Id": "C:\\TalyaProject\\uyanikv3\\uyanikv3\\wwwroot\\vendor\\fullcalendar-3.10.0\\locale\\ar-sa.js",
+      "PackagePath": "staticwebassets\\vendor\\fullcalendar-3.10.0\\locale\\ar-sa.js"
+    },
+    {
+      "Id": "C:\\TalyaProject\\uyanikv3\\uyanikv3\\wwwroot\\vendor\\fullcalendar-3.10.0\\locale\\ar-tn.js",
+      "PackagePath": "staticwebassets\\vendor\\fullcalendar-3.10.0\\locale\\ar-tn.js"
+    },
+    {
+      "Id": "C:\\TalyaProject\\uyanikv3\\uyanikv3\\wwwroot\\vendor\\fullcalendar-3.10.0\\locale\\ar.js",
+      "PackagePath": "staticwebassets\\vendor\\fullcalendar-3.10.0\\locale\\ar.js"
+    },
+    {
+      "Id": "C:\\TalyaProject\\uyanikv3\\uyanikv3\\wwwroot\\vendor\\fullcalendar-3.10.0\\locale\\be.js",
+      "PackagePath": "staticwebassets\\vendor\\fullcalendar-3.10.0\\locale\\be.js"
+    },
+    {
+      "Id": "C:\\TalyaProject\\uyanikv3\\uyanikv3\\wwwroot\\vendor\\fullcalendar-3.10.0\\locale\\bg.js",
+      "PackagePath": "staticwebassets\\vendor\\fullcalendar-3.10.0\\locale\\bg.js"
+    },
+    {
+      "Id": "C:\\TalyaProject\\uyanikv3\\uyanikv3\\wwwroot\\vendor\\fullcalendar-3.10.0\\locale\\bs.js",
+      "PackagePath": "staticwebassets\\vendor\\fullcalendar-3.10.0\\locale\\bs.js"
+    },
+    {
+      "Id": "C:\\TalyaProject\\uyanikv3\\uyanikv3\\wwwroot\\vendor\\fullcalendar-3.10.0\\locale\\ca.js",
+      "PackagePath": "staticwebassets\\vendor\\fullcalendar-3.10.0\\locale\\ca.js"
+    },
+    {
+      "Id": "C:\\TalyaProject\\uyanikv3\\uyanikv3\\wwwroot\\vendor\\fullcalendar-3.10.0\\locale\\cs.js",
+      "PackagePath": "staticwebassets\\vendor\\fullcalendar-3.10.0\\locale\\cs.js"
+    },
+    {
+      "Id": "C:\\TalyaProject\\uyanikv3\\uyanikv3\\wwwroot\\vendor\\fullcalendar-3.10.0\\locale\\da.js",
+      "PackagePath": "staticwebassets\\vendor\\fullcalendar-3.10.0\\locale\\da.js"
+    },
+    {
+      "Id": "C:\\TalyaProject\\uyanikv3\\uyanikv3\\wwwroot\\vendor\\fullcalendar-3.10.0\\locale\\de-at.js",
+      "PackagePath": "staticwebassets\\vendor\\fullcalendar-3.10.0\\locale\\de-at.js"
+    },
+    {
+      "Id": "C:\\TalyaProject\\uyanikv3\\uyanikv3\\wwwroot\\vendor\\fullcalendar-3.10.0\\locale\\de-ch.js",
+      "PackagePath": "staticwebassets\\vendor\\fullcalendar-3.10.0\\locale\\de-ch.js"
+    },
+    {
+      "Id": "C:\\TalyaProject\\uyanikv3\\uyanikv3\\wwwroot\\vendor\\fullcalendar-3.10.0\\locale\\de.js",
+      "PackagePath": "staticwebassets\\vendor\\fullcalendar-3.10.0\\locale\\de.js"
+    },
+    {
+      "Id": "C:\\TalyaProject\\uyanikv3\\uyanikv3\\wwwroot\\vendor\\fullcalendar-3.10.0\\locale\\el.js",
+      "PackagePath": "staticwebassets\\vendor\\fullcalendar-3.10.0\\locale\\el.js"
+    },
+    {
+      "Id": "C:\\TalyaProject\\uyanikv3\\uyanikv3\\wwwroot\\vendor\\fullcalendar-3.10.0\\locale\\en-au.js",
+      "PackagePath": "staticwebassets\\vendor\\fullcalendar-3.10.0\\locale\\en-au.js"
+    },
+    {
+      "Id": "C:\\TalyaProject\\uyanikv3\\uyanikv3\\wwwroot\\vendor\\fullcalendar-3.10.0\\locale\\en-ca.js",
+      "PackagePath": "staticwebassets\\vendor\\fullcalendar-3.10.0\\locale\\en-ca.js"
+    },
+    {
+      "Id": "C:\\TalyaProject\\uyanikv3\\uyanikv3\\wwwroot\\vendor\\fullcalendar-3.10.0\\locale\\en-gb.js",
+      "PackagePath": "staticwebassets\\vendor\\fullcalendar-3.10.0\\locale\\en-gb.js"
+    },
+    {
+      "Id": "C:\\TalyaProject\\uyanikv3\\uyanikv3\\wwwroot\\vendor\\fullcalendar-3.10.0\\locale\\en-ie.js",
+      "PackagePath": "staticwebassets\\vendor\\fullcalendar-3.10.0\\locale\\en-ie.js"
+    },
+    {
+      "Id": "C:\\TalyaProject\\uyanikv3\\uyanikv3\\wwwroot\\vendor\\fullcalendar-3.10.0\\locale\\en-nz.js",
+      "PackagePath": "staticwebassets\\vendor\\fullcalendar-3.10.0\\locale\\en-nz.js"
+    },
+    {
+      "Id": "C:\\TalyaProject\\uyanikv3\\uyanikv3\\wwwroot\\vendor\\fullcalendar-3.10.0\\locale\\es-do.js",
+      "PackagePath": "staticwebassets\\vendor\\fullcalendar-3.10.0\\locale\\es-do.js"
+    },
+    {
+      "Id": "C:\\TalyaProject\\uyanikv3\\uyanikv3\\wwwroot\\vendor\\fullcalendar-3.10.0\\locale\\es-us.js",
+      "PackagePath": "staticwebassets\\vendor\\fullcalendar-3.10.0\\locale\\es-us.js"
+    },
+    {
+      "Id": "C:\\TalyaProject\\uyanikv3\\uyanikv3\\wwwroot\\vendor\\fullcalendar-3.10.0\\locale\\es.js",
+      "PackagePath": "staticwebassets\\vendor\\fullcalendar-3.10.0\\locale\\es.js"
+    },
+    {
+      "Id": "C:\\TalyaProject\\uyanikv3\\uyanikv3\\wwwroot\\vendor\\fullcalendar-3.10.0\\locale\\et.js",
+      "PackagePath": "staticwebassets\\vendor\\fullcalendar-3.10.0\\locale\\et.js"
+    },
+    {
+      "Id": "C:\\TalyaProject\\uyanikv3\\uyanikv3\\wwwroot\\vendor\\fullcalendar-3.10.0\\locale\\eu.js",
+      "PackagePath": "staticwebassets\\vendor\\fullcalendar-3.10.0\\locale\\eu.js"
+    },
+    {
+      "Id": "C:\\TalyaProject\\uyanikv3\\uyanikv3\\wwwroot\\vendor\\fullcalendar-3.10.0\\locale\\fa.js",
+      "PackagePath": "staticwebassets\\vendor\\fullcalendar-3.10.0\\locale\\fa.js"
+    },
+    {
+      "Id": "C:\\TalyaProject\\uyanikv3\\uyanikv3\\wwwroot\\vendor\\fullcalendar-3.10.0\\locale\\fi.js",
+      "PackagePath": "staticwebassets\\vendor\\fullcalendar-3.10.0\\locale\\fi.js"
+    },
+    {
+      "Id": "C:\\TalyaProject\\uyanikv3\\uyanikv3\\wwwroot\\vendor\\fullcalendar-3.10.0\\locale\\fr-ca.js",
+      "PackagePath": "staticwebassets\\vendor\\fullcalendar-3.10.0\\locale\\fr-ca.js"
+    },
+    {
+      "Id": "C:\\TalyaProject\\uyanikv3\\uyanikv3\\wwwroot\\vendor\\fullcalendar-3.10.0\\locale\\fr-ch.js",
+      "PackagePath": "staticwebassets\\vendor\\fullcalendar-3.10.0\\locale\\fr-ch.js"
+    },
+    {
+      "Id": "C:\\TalyaProject\\uyanikv3\\uyanikv3\\wwwroot\\vendor\\fullcalendar-3.10.0\\locale\\fr.js",
+      "PackagePath": "staticwebassets\\vendor\\fullcalendar-3.10.0\\locale\\fr.js"
+    },
+    {
+      "Id": "C:\\TalyaProject\\uyanikv3\\uyanikv3\\wwwroot\\vendor\\fullcalendar-3.10.0\\locale\\gl.js",
+      "PackagePath": "staticwebassets\\vendor\\fullcalendar-3.10.0\\locale\\gl.js"
+    },
+    {
+      "Id": "C:\\TalyaProject\\uyanikv3\\uyanikv3\\wwwroot\\vendor\\fullcalendar-3.10.0\\locale\\he.js",
+      "PackagePath": "staticwebassets\\vendor\\fullcalendar-3.10.0\\locale\\he.js"
+    },
+    {
+      "Id": "C:\\TalyaProject\\uyanikv3\\uyanikv3\\wwwroot\\vendor\\fullcalendar-3.10.0\\locale\\hi.js",
+      "PackagePath": "staticwebassets\\vendor\\fullcalendar-3.10.0\\locale\\hi.js"
+    },
+    {
+      "Id": "C:\\TalyaProject\\uyanikv3\\uyanikv3\\wwwroot\\vendor\\fullcalendar-3.10.0\\locale\\hr.js",
+      "PackagePath": "staticwebassets\\vendor\\fullcalendar-3.10.0\\locale\\hr.js"
+    },
+    {
+      "Id": "C:\\TalyaProject\\uyanikv3\\uyanikv3\\wwwroot\\vendor\\fullcalendar-3.10.0\\locale\\hu.js",
+      "PackagePath": "staticwebassets\\vendor\\fullcalendar-3.10.0\\locale\\hu.js"
+    },
+    {
+      "Id": "C:\\TalyaProject\\uyanikv3\\uyanikv3\\wwwroot\\vendor\\fullcalendar-3.10.0\\locale\\id.js",
+      "PackagePath": "staticwebassets\\vendor\\fullcalendar-3.10.0\\locale\\id.js"
+    },
+    {
+      "Id": "C:\\TalyaProject\\uyanikv3\\uyanikv3\\wwwroot\\vendor\\fullcalendar-3.10.0\\locale\\is.js",
+      "PackagePath": "staticwebassets\\vendor\\fullcalendar-3.10.0\\locale\\is.js"
+    },
+    {
+      "Id": "C:\\TalyaProject\\uyanikv3\\uyanikv3\\wwwroot\\vendor\\fullcalendar-3.10.0\\locale\\it.js",
+      "PackagePath": "staticwebassets\\vendor\\fullcalendar-3.10.0\\locale\\it.js"
+    },
+    {
+      "Id": "C:\\TalyaProject\\uyanikv3\\uyanikv3\\wwwroot\\vendor\\fullcalendar-3.10.0\\locale\\ja.js",
+      "PackagePath": "staticwebassets\\vendor\\fullcalendar-3.10.0\\locale\\ja.js"
+    },
+    {
+      "Id": "C:\\TalyaProject\\uyanikv3\\uyanikv3\\wwwroot\\vendor\\fullcalendar-3.10.0\\locale\\ka.js",
+      "PackagePath": "staticwebassets\\vendor\\fullcalendar-3.10.0\\locale\\ka.js"
+    },
+    {
+      "Id": "C:\\TalyaProject\\uyanikv3\\uyanikv3\\wwwroot\\vendor\\fullcalendar-3.10.0\\locale\\kk.js",
+      "PackagePath": "staticwebassets\\vendor\\fullcalendar-3.10.0\\locale\\kk.js"
+    },
+    {
+      "Id": "C:\\TalyaProject\\uyanikv3\\uyanikv3\\wwwroot\\vendor\\fullcalendar-3.10.0\\locale\\ko.js",
+      "PackagePath": "staticwebassets\\vendor\\fullcalendar-3.10.0\\locale\\ko.js"
+    },
+    {
+      "Id": "C:\\TalyaProject\\uyanikv3\\uyanikv3\\wwwroot\\vendor\\fullcalendar-3.10.0\\locale\\lb.js",
+      "PackagePath": "staticwebassets\\vendor\\fullcalendar-3.10.0\\locale\\lb.js"
+    },
+    {
+      "Id": "C:\\TalyaProject\\uyanikv3\\uyanikv3\\wwwroot\\vendor\\fullcalendar-3.10.0\\locale\\lt.js",
+      "PackagePath": "staticwebassets\\vendor\\fullcalendar-3.10.0\\locale\\lt.js"
+    },
+    {
+      "Id": "C:\\TalyaProject\\uyanikv3\\uyanikv3\\wwwroot\\vendor\\fullcalendar-3.10.0\\locale\\lv.js",
+      "PackagePath": "staticwebassets\\vendor\\fullcalendar-3.10.0\\locale\\lv.js"
+    },
+    {
+      "Id": "C:\\TalyaProject\\uyanikv3\\uyanikv3\\wwwroot\\vendor\\fullcalendar-3.10.0\\locale\\mk.js",
+      "PackagePath": "staticwebassets\\vendor\\fullcalendar-3.10.0\\locale\\mk.js"
+    },
+    {
+      "Id": "C:\\TalyaProject\\uyanikv3\\uyanikv3\\wwwroot\\vendor\\fullcalendar-3.10.0\\locale\\ms-my.js",
+      "PackagePath": "staticwebassets\\vendor\\fullcalendar-3.10.0\\locale\\ms-my.js"
+    },
+    {
+      "Id": "C:\\TalyaProject\\uyanikv3\\uyanikv3\\wwwroot\\vendor\\fullcalendar-3.10.0\\locale\\ms.js",
+      "PackagePath": "staticwebassets\\vendor\\fullcalendar-3.10.0\\locale\\ms.js"
+    },
+    {
+      "Id": "C:\\TalyaProject\\uyanikv3\\uyanikv3\\wwwroot\\vendor\\fullcalendar-3.10.0\\locale\\nb.js",
+      "PackagePath": "staticwebassets\\vendor\\fullcalendar-3.10.0\\locale\\nb.js"
+    },
+    {
+      "Id": "C:\\TalyaProject\\uyanikv3\\uyanikv3\\wwwroot\\vendor\\fullcalendar-3.10.0\\locale\\nl-be.js",
+      "PackagePath": "staticwebassets\\vendor\\fullcalendar-3.10.0\\locale\\nl-be.js"
+    },
+    {
+      "Id": "C:\\TalyaProject\\uyanikv3\\uyanikv3\\wwwroot\\vendor\\fullcalendar-3.10.0\\locale\\nl.js",
+      "PackagePath": "staticwebassets\\vendor\\fullcalendar-3.10.0\\locale\\nl.js"
+    },
+    {
+      "Id": "C:\\TalyaProject\\uyanikv3\\uyanikv3\\wwwroot\\vendor\\fullcalendar-3.10.0\\locale\\nn.js",
+      "PackagePath": "staticwebassets\\vendor\\fullcalendar-3.10.0\\locale\\nn.js"
+    },
+    {
+      "Id": "C:\\TalyaProject\\uyanikv3\\uyanikv3\\wwwroot\\vendor\\fullcalendar-3.10.0\\locale\\pl.js",
+      "PackagePath": "staticwebassets\\vendor\\fullcalendar-3.10.0\\locale\\pl.js"
+    },
+    {
+      "Id": "C:\\TalyaProject\\uyanikv3\\uyanikv3\\wwwroot\\vendor\\fullcalendar-3.10.0\\locale\\pt-br.js",
+      "PackagePath": "staticwebassets\\vendor\\fullcalendar-3.10.0\\locale\\pt-br.js"
+    },
+    {
+      "Id": "C:\\TalyaProject\\uyanikv3\\uyanikv3\\wwwroot\\vendor\\fullcalendar-3.10.0\\locale\\pt.js",
+      "PackagePath": "staticwebassets\\vendor\\fullcalendar-3.10.0\\locale\\pt.js"
+    },
+    {
+      "Id": "C:\\TalyaProject\\uyanikv3\\uyanikv3\\wwwroot\\vendor\\fullcalendar-3.10.0\\locale\\ro.js",
+      "PackagePath": "staticwebassets\\vendor\\fullcalendar-3.10.0\\locale\\ro.js"
+    },
+    {
+      "Id": "C:\\TalyaProject\\uyanikv3\\uyanikv3\\wwwroot\\vendor\\fullcalendar-3.10.0\\locale\\ru.js",
+      "PackagePath": "staticwebassets\\vendor\\fullcalendar-3.10.0\\locale\\ru.js"
+    },
+    {
+      "Id": "C:\\TalyaProject\\uyanikv3\\uyanikv3\\wwwroot\\vendor\\fullcalendar-3.10.0\\locale\\sk.js",
+      "PackagePath": "staticwebassets\\vendor\\fullcalendar-3.10.0\\locale\\sk.js"
+    },
+    {
+      "Id": "C:\\TalyaProject\\uyanikv3\\uyanikv3\\wwwroot\\vendor\\fullcalendar-3.10.0\\locale\\sl.js",
+      "PackagePath": "staticwebassets\\vendor\\fullcalendar-3.10.0\\locale\\sl.js"
+    },
+    {
+      "Id": "C:\\TalyaProject\\uyanikv3\\uyanikv3\\wwwroot\\vendor\\fullcalendar-3.10.0\\locale\\sq.js",
+      "PackagePath": "staticwebassets\\vendor\\fullcalendar-3.10.0\\locale\\sq.js"
+    },
+    {
+      "Id": "C:\\TalyaProject\\uyanikv3\\uyanikv3\\wwwroot\\vendor\\fullcalendar-3.10.0\\locale\\sr-cyrl.js",
+      "PackagePath": "staticwebassets\\vendor\\fullcalendar-3.10.0\\locale\\sr-cyrl.js"
+    },
+    {
+      "Id": "C:\\TalyaProject\\uyanikv3\\uyanikv3\\wwwroot\\vendor\\fullcalendar-3.10.0\\locale\\sr.js",
+      "PackagePath": "staticwebassets\\vendor\\fullcalendar-3.10.0\\locale\\sr.js"
+    },
+    {
+      "Id": "C:\\TalyaProject\\uyanikv3\\uyanikv3\\wwwroot\\vendor\\fullcalendar-3.10.0\\locale\\sv.js",
+      "PackagePath": "staticwebassets\\vendor\\fullcalendar-3.10.0\\locale\\sv.js"
+    },
+    {
+      "Id": "C:\\TalyaProject\\uyanikv3\\uyanikv3\\wwwroot\\vendor\\fullcalendar-3.10.0\\locale\\th.js",
+      "PackagePath": "staticwebassets\\vendor\\fullcalendar-3.10.0\\locale\\th.js"
+    },
+    {
+      "Id": "C:\\TalyaProject\\uyanikv3\\uyanikv3\\wwwroot\\vendor\\fullcalendar-3.10.0\\locale\\tr.js",
+      "PackagePath": "staticwebassets\\vendor\\fullcalendar-3.10.0\\locale\\tr.js"
+    },
+    {
+      "Id": "C:\\TalyaProject\\uyanikv3\\uyanikv3\\wwwroot\\vendor\\fullcalendar-3.10.0\\locale\\uk.js",
+      "PackagePath": "staticwebassets\\vendor\\fullcalendar-3.10.0\\locale\\uk.js"
+    },
+    {
+      "Id": "C:\\TalyaProject\\uyanikv3\\uyanikv3\\wwwroot\\vendor\\fullcalendar-3.10.0\\locale\\vi.js",
+      "PackagePath": "staticwebassets\\vendor\\fullcalendar-3.10.0\\locale\\vi.js"
+    },
+    {
+      "Id": "C:\\TalyaProject\\uyanikv3\\uyanikv3\\wwwroot\\vendor\\fullcalendar-3.10.0\\locale\\zh-cn.js",
+      "PackagePath": "staticwebassets\\vendor\\fullcalendar-3.10.0\\locale\\zh-cn.js"
+    },
+    {
+      "Id": "C:\\TalyaProject\\uyanikv3\\uyanikv3\\wwwroot\\vendor\\fullcalendar-3.10.0\\locale\\zh-hk.js",
+      "PackagePath": "staticwebassets\\vendor\\fullcalendar-3.10.0\\locale\\zh-hk.js"
+    },
+    {
+      "Id": "C:\\TalyaProject\\uyanikv3\\uyanikv3\\wwwroot\\vendor\\fullcalendar-3.10.0\\locale\\zh-tw.js",
+      "PackagePath": "staticwebassets\\vendor\\fullcalendar-3.10.0\\locale\\zh-tw.js"
+    },
+    {
+      "Id": "C:\\TalyaProject\\uyanikv3\\uyanikv3\\wwwroot\\vendor\\jquery-3.2.1.min.js",
+      "PackagePath": "staticwebassets\\vendor\\jquery-3.2.1.min.js"
+    },
+    {
+      "Id": "C:\\TalyaProject\\uyanikv3\\uyanikv3\\wwwroot\\vendor\\jquery-ui.min.js",
+      "PackagePath": "staticwebassets\\vendor\\jquery-ui.min.js"
+    },
+    {
+      "Id": "C:\\TalyaProject\\uyanikv3\\uyanikv3\\wwwroot\\vendor\\lightbox2\\dist\\css\\lightbox.css",
+      "PackagePath": "staticwebassets\\vendor\\lightbox2\\dist\\css\\lightbox.css"
+    },
+    {
+      "Id": "C:\\TalyaProject\\uyanikv3\\uyanikv3\\wwwroot\\vendor\\lightbox2\\dist\\images\\close.png",
+      "PackagePath": "staticwebassets\\vendor\\lightbox2\\dist\\images\\close.png"
+    },
+    {
+      "Id": "C:\\TalyaProject\\uyanikv3\\uyanikv3\\wwwroot\\vendor\\lightbox2\\dist\\images\\loading.gif",
+      "PackagePath": "staticwebassets\\vendor\\lightbox2\\dist\\images\\loading.gif"
+    },
+    {
+      "Id": "C:\\TalyaProject\\uyanikv3\\uyanikv3\\wwwroot\\vendor\\lightbox2\\dist\\images\\next.png",
+      "PackagePath": "staticwebassets\\vendor\\lightbox2\\dist\\images\\next.png"
+    },
+    {
+      "Id": "C:\\TalyaProject\\uyanikv3\\uyanikv3\\wwwroot\\vendor\\lightbox2\\dist\\images\\prev.png",
+      "PackagePath": "staticwebassets\\vendor\\lightbox2\\dist\\images\\prev.png"
+    },
+    {
+      "Id": "C:\\TalyaProject\\uyanikv3\\uyanikv3\\wwwroot\\vendor\\lightbox2\\dist\\js\\lightbox-plus-jquery.js",
+      "PackagePath": "staticwebassets\\vendor\\lightbox2\\dist\\js\\lightbox-plus-jquery.js"
+    },
+    {
+      "Id": "C:\\TalyaProject\\uyanikv3\\uyanikv3\\wwwroot\\vendor\\lightbox2\\dist\\js\\lightbox-plus-jquery.min.js",
+      "PackagePath": "staticwebassets\\vendor\\lightbox2\\dist\\js\\lightbox-plus-jquery.min.js"
+    },
+    {
+      "Id": "C:\\TalyaProject\\uyanikv3\\uyanikv3\\wwwroot\\vendor\\lightbox2\\dist\\js\\lightbox-plus-jquery.min.map",
+      "PackagePath": "staticwebassets\\vendor\\lightbox2\\dist\\js\\lightbox-plus-jquery.min.map"
+    },
+    {
+      "Id": "C:\\TalyaProject\\uyanikv3\\uyanikv3\\wwwroot\\vendor\\lightbox2\\dist\\js\\lightbox.js",
+      "PackagePath": "staticwebassets\\vendor\\lightbox2\\dist\\js\\lightbox.js"
+    },
+    {
+      "Id": "C:\\TalyaProject\\uyanikv3\\uyanikv3\\wwwroot\\vendor\\lightbox2\\dist\\js\\lightbox.min.js",
+      "PackagePath": "staticwebassets\\vendor\\lightbox2\\dist\\js\\lightbox.min.js"
+    },
+    {
+      "Id": "C:\\TalyaProject\\uyanikv3\\uyanikv3\\wwwroot\\vendor\\lightbox2\\dist\\js\\lightbox.min.map",
+      "PackagePath": "staticwebassets\\vendor\\lightbox2\\dist\\js\\lightbox.min.map"
+    },
+    {
+      "Id": "C:\\TalyaProject\\uyanikv3\\uyanikv3\\wwwroot\\vendor\\lightbox2\\src\\css\\lightbox.css",
+      "PackagePath": "staticwebassets\\vendor\\lightbox2\\src\\css\\lightbox.css"
+    },
+    {
+      "Id": "C:\\TalyaProject\\uyanikv3\\uyanikv3\\wwwroot\\vendor\\lightbox2\\src\\images\\close.png",
+      "PackagePath": "staticwebassets\\vendor\\lightbox2\\src\\images\\close.png"
+    },
+    {
+      "Id": "C:\\TalyaProject\\uyanikv3\\uyanikv3\\wwwroot\\vendor\\lightbox2\\src\\images\\loading.gif",
+      "PackagePath": "staticwebassets\\vendor\\lightbox2\\src\\images\\loading.gif"
+    },
+    {
+      "Id": "C:\\TalyaProject\\uyanikv3\\uyanikv3\\wwwroot\\vendor\\lightbox2\\src\\images\\next.png",
+      "PackagePath": "staticwebassets\\vendor\\lightbox2\\src\\images\\next.png"
+    },
+    {
+      "Id": "C:\\TalyaProject\\uyanikv3\\uyanikv3\\wwwroot\\vendor\\lightbox2\\src\\images\\prev.png",
+      "PackagePath": "staticwebassets\\vendor\\lightbox2\\src\\images\\prev.png"
+    },
+    {
+      "Id": "C:\\TalyaProject\\uyanikv3\\uyanikv3\\wwwroot\\vendor\\lightbox2\\src\\js\\lightbox.js",
+      "PackagePath": "staticwebassets\\vendor\\lightbox2\\src\\js\\lightbox.js"
+    },
+    {
+      "Id": "C:\\TalyaProject\\uyanikv3\\uyanikv3\\wwwroot\\vendor\\mdi-font\\css\\material-design-iconic-font.css",
+      "PackagePath": "staticwebassets\\vendor\\mdi-font\\css\\material-design-iconic-font.css"
+    },
+    {
+      "Id": "C:\\TalyaProject\\uyanikv3\\uyanikv3\\wwwroot\\vendor\\mdi-font\\css\\material-design-iconic-font.min.css",
+      "PackagePath": "staticwebassets\\vendor\\mdi-font\\css\\material-design-iconic-font.min.css"
+    },
+    {
+      "Id": "C:\\TalyaProject\\uyanikv3\\uyanikv3\\wwwroot\\vendor\\mdi-font\\fonts\\Material-Design-Iconic-Font.eot",
+      "PackagePath": "staticwebassets\\vendor\\mdi-font\\fonts\\Material-Design-Iconic-Font.eot"
+    },
+    {
+      "Id": "C:\\TalyaProject\\uyanikv3\\uyanikv3\\wwwroot\\vendor\\mdi-font\\fonts\\Material-Design-Iconic-Font.svg",
+      "PackagePath": "staticwebassets\\vendor\\mdi-font\\fonts\\Material-Design-Iconic-Font.svg"
+    },
+    {
+      "Id": "C:\\TalyaProject\\uyanikv3\\uyanikv3\\wwwroot\\vendor\\mdi-font\\fonts\\Material-Design-Iconic-Font.ttf",
+      "PackagePath": "staticwebassets\\vendor\\mdi-font\\fonts\\Material-Design-Iconic-Font.ttf"
+    },
+    {
+      "Id": "C:\\TalyaProject\\uyanikv3\\uyanikv3\\wwwroot\\vendor\\mdi-font\\fonts\\Material-Design-Iconic-Font.woff",
+      "PackagePath": "staticwebassets\\vendor\\mdi-font\\fonts\\Material-Design-Iconic-Font.woff"
+    },
+    {
+      "Id": "C:\\TalyaProject\\uyanikv3\\uyanikv3\\wwwroot\\vendor\\mdi-font\\fonts\\Material-Design-Iconic-Font.woff2",
+      "PackagePath": "staticwebassets\\vendor\\mdi-font\\fonts\\Material-Design-Iconic-Font.woff2"
+    },
+    {
+      "Id": "C:\\TalyaProject\\uyanikv3\\uyanikv3\\wwwroot\\vendor\\perfect-scrollbar\\perfect-scrollbar.css",
+      "PackagePath": "staticwebassets\\vendor\\perfect-scrollbar\\perfect-scrollbar.css"
+    },
+    {
+      "Id": "C:\\TalyaProject\\uyanikv3\\uyanikv3\\wwwroot\\vendor\\perfect-scrollbar\\perfect-scrollbar.js",
+      "PackagePath": "staticwebassets\\vendor\\perfect-scrollbar\\perfect-scrollbar.js"
+    },
+    {
+      "Id": "C:\\TalyaProject\\uyanikv3\\uyanikv3\\wwwroot\\vendor\\perfect-scrollbar\\perfect-scrollbar.min.js",
+      "PackagePath": "staticwebassets\\vendor\\perfect-scrollbar\\perfect-scrollbar.min.js"
+    },
+    {
+      "Id": "C:\\TalyaProject\\uyanikv3\\uyanikv3\\wwwroot\\vendor\\progressbar\\progressbar.js",
+      "PackagePath": "staticwebassets\\vendor\\progressbar\\progressbar.js"
+    },
+    {
+      "Id": "C:\\TalyaProject\\uyanikv3\\uyanikv3\\wwwroot\\vendor\\progressbar\\progressbar.min.js",
+      "PackagePath": "staticwebassets\\vendor\\progressbar\\progressbar.min.js"
+    },
+    {
+      "Id": "C:\\TalyaProject\\uyanikv3\\uyanikv3\\wwwroot\\vendor\\select2\\select2.min.css",
+      "PackagePath": "staticwebassets\\vendor\\select2\\select2.min.css"
+    },
+    {
+      "Id": "C:\\TalyaProject\\uyanikv3\\uyanikv3\\wwwroot\\vendor\\select2\\select2.min.js",
+      "PackagePath": "staticwebassets\\vendor\\select2\\select2.min.js"
+    },
+    {
+      "Id": "C:\\TalyaProject\\uyanikv3\\uyanikv3\\wwwroot\\vendor\\slick\\ajax-loader.gif",
+      "PackagePath": "staticwebassets\\vendor\\slick\\ajax-loader.gif"
+    },
+    {
+      "Id": "C:\\TalyaProject\\uyanikv3\\uyanikv3\\wwwroot\\vendor\\slick\\config.rb",
+      "PackagePath": "staticwebassets\\vendor\\slick\\config.rb"
+    },
+    {
+      "Id": "C:\\TalyaProject\\uyanikv3\\uyanikv3\\wwwroot\\vendor\\slick\\fonts\\slick.eot",
+      "PackagePath": "staticwebassets\\vendor\\slick\\fonts\\slick.eot"
+    },
+    {
+      "Id": "C:\\TalyaProject\\uyanikv3\\uyanikv3\\wwwroot\\vendor\\slick\\fonts\\slick.svg",
+      "PackagePath": "staticwebassets\\vendor\\slick\\fonts\\slick.svg"
+    },
+    {
+      "Id": "C:\\TalyaProject\\uyanikv3\\uyanikv3\\wwwroot\\vendor\\slick\\fonts\\slick.ttf",
+      "PackagePath": "staticwebassets\\vendor\\slick\\fonts\\slick.ttf"
+    },
+    {
+      "Id": "C:\\TalyaProject\\uyanikv3\\uyanikv3\\wwwroot\\vendor\\slick\\fonts\\slick.woff",
+      "PackagePath": "staticwebassets\\vendor\\slick\\fonts\\slick.woff"
+    },
+    {
+      "Id": "C:\\TalyaProject\\uyanikv3\\uyanikv3\\wwwroot\\vendor\\slick\\slick-theme.css",
+      "PackagePath": "staticwebassets\\vendor\\slick\\slick-theme.css"
+    },
+    {
+      "Id": "C:\\TalyaProject\\uyanikv3\\uyanikv3\\wwwroot\\vendor\\slick\\slick-theme.less",
+      "PackagePath": "staticwebassets\\vendor\\slick\\slick-theme.less"
+    },
+    {
+      "Id": "C:\\TalyaProject\\uyanikv3\\uyanikv3\\wwwroot\\vendor\\slick\\slick-theme.scss",
+      "PackagePath": "staticwebassets\\vendor\\slick\\slick-theme.scss"
+    },
+    {
+      "Id": "C:\\TalyaProject\\uyanikv3\\uyanikv3\\wwwroot\\vendor\\slick\\slick.css",
+      "PackagePath": "staticwebassets\\vendor\\slick\\slick.css"
+    },
+    {
+      "Id": "C:\\TalyaProject\\uyanikv3\\uyanikv3\\wwwroot\\vendor\\slick\\slick.js",
+      "PackagePath": "staticwebassets\\vendor\\slick\\slick.js"
+    },
+    {
+      "Id": "C:\\TalyaProject\\uyanikv3\\uyanikv3\\wwwroot\\vendor\\slick\\slick.less",
+      "PackagePath": "staticwebassets\\vendor\\slick\\slick.less"
+    },
+    {
+      "Id": "C:\\TalyaProject\\uyanikv3\\uyanikv3\\wwwroot\\vendor\\slick\\slick.min.js",
+      "PackagePath": "staticwebassets\\vendor\\slick\\slick.min.js"
+    },
+    {
+      "Id": "C:\\TalyaProject\\uyanikv3\\uyanikv3\\wwwroot\\vendor\\slick\\slick.scss",
+      "PackagePath": "staticwebassets\\vendor\\slick\\slick.scss"
+    },
+    {
+      "Id": "C:\\TalyaProject\\uyanikv3\\uyanikv3\\wwwroot\\vendor\\smk-accordion\\accordion.css",
+      "PackagePath": "staticwebassets\\vendor\\smk-accordion\\accordion.css"
+    },
+    {
+      "Id": "C:\\TalyaProject\\uyanikv3\\uyanikv3\\wwwroot\\vendor\\smk-accordion\\accordion.js",
+      "PackagePath": "staticwebassets\\vendor\\smk-accordion\\accordion.js"
+    },
+    {
+      "Id": "C:\\TalyaProject\\uyanikv3\\uyanikv3\\wwwroot\\vendor\\smk-accordion\\accordion.min.js",
+      "PackagePath": "staticwebassets\\vendor\\smk-accordion\\accordion.min.js"
+    },
+    {
+      "Id": "C:\\TalyaProject\\uyanikv3\\uyanikv3\\wwwroot\\vendor\\sweetalert\\sweetalert.min.js",
+      "PackagePath": "staticwebassets\\vendor\\sweetalert\\sweetalert.min.js"
+    },
+    {
+      "Id": "C:\\TalyaProject\\uyanikv3\\uyanikv3\\wwwroot\\vendor\\vector-map\\jquery.vmap.brazil.js",
+      "PackagePath": "staticwebassets\\vendor\\vector-map\\jquery.vmap.brazil.js"
+    },
+    {
+      "Id": "C:\\TalyaProject\\uyanikv3\\uyanikv3\\wwwroot\\vendor\\vector-map\\jquery.vmap.europe.js",
+      "PackagePath": "staticwebassets\\vendor\\vector-map\\jquery.vmap.europe.js"
+    },
+    {
+      "Id": "C:\\TalyaProject\\uyanikv3\\uyanikv3\\wwwroot\\vendor\\vector-map\\jquery.vmap.france.js",
+      "PackagePath": "staticwebassets\\vendor\\vector-map\\jquery.vmap.france.js"
+    },
+    {
+      "Id": "C:\\TalyaProject\\uyanikv3\\uyanikv3\\wwwroot\\vendor\\vector-map\\jquery.vmap.germany.js",
+      "PackagePath": "staticwebassets\\vendor\\vector-map\\jquery.vmap.germany.js"
+    },
+    {
+      "Id": "C:\\TalyaProject\\uyanikv3\\uyanikv3\\wwwroot\\vendor\\vector-map\\jquery.vmap.js",
+      "PackagePath": "staticwebassets\\vendor\\vector-map\\jquery.vmap.js"
+    },
+    {
+      "Id": "C:\\TalyaProject\\uyanikv3\\uyanikv3\\wwwroot\\vendor\\vector-map\\jquery.vmap.min.js",
+      "PackagePath": "staticwebassets\\vendor\\vector-map\\jquery.vmap.min.js"
+    },
+    {
+      "Id": "C:\\TalyaProject\\uyanikv3\\uyanikv3\\wwwroot\\vendor\\vector-map\\jquery.vmap.russia.js",
+      "PackagePath": "staticwebassets\\vendor\\vector-map\\jquery.vmap.russia.js"
+    },
+    {
+      "Id": "C:\\TalyaProject\\uyanikv3\\uyanikv3\\wwwroot\\vendor\\vector-map\\jquery.vmap.sampledata.js",
+      "PackagePath": "staticwebassets\\vendor\\vector-map\\jquery.vmap.sampledata.js"
+    },
+    {
+      "Id": "C:\\TalyaProject\\uyanikv3\\uyanikv3\\wwwroot\\vendor\\vector-map\\jquery.vmap.usa.js",
+      "PackagePath": "staticwebassets\\vendor\\vector-map\\jquery.vmap.usa.js"
+    },
+    {
+      "Id": "C:\\TalyaProject\\uyanikv3\\uyanikv3\\wwwroot\\vendor\\vector-map\\jquery.vmap.world.js",
+      "PackagePath": "staticwebassets\\vendor\\vector-map\\jquery.vmap.world.js"
+    },
+    {
+      "Id": "C:\\TalyaProject\\uyanikv3\\uyanikv3\\wwwroot\\vendor\\vector-map\\jqvmap.min.css",
+      "PackagePath": "staticwebassets\\vendor\\vector-map\\jqvmap.min.css"
+    },
+    {
+      "Id": "C:\\TalyaProject\\uyanikv3\\uyanikv3\\wwwroot\\vendor\\wow\\animate.css",
+      "PackagePath": "staticwebassets\\vendor\\wow\\animate.css"
+    },
+    {
+      "Id": "C:\\TalyaProject\\uyanikv3\\uyanikv3\\wwwroot\\vendor\\wow\\wow.min.js",
+      "PackagePath": "staticwebassets\\vendor\\wow\\wow.min.js"
+    },
+    {
+      "Id": "C:\\TalyaProject\\uyanikv3\\uyanikv3\\wwwroot\\~$README.md",
+      "PackagePath": "staticwebassets\\~$README.md"
+    },
+    {
+      "Id": "obj\\Debug\\net6.0\\staticwebassets\\msbuild.build.uyanikv3.props",
+      "PackagePath": "build\\uyanikv3.props"
+    },
+    {
+      "Id": "obj\\Debug\\net6.0\\staticwebassets\\msbuild.buildMultiTargeting.uyanikv3.props",
+      "PackagePath": "buildMultiTargeting\\uyanikv3.props"
+    },
+    {
+      "Id": "obj\\Debug\\net6.0\\staticwebassets\\msbuild.buildTransitive.uyanikv3.props",
+      "PackagePath": "buildTransitive\\uyanikv3.props"
+    },
+    {
+      "Id": "obj\\Debug\\net6.0\\staticwebassets\\msbuild.uyanikv3.Microsoft.AspNetCore.StaticWebAssets.props",
+      "PackagePath": "build\\Microsoft.AspNetCore.StaticWebAssets.props"
+    }
+  ],
+  "ElementsToRemove": []
+}

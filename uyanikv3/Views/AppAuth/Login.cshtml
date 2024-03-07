@@ -1,0 +1,91 @@
+
+@{
+    ViewBag.Title = "title";
+    Layout = "Login_Layout";
+}
+
+<div class="login-wrap">
+  <div class="login-content">
+    <div class="login-logo">
+      <a href="~/#">
+        <img src="~/images/icon/logo.png" alt="CoolAdmin" style="width: 300px; height: 300px;">
+      </a>
+    </div>
+    <div class="login-form">
+      <div class="form-group">
+        <label>Kullanıcı Adı</label>
+        <input class="au-input au-input--full" id="txtKad" type="text" name="email" placeholder="Kullanıcı Adı">
+      </div>
+      <div class="form-group">
+        <label>Şifre</label>
+        <input class="au-input au-input--full" id="txtKpass" type="password" name="password" placeholder="Şifre">
+      </div>
+      <div class="login-checkbox">
+          <label>
+          <a href="#">Parolamı Unuttum?</a>
+        </label>
+      </div>
+      <button class="au-btn au-btn--block au-btn--green m-b-20" type="button" onclick="login();">Giriş</button>
+      <div class="social-login-content">
+        <div class="social-button">
+          <button onclick="window.location.href='/AppAuth/Index';" class="au-btn au-btn--block au-btn--blue m-b-20">Geri Dön</button>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+        @section Scripts {
+
+            <script>
+
+                       function login() {
+                               var ktel = $("#txtKad").val();
+                               var kPass = $("#txtKpass").val();
+                               $.ajax({
+                                   url: '/AppAuth/adminLogin/',
+                                   type: 'Post',
+                                   dataType: 'json',
+                                   data: { userName: ktel, pass: kPass },
+                                   success: function (data) {
+                                       var uyeOturum = jQuery.parseJSON(data.uyeOturum);
+                                       if (uyeOturum == 1) {
+                                           Swal.fire(
+                                               {
+                                                   title: data.msgTitle,
+                                                   text: data.msg,
+                                                   icon: data.msgIcon,
+                                                   showCancelButton: false,
+                                                   showConfirmButton: false,
+                                                   allowOutsideClick: false,
+                                                   allowEscapeKey: false
+                                               }
+                                           )
+                                           setTimeout(
+                                               function () {
+                                                   window.location.href = "/Home/Index";
+           
+                                               }, 3000);
+                                       } else if (uyeOturum == 0) {
+                                           Swal.fire(
+                                               {
+                                                   title: data.msgTitle,
+                                                   text: data.msg,
+                                                   icon: data.msgIcon,
+                                                   confirmButtonText: 'Tamam',
+                                                   allowOutsideClick: false,
+                                                   allowEscapeKey: false
+                                               }
+                                           )
+                                       }
+                                   },
+                                   error: function () {
+                                   }
+                               });
+                           }
+
+            </script>
+
+
+        }

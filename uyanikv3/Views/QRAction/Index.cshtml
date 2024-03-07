@@ -1,0 +1,83 @@
+@model dynamic
+
+@{
+    ViewBag.Title = "title";
+    Layout = "_Layout";
+}
+<div class="page-container">
+    <!-- HEADER DESKTOP-->
+    <!-- HEADER DESKTOP-->
+    <!-- MAIN CONTENT-->
+    <div class="main-content">
+        <div class="section__content section__content--p30">
+            <div class="container-fluid">
+                <div class="row m-t-25">
+                    <div class="col-md-12 mb-3">
+                        <div id="qr-reader" ></div>
+                        <div id="qr-reader-results"></div>
+                    </div>
+                    
+
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+@section Scripts{
+
+    <script src="https://unpkg.com/html5-qrcode"></script>
+
+    <script>
+       function sweetalertmethod(title, mesaj, icon) {
+                Swal.fire(
+                    {
+                        html: mesaj,
+                        icon: icon,
+                        title: title,
+                        showDenyButton: true,
+                        showConfirmButton: false,
+                        denyButtonText: 'Kapat',
+                    }
+                )
+            }
+    var resultContainer = document.getElementById('qr-reader-results');
+
+     
+        var lastResult, countResults = 0;
+
+function onScanSuccess(decodedText, decodedResult) {
+    if (decodedText !== lastResult) {
+        ++countResults;
+        lastResult = decodedText;
+        // Handle on success condition with the decoded message.
+        console.log(`Scan result ${decodedText}`, decodedResult);
+        
+          $.ajax({
+            url: '/SeansAction/OgrSeansYoklama',
+            type: 'post',
+            dataType: 'json',
+            data: { qrcode: decodedText, type: 2 },
+            success: function (data) {
+                sweetalertmethod(data.mesajBaslik,data.mesaj,data.mesajIcon);
+            },
+            error: function (error) {
+                var mesajbaslik = error._mesajbaslik;
+                var mesaj = error._mesaj;
+                var mesajicon = error._MesajIcon;
+                sweetalertmethod(mesajbaslik.replace('"Hata Oluştu"', 'Hata Oluştu'), mesaj, mesajicon.replace('"error"', 'error'))
+            }
+        });
+    }
+}
+
+var html5QrcodeScanner = new Html5QrcodeScanner(
+	"qr-reader", { fps: 10, qrbox: 250 });
+
+html5QrcodeScanner.render(onScanSuccess);
+</script>
+    <script>
+    $("#html5-qrcode-button-camera-permission").addClass("btn btn-primary");
+</script>
+}

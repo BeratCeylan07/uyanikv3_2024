@@ -1,0 +1,252 @@
+﻿@model uyanikv3.customModels.viewYayinlarModel
+@{
+    ViewData["Title"] = "Home Page";
+    Layout = "_Layout";
+}
+
+<style>
+    .table-wrp  {
+  max-height: 75vh;
+  overflow-y: auto;
+  display:block;
+}
+.modal{
+    padding-right: 0px !important;
+}
+thead{
+  position:sticky;
+  top:0
+}
+   
+    #mdlOgrenciKayit{
+        padding-right: 0px !important;
+    
+    }
+    .card{
+        margin-bottom: 0px !important;
+    }
+
+.swal2-popup {
+    width: 100em !important;
+}
+</style>
+<div class="page-container">
+    <div class="main-content">
+        <div class="section__content section__content--p30" style="padding:0px !important;">
+            <div class="container-fluid">
+                <div class="row">
+                    <div class="col-md-12">
+                        <h2 class="title-1 m-b-25">Yayın Kartları</h2>
+                        <hr/>
+                        <button type="button" class="btn btn-success" data-toggle="modal" data-target="#mdlyeniyayinkart">Yeni Yayın</button>                         <button type="button" class="btn btn-danger" onclick="x();">Diğer Şubelere Aktar</button>
+
+                        <hr/>
+                        <div class="spinner-border" role="status">
+                            <span class="sr-only">Loading...</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="row" id="yayinarea">
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="modal fade" id="mdlyayindetaykart" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-lg" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="mdlStokKartTitle">Yayın Bilgi Kartı</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <form action="~/YayinAction/yayinDuzenle" method="post" enctype="multipart/form-data">
+
+                <div class="modal-body">
+
+                    <div class="card">
+                        <div class="card-body">
+                            <input type="text" class="form-control" id="txtYayinId" name="Id" placeholder="Yayın No" hidden>
+                            <div class="form-group row">
+                                <label for="txtyayinadinfo" class="col-sm-2 col-form-label">Yayın Adı:</label>
+                                <div class="col-sm-10" id="infyayinbaslikarea">
+                                    <input type="text" class="form-control" name="YayinBaslik" id="txtyayinadinfo" placeholder="Yayın Başlık" required>
+                                </div>
+                            </div>
+                            <div class="form-group row">
+                                <label for="txtYayinLogoinfo" class="col-sm-2 col-form-label">Yayın Logo</label>
+                                <div class="col-sm-10" id="txtYayinLogoinfo">
+                                    <input type="file" name="_logo" class="form-control" id="txtYayinLogoinfo" placeholder="" required>
+                                </div>
+                            </div>
+                            <img id="yayininflogo" class="img-thumbnail" style="width: 100% !important;"/>
+
+                        </div>
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <button id="btnKitapcikAdd" type="submit" class="btn btn-primary">Kaydet</button>
+                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Kapat</button>
+                </div>
+            </form>
+
+        </div>
+    </div>
+</div>
+<div class="modal fade" id="mdlyeniyayinkart" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-lg" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="mdlStokKartTitle">Yeni Yayın Kartı</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <form action="~/YayinAction/yayinekle" method="post" enctype="multipart/form-data">
+
+                <div class="modal-body">
+
+                    <div class="card">
+                        <div class="card-body">
+                            <div class="form-group row">
+                                <label for="txtyayinadinfo" class="col-sm-2 col-form-label">Yayın Adı:</label>
+                                <div class="col-sm-10" id="infyayinbaslikarea">
+                                    <input type="text" name="YayinBaslik" class="form-control" id="txtYayinAd" placeholder="Yayın Başlık" required>
+                                </div>
+                            </div>
+                            <div class="form-group row">
+                                <label for="txtYayinLogoinfo" class="col-sm-2 col-form-label">Yayın Logo</label>
+                                <div class="col-sm-10" id="txtYayinLogo">
+                                    <input type="file" name="_logo" class="form-control" id="txtYayinLogo" placeholder="" required>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <button type="submit" class="btn btn-primary">Kaydet</button>
+                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Kapat</button>
+                </div>
+            </form>
+
+        </div>
+    </div>
+</div>
+
+@section Scripts{
+    <script>
+                  function x(){
+                                                  $.ajax({
+                                                           url: '/YayinAction/yayinAllSubeSet/',
+                                                           type: 'post',
+                                                           dataType: 'json',
+                                                           success: function (data) {
+                                                                     Swal.fire(
+                                                                                 {
+                                                                                     text: "Mevcut Şubedeki Yayınlar, Diğer Tüm Şubelerinize Aktarıldı",
+                                                                                     icon: "success",
+                                                                                     title: "İşlem Başarılı",
+                                                                                     showDenyButton: true,
+                                                                                     showConfirmButton: false,
+                                                                                     denyButtonText: 'Kapat',
+                                                                                 }
+                                                                             )
+                                                           },
+                                         
+                                       });
+                                                  }
+
+
+    function yayinadd(){
+        try {
+            var yayinbaslik = $("#txtYayinAd").val();
+            var yayinlogo = $("#txtYayinLogo").val();
+            var obj = {
+                YayinBaslik: yayinbaslik,
+                Logo: yayinlogo
+            }
+           $.ajax({
+                url: '/YayinAction/YayinOp/',
+                type: 'post',
+                dataType: 'json',
+                data: { model: obj, type: 1 },
+                success: function (data) {
+                    yayinlist();
+                },
+                error: function(error) {
+                  
+                }
+            });
+        }catch (e){
+            console.log(e.message);
+        }
+    }
+    function ayargetir(yayinid){
+              var storedData = localStorage.getItem("yayinlist");
+        
+              var jsonData = JSON.parse(storedData);
+
+              var result2 = jsonData.find(x => x.Id == yayinid);
+              
+          //     yayininflogo    txtYayinLogoinfo txtyayinadinfo
+          
+                      var logo = result2.Logo;
+                      $("#txtyayinadinfo").val("");
+                      $("#txtyayinadinfo").val(result2.YayinBaslik);
+                      $("#txtYayinId").val(yayinid);
+                     $("#txtYayinLogoinfo").val("");
+                      $("#txtYayinLogoinfo").val(logo);
+                      
+                      document.getElementById("yayininflogo").src = "";
+                      document.getElementById("yayininflogo").src = `${logo}`;
+    
+              
+        $("#mdlyayindetaykart").modal('show');
+        
+    }
+        function yayinlist(){
+                let yayinlist = ``;
+                $.ajax({
+                    url: '/YayinAction/YayinList/',
+                    type: 'post',
+                    dataType: 'json',
+                    success: function (data) {
+                        var jsondata = JSON.parse(data);
+                                          $("#yayinarea").html("");
+                  var yayinjsondata = JSON.stringify(jsondata);
+                        console.log(jsondata);
+                        localStorage.clear();
+                          localStorage.setItem("yayinlist", yayinjsondata);
+                          $.each(jsondata, (index, value) => 
+                          { 
+                              yayinlist += `
+                                                       <div class="col-md-3 col-sm-12" style="margin-bottom: 2rem;">
+                                                             <div class="card" style="width:100% !important;">
+                                                               <img class="card-img-top" src="${value.Logo}" style="width:400px; height: 400px;">
+                                                               <div class="card-body">
+                                                                 <h5 class="card-title">${value.YayinBaslik}</h5>
+                                                               </div>
+                                                               <ul class="list-group list-group-flush">
+                                                                 <li class="list-group-item">Toplam Kitapçık: <b>${value.toplamKitapcik}</b></li>
+                                                                 <li class="list-group-item">Toplam Seans: <b>${value.toplamDenemSeans}</b></li>
+                                                               </ul>
+                                                               <div class="card-body">
+                                                                 <button type="button" class="card-link btn btn-info btn-block" onclick="ayargetir(${value.Id})">Yayın Kartı</button>
+                                                               </div>
+                                                             </div>
+                                                        </div>
+
+
+`;
+                          }); 
+                          $("#yayinarea").html(yayinlist);
+                          
+                     
+                    }
+                });
+          
+            }
+            window.onload = yayinlist();
+    </script>
+}

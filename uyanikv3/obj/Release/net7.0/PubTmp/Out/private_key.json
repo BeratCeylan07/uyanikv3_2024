@@ -1,0 +1,12 @@
+{
+  "type": "service_account",
+  "project_id": "uyanik-kutuphane-antalya",
+  "private_key_id": "b4b6c2182d822529198aee00feee8aaf3c83272a",
+  "private_key": "-----BEGIN PRIVATE KEY-----\nMIIEvAIBADANBgkqhkiG9w0BAQEFAASCBKYwggSiAgEAAoIBAQDAsjwJA84eWoKm\nX4exmqaS2vg+WhNpbHx9JaPon+V742hqgL0YKE6shkI4mhmm80AOhpkdO+X4B9mi\nlBhp7HIyVwBf+Rw089d+dU0yE4/grlhVEr9lnwYX+bZnakxOGNolrgOUek8RrW3F\n/ODKyOdRDceiUVI+ZrlOU9zwYx5M5L9Vuq9ALwW5BexJXbU9k1OefhrM8cwfwPIX\nm4ygYanUMwhql6sa6x1D/xhGfJ9ZcWepXz+z8N2oszaVZQeMm9C9g45VqkIAuNuY\nvKLV/uIA30siJJ1MSdPnU8g8Sj1l/E771AouwhoRPtBczifHZWPzVSC3+Y4JCyqD\nv9hPhMjRAgMBAAECgf9hugMN5LV5r22TSIpeXeXHlPCmrrLURLDeHLjZbD52a7QI\n+kGXKYS8+q+bBTb9SgtdUpCqGDa0E/HMV6S0vmCBfJ40Dk1qjZWSDOuZpKd+IO2r\njQEvXfc5MZZ7MZiBWG6frXZ4rDnC6AdEN3vKBxn0LDOS9ACXT9cAYofVYm97jvsO\n+pbTr5YVwt+A85/E4Wj6GjQNPuNUUus1AXBbVB6iAopMgMnLsDwQ82GpSlXB0KS0\n5LfdqUD0l+YGb33w4damAnXnE+rAL5X4i1ddJQ6V025QWfkgwKuvIjEwsnlyADut\nXVXJPAWexyc/F10wZzanLw7ze+13bqRTe0IuAgMCgYEA7OaEu2/YyMQNZ4G/jQxk\nTS+bKBLrfd471e4JGgWG2w9yjd6ftWU2TaCu3xJyN9F3LI8b1VYJfYcKy0m3xhQp\nZvX6WE6nuZZ1XZrGT9BIUqzqQmyp0BgUcOZ2KdiiqXKhxXJgizeJaL8RmATE/FaI\n8E+Solbx7AfmVNpFJjsOYt8CgYEA0DteFQ84LPozbOzFAvNkkRDf9rHo2R3waP/8\nTmYTYME1ySMNJhYKMblLZaz3BdXlEP7qLWNmUXEoivBRNOXMkCsUqYxbSfxMr/Z5\n0RE+HC8NpiyK/t396tnRC9c4gZhfcYZNBbvueRVyWXywOQTfmfpkFuycvWC41NL4\nuKnKek8CgYEAmXFiTcnPP5MFH6MBwEljej84n0dJ8xgL57ArgwhLZf5mc4/cIHEz\nMCrAucpH4vGw4FK9c3wr33uluTDBcPJEMuVmRuaDawkSchO7GZ1OCwbnISkjAJ9o\nNgyAQvCHw3t1Xt+LuwC45vjDW5TTRqKCRi00TCRGxFwFi7ZpDa84zT8CgYABFv50\nD8NUgO65+DdDv7BcDgGOEfpNAJocgpJ4epJJZFl6twM/msfs4LJjUtdsIWV0hFEH\ncci8TmJO79kM9NLwQjl2dbSYm4hvN1QF4xg3H4vrvbnwgYrtqrwsWrECBKEjP/ex\nOv2Rhqo1i7CEa+EbtjLF5/EeEJ6HBp+kn8begwKBgQDaE4UfCl/l2aQvKNXIZCUZ\nrQ2Da08WXrSuNXsxGLPfnTjZR58L9dR8P4pulg+YSsgM80aUvbn8favkyIlsDFhi\nxHywxX7iGknKNM+Ipd+CCxxYfDxGXlOKjmElTu9iGXHpg4X+QE7YdjH6OTpI98jT\npBsDrM/Tgaj//EXFnglVVw==\n-----END PRIVATE KEY-----\n",
+  "client_email": "firebase-adminsdk-vdq1s@uyanik-kutuphane-antalya.iam.gserviceaccount.com",
+  "client_id": "116902340904260906989",
+  "auth_uri": "https://accounts.google.com/o/oauth2/auth",
+  "token_uri": "https://oauth2.googleapis.com/token",
+  "auth_provider_x509_cert_url": "https://www.googleapis.com/oauth2/v1/certs",
+  "client_x509_cert_url": "https://www.googleapis.com/robot/v1/metadata/x509/firebase-adminsdk-vdq1s%40uyanik-kutuphane-antalya.iam.gserviceaccount.com"
+}

@@ -1,0 +1,118 @@
+@using Microsoft.AspNetCore.Http;
+@inject IHttpContextAccessor HttpContextAccessor
+
+<!doctype html>
+<html lang="en">
+
+<head>
+    <meta name="robots" content="noindex">
+    <meta http-equiv="Content-Type" conten""t="text/html; charset=utf-8" />
+    <meta name="viewport" content="user-scalable=no, initial-scale=1, maximum-scale=1, minimum-scale=1, width=device-width, height=device-height, target-densitydpi=device-dpi" /> 
+    <meta name="apple-mobile-web-app-capable" content="yes" />
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+    <meta name="theme-color" content="#000000">
+    <title></title>
+    <link rel="icon" type="image/png" href="~/assets/img/favicon.png" sizes="32x32">
+    <link rel="apple-touch-icon" sizes="180x180" href="~/assets/img/icon/192x192.png">
+    <link rel="stylesheet" href="~/assets/css/style.css" asp-append-version="true">
+    <link rel="manifest" href="~/__manifest.json" asp-append-version="true">
+    <link rel="manifest" href="https://cdn.datatables.net/1.12.1/css/dataTables.bootstrap4.min.css" asp-append-version="true">
+    <style>
+
+        .swButton {
+            margin-right: 20px !important;
+        }
+
+        .swal2-title {
+            color: black !important;
+        }
+    </style>
+</head>
+
+<body class="bg-white">
+<div id="loader">
+    <div class="spinner-border text-primary" role="status"></div>
+</div>
+        @await RenderSectionAsync("appHeader", required: false)
+
+<div id="appCapsule" style="margin-top:0px !important; padding:0px !important;">
+    
+    @RenderBody()
+
+</div>
+
+
+    <script src="~/assets/js/lib/jquery-3.4.1.min.js" asp-append-version="true"></script>
+    <script src="~/assets/js/qrJqury.js" asp-append-version="true"></script>
+    <script src="~/assets/js/qrcode.js" asp-append-version="true"></script>
+    <script src="~/assets/js/lib/popper.min.js" asp-append-version="true"></script>
+    <script src="~/assets/js/lib/bootstrap.min.js" asp-append-version="true"></script>
+    <script type="module" src="https://unpkg.com/ionicons@5.0.0/dist/ionicons/ionicons.js" asp-append-version="true"></script>
+    <script src="~/assets/js/plugins/owl-carousel/owl.carousel.min.js" asp-append-version="true"></script>
+    <script src="~/assets/js/plugins/jquery-circle-progress/circle-progress.min.js" asp-append-version="true"></script>
+    <script src="~/assets/js/base.js" asp-append-version="true"></script>
+    <script src="https://cdn.datatables.net/1.12.1/js/jquery.dataTables.min.js" asp-append-version="true"></script>
+    <script src="https://cdn.datatables.net/1.12.1/js/dataTables.bootstrap4.min.js" asp-append-version="true"></script>
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11" asp-append-version="true"></script>
+    <script src="~/assets/js/printArea.js" asp-append-version="true"></script>
+    <script src="~/assets/js/ogrOp" asp-append-version="true"></script>
+    <script>
+        function ogrQRSet() {
+        var ogrQRSET = "@HttpContextAccessor.HttpContext.Session.GetString("ogrQRSet")";
+            let qrShowDialog = `
+
+	        <div class="modal fade dialogbox" id="dialogQRShow">
+            <div class="modal-dialog" role="document">
+                <div class="modal-content" style="    max-width: 100% !important; height:550px; background-color: white !important;">
+                    <div class="modal-body">
+                        <div id="qrCanvas" style="margin-top:7.5rem;"></div>
+                    </div>
+                    <div class="modal-footer">
+                        <div class="btn-inline">
+                            <a href="#" class="btn btn-text-primary" data-dismiss="modal">Kapat</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+						`;
+            $("#qrShow").html(qrShowDialog);
+            jQuery('#qrCanvas').qrcode({
+                text: ogrQRSET,
+                width: 256,
+                height: 256
+            });
+            $("#dialogQRShow").modal('show');
+
+        }
+        function signCheckout() {
+            const swalWithBootstrapButtons = Swal.mixin({
+                customClass: {
+                    confirmButton: 'btn btn-success',
+
+                    cancelButton: 'btn btn-danger swButton'
+                },
+                buttonsStyling: false
+            })
+
+            swalWithBootstrapButtons.fire({
+                title: 'Oturumunuz Sonlandırılacaktır?',
+                text: "Çıkış İşlemini Onaylıyor musunuz?",
+                icon: 'warning',
+                showCancelButton: true,
+                confirmButtonText: 'Onaylıyorum',
+                cancelButtonText: 'İptal Et',
+                allowOutsideClick: false,
+                allowEscapeKey: false,
+                reverseButtons: true
+            }).then((result) => {
+                if (result.isConfirmed) {
+                    window.location.href = "/OgrAuth/signOut/";
+                }
+            });
+        }
+    </script>
+    @await RenderSectionAsync("ogrScripts", required: false)
+</body>
+
+</html>

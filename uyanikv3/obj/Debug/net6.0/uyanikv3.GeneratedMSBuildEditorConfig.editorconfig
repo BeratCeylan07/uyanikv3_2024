@@ -1,0 +1,117 @@
+is_global = true
+build_property.TargetFramework = net6.0
+build_property.TargetPlatformMinVersion = 
+build_property.UsingMicrosoftNETSdkWeb = true
+build_property.ProjectTypeGuids = 
+build_property.InvariantGlobalization = 
+build_property.PlatformNeutralAssembly = 
+build_property.EnforceExtendedAnalyzerRules = 
+build_property._SupportedPlatformList = Linux,macOS,Windows
+build_property.RootNamespace = uyanikv3
+build_property.RootNamespace = uyanikv3
+build_property.ProjectDir = C:\Users\berat\OneDrive\Belgeler\GitHub\uyanikappv3\uyanikv3\
+build_property.RazorLangVersion = 6.0
+build_property.SupportLocalizedComponentNames = 
+build_property.GenerateRazorMetadataSourceChecksumAttributes = 
+build_property.MSBuildProjectDirectory = C:\Users\berat\OneDrive\Belgeler\GitHub\uyanikappv3\uyanikv3
+build_property._RazorSourceGeneratorDebug = 
+
+[C:/Users/berat/OneDrive/Belgeler/GitHub/uyanikappv3/uyanikv3/wwwroot/OgrMobil/Component.razor]
+build_metadata.AdditionalFiles.TargetPath = d3d3cm9vdFxPZ3JNb2JpbFxDb21wb25lbnQucmF6b3I=
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/berat/OneDrive/Belgeler/GitHub/uyanikappv3/uyanikv3/Pages/OgrMobil/guncelSeanslar.cshtml]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcT2dyTW9iaWxcZ3VuY2VsU2VhbnNsYXIuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/berat/OneDrive/Belgeler/GitHub/uyanikappv3/uyanikv3/Pages/OgrMobil/Index.cshtml]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcT2dyTW9iaWxcSW5kZXguY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/berat/OneDrive/Belgeler/GitHub/uyanikappv3/uyanikv3/Pages/OgrMobil/profil.cshtml]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcT2dyTW9iaWxccHJvZmlsLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/berat/OneDrive/Belgeler/GitHub/uyanikappv3/uyanikv3/Views/AppAuth/Index.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQXBwQXV0aFxJbmRleC5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/berat/OneDrive/Belgeler/GitHub/uyanikappv3/uyanikv3/Views/AppAuth/Login.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQXBwQXV0aFxMb2dpbi5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/berat/OneDrive/Belgeler/GitHub/uyanikappv3/uyanikv3/Views/Home/Index.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSG9tZVxJbmRleC5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/berat/OneDrive/Belgeler/GitHub/uyanikappv3/uyanikv3/Views/Home/Kategoriler.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSG9tZVxLYXRlZ29yaWxlci5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/berat/OneDrive/Belgeler/GitHub/uyanikappv3/uyanikv3/Views/Home/Kitapciklar.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSG9tZVxLaXRhcGNpa2xhci5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/berat/OneDrive/Belgeler/GitHub/uyanikappv3/uyanikv3/Views/Home/KutuphaneUyelik.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSG9tZVxLdXR1cGhhbmVVeWVsaWsuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/berat/OneDrive/Belgeler/GitHub/uyanikappv3/uyanikv3/Views/Home/Ogrenci.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSG9tZVxPZ3JlbmNpLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/berat/OneDrive/Belgeler/GitHub/uyanikappv3/uyanikv3/Views/Home/Rapor.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSG9tZVxSYXBvci5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/berat/OneDrive/Belgeler/GitHub/uyanikappv3/uyanikv3/Views/Home/Seans.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSG9tZVxTZWFucy5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/berat/OneDrive/Belgeler/GitHub/uyanikappv3/uyanikv3/Views/Home/Yayinlar.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSG9tZVxZYXlpbmxhci5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/berat/OneDrive/Belgeler/GitHub/uyanikappv3/uyanikv3/Views/OgrAuth/OgrLogin.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcT2dyQXV0aFxPZ3JMb2dpbi5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/berat/OneDrive/Belgeler/GitHub/uyanikappv3/uyanikv3/Views/OgrAuth/OgrSignIn.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcT2dyQXV0aFxPZ3JTaWduSW4uY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/berat/OneDrive/Belgeler/GitHub/uyanikappv3/uyanikv3/Views/OgrMobil/guncelSeanslar.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcT2dyTW9iaWxcZ3VuY2VsU2VhbnNsYXIuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/berat/OneDrive/Belgeler/GitHub/uyanikappv3/uyanikv3/Views/OgrMobil/Index.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcT2dyTW9iaWxcSW5kZXguY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/berat/OneDrive/Belgeler/GitHub/uyanikappv3/uyanikv3/Views/OgrMobil/ogrSeanslar.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcT2dyTW9iaWxcb2dyU2VhbnNsYXIuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/berat/OneDrive/Belgeler/GitHub/uyanikappv3/uyanikv3/Views/OgrMobil/profil.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcT2dyTW9iaWxccHJvZmlsLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/berat/OneDrive/Belgeler/GitHub/uyanikappv3/uyanikv3/Views/Shared/Ogr_Layout.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXE9ncl9MYXlvdXQuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/berat/OneDrive/Belgeler/GitHub/uyanikappv3/uyanikv3/Views/Shared/Ogr_Login_Layout.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXE9ncl9Mb2dpbl9MYXlvdXQuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/berat/OneDrive/Belgeler/GitHub/uyanikappv3/uyanikv3/Views/_ViewStart.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcX1ZpZXdTdGFydC5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/berat/OneDrive/Belgeler/GitHub/uyanikappv3/uyanikv3/Views/Shared/Login_Layout.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXExvZ2luX0xheW91dC5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = b-01umczmcdt
+
+[C:/Users/berat/OneDrive/Belgeler/GitHub/uyanikappv3/uyanikv3/Views/Shared/_Layout.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXF9MYXlvdXQuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = b-cm2vlosuv2

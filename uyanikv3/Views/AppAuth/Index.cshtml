@@ -1,0 +1,62 @@
+
+@{
+    ViewBag.Title = "title";
+    Layout = "Login_Layout";
+}
+<div class="row">
+        <div class="col-12">
+            <center>
+                <img src="~/images/icon/logo.png" style="width:15%;" />
+            </center>
+        </div>
+    </div>
+<div class="row" id="kpLstDiv">
+    
+
+</div>
+
+@section Scripts {
+
+    <script>
+    let kutuphaneListSection = ``;
+        $.ajax({
+            url: '/AppAuth/franchiseList/',
+            contentType: 'application/json; charset=utf-8;',
+            type: 'Get',
+            dataType: 'json',
+            success: function (data) {
+                var franchiseResult = jQuery.parseJSON(data);
+                $.each(franchiseResult, (index, value) => {
+
+                    kutuphaneListSection += `
+
+    <div class="col-md-4">
+        <div class="card">
+            <div class="card-header">
+                <i class="fa fa-user"></i>
+                <strong class="card-title pl-2">Şube Kartı</strong>
+            </div>
+            <div class="card-body">
+                <div class="mx-auto d-block">
+                    <center>
+                        <img src="/images/icon/logo.png"  style="width:50%;">
+
+                    </center>
+                    <h5 class="text-sm-center mt-2 mb-1">${value.MerkezSubeAdi}</h5>
+                    <div class="location text-sm-center">
+                        <i class="fa fa-map-marker"></i> ${value.Il}</div>
+                </div>
+                <hr>
+                <div class="card-text text-sm-center">
+                    <a href="/AppAuth/login/${value.Id}" class="btn btn-dark btn-block">Franchise Seç</a>
+                </div>
+            </div>
+        </div>
+    </div>`;
+                });
+                $("#kpLstDiv").html(kutuphaneListSection);
+
+            }
+        });</script>
+
+}

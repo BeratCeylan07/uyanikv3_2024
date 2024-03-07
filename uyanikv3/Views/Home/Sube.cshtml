@@ -1,0 +1,198 @@
+@using Microsoft.EntityFrameworkCore.Metadata.Internal
+@using Microsoft.AspNetCore.Http
+@inject IHttpContextAccessor Accessor
+
+
+@{
+    Layout = "_Layout";
+}
+
+<div class="page-container">
+    <div class="main-content">
+        <div class="section__content section__content--p30">
+            <div class="container-fluid">
+                <div class="row">
+                    <div class="col-12 mb-3">
+                        <h2>Şube Bilgileri</h2>
+                    </div>
+                    <div class="col-6">
+                        <div class="card">
+                            <div class="card-header">
+                                Şube Bilgileri
+                            </div>
+                            <div class="card-body">
+                                <div class="form-group">
+                                    <label for="txtSubeAd">Şube Adı</label>
+                                    <input type="text" class="form-control" id="txtSubeAd" value="@Accessor.HttpContext.Session.GetString("SubeAd")">
+                                </div>
+                                <div class="form-group">
+                                    <label for="txtil">İl</label>
+                                    <input type="text" class="form-control" id="txtil" value="@Accessor.HttpContext.Session.GetString("subeil")">
+                                </div>
+                                <div class="form-group">
+                                    <label for="txtilce">İlçe</label>
+                                    <input type="text" class="form-control" id="txtilce" value="@Accessor.HttpContext.Session.GetString("subeilce")">
+                                </div>
+                                <div class="form-group">
+                                    <label for="txtadres">Adres</label>
+                                    <input type="text" class="form-control" id="txtadres" value="@Accessor.HttpContext.Session.GetString("subeadres")">
+                                </div>
+                                <button id="btnsubebilgiupdate" type="button" class="btn btn-primary" onclick="subebilgiupdate();">Güncelle</button>
+                            </div>
+                        </div>
+
+                    </div>
+                    <div class="col-6">
+                        <div class="card">
+                            <div class="card-header">
+                                Banka Bilgileri
+                            </div>
+                            <div class="card-body">
+                                <div class="form-group">
+                                    <label for="txtbankad">Banka Adı</label>
+                                    <input type="text" class="form-control" id="txtbankad" value="@Accessor.HttpContext.Session.GetString("subebank")">
+                                </div>
+                                <div class="form-group">
+                                    <label for="txtadsoyad">Adı Soyadı</label>
+                                    <input type="text" class="form-control" id="txtadsoyad" value="@Accessor.HttpContext.Session.GetString("subebankadsoyad")">
+                                </div>
+                                <div class="form-group">
+                                    <label for="txtiban">IBAN</label>
+                                    <input type="text" class="form-control" id="txtiban" value="@Accessor.HttpContext.Session.GetString("subebankiban")">
+                                </div>
+                                <button type="button" class="btn btn-primary" onclick="subebankabilgiupdate();">Güncelle</button>
+
+                            </div>
+                        </div>
+
+                    </div>
+                    <div class="col-12">
+                        <div class="card">
+                            <div class="card-header">
+                                Ön Kayıt Mesaj Bilgileri
+                            </div>
+                            <div class="card-body">
+                                <div class="form-group">
+                                    <label for="txtOnkayitAciklama">Ön Kayıt Mesajı</label>
+                                    <textarea type="text" class="form-control" id="txtOnkayitAciklama" style="height:150px;">@Accessor.HttpContext.Session.GetString("subeonkayitaciklama")</textarea>
+                                </div>
+                                <button type="button" class="btn btn-primary" onclick="subeonkayitaciklamaupdate();">Güncelle</button>
+
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+
+
+        </div>
+    </div>
+</div>
+
+
+@section Scripts{
+    <script type="text/javascript">
+        function subebilgiupdate(){
+            var subebaslik = $("#txtSubeAd").val();
+            var il = $("#txtil").val();
+            var ilce = $("#txtilce").val();
+            var adres = $("#txtadres").val();
+            var obj = {
+                KutuphaneBaslik: subebaslik,
+                Il: il, 
+                Ilce: ilce,
+                Adres: adres
+            }
+            var islemonay = "Şube Bilgileri Güncellenecektir";
+            var mesaj = "İşlemi Onaylıyor musunuz?";
+
+            Swal.fire({
+                title: islemonay,
+                text: mesaj,
+                icon: 'info',
+                showDenyButton: true,
+                showCancelButton: false,
+                confirmButtonText: 'Onaylıyorum',
+                denyButtonText: `Vazgeç`,
+            }).then((result) => {
+                if (result.isConfirmed) {
+                    $.ajax({
+                        url: '/SubeAction/subeinfoupdate',
+                        type: 'post',
+                        dataType: 'json',
+                        data: { model: obj },
+                        success: function (data) {
+                            window.location.reload();
+                        }
+                    });
+                }
+            });
+        }
+           function subebankabilgiupdate(){
+                    var bankaad = $("#txtbankad").val();
+                    var bankaadsoyad = $("#txtadsoyad").val();
+                    var bankaiban = $("#txtiban").val();
+                    var obj = {
+                        Banka: bankaad,
+                        Iban: bankaiban, 
+                        Adsoyad: bankaadsoyad,
+                    }
+                    var islemonay = "Şube Banka Bilgileri Güncellenecektir";
+                    var mesaj = "İşlemi Onaylıyor musunuz?";
+        
+                    Swal.fire({
+                        title: islemonay,
+                        text: mesaj,
+                        icon: 'info',
+                        showDenyButton: true,
+                        showCancelButton: false,
+                        confirmButtonText: 'Onaylıyorum',
+                        denyButtonText: `Vazgeç`,
+                    }).then((result) => {
+                        if (result.isConfirmed) {
+                            $.ajax({
+                                url: '/SubeAction/subebankainfoupdate',
+                                type: 'post',
+                                dataType: 'json',
+                                data: { model: obj },
+                                success: function (data) {
+                                    window.location.reload();
+                                }
+                            });
+                        }
+                    });
+                }
+               function subeonkayitaciklamaupdate(){
+                        var onkayitaciklama = $("#txtOnkayitAciklama").val();
+                        var obj = {
+                            Onkayitexplanation: onkayitaciklama
+                        }
+                        var islemonay = "Şube Ön Kayıt Mesajı Güncellenecektir";
+                        var mesaj = "İşlemi Onaylıyor musunuz?";
+            
+                        Swal.fire({
+                            title: islemonay,
+                            text: mesaj,
+                            icon: 'info',
+                            showDenyButton: true,
+                            showCancelButton: false,
+                            confirmButtonText: 'Onaylıyorum',
+                            denyButtonText: `Vazgeç`,
+                        }).then((result) => {
+                            if (result.isConfirmed) {
+                                $.ajax({
+                                    url: '/SubeAction/subeonkayitmesajupdate',
+                                    type: 'post',
+                                    dataType: 'json',
+                                    data: { model: obj },
+                                    success: function (data) {
+                                        window.location.reload();
+                                    }
+                                });
+                            }
+                        });
+                    }
+    </script>
+}
+
