@@ -287,14 +287,16 @@ public class SeansActionController : Controller
     public JsonResult OgrSeansYoklama(int ogrid, int seanskayitno, int type,string qrcode)
     {
         kutuphaneid = (int)HttpContext.Session.GetInt32("kutuphaneID");
-
+    
         try
         {
             var seanskontrol = new SeansOgrSet();
             using (var context = new U1626744Db60AContext())
             {
+                
                 if (qrcode is null)
                 {
+                    
                     seanskontrol = context.SeansOgrSets.Where(x => x.Id == seanskayitno && x.OgrId == ogrid).Select(s => new SeansOgrSet
                     {
                         Id = s.Id,
@@ -331,8 +333,20 @@ public class SeansActionController : Controller
                 }
                 if (seanskontrol != null)
                 {
-                  
-                    
+
+                    var sninf = context.DenemeSeanslars
+                        .Where(x => x.Id == x.SeansOgrSets.Where(x => x.Id == seanskayitno || x.Qr == qrcode).Select(s => s.SeansId)
+                            .First()).Select(s => new viewSeansModel()
+                        {
+                            Id = s.Id,
+                            yayinBaslik = s.Deneme.Yayin.YayinBaslik,
+                            KategoriBaslik = s.Deneme.Kategori.AltKategoriBaslik,
+                            kitapcikBaslik = s.Deneme.DenemeBaslik,
+                            TarihSTR = s.Tarih.ToString("dd.MM.yyyy - dddd"),
+                            Saat = s.Saat,
+                            qrCodeforOgr = context.SeansOgrSets.Where(x => x.Id == seanskayitno).Select(s => s.Qr).First()
+                        }).First();
+
                     
                     if (qrcode is not null)
                     {
@@ -356,16 +370,31 @@ public class SeansActionController : Controller
                     }
                     else
                     {
+                        var ogrinf = context.Ogrencilers.Where(x => x.Id == ogrid).Select(s => new Ogrenciler()
+                        {
+                            Id = s.Id,
+                            Ad = s.Ad,
+                            Soyad = s.Soyad,
+                            Telefon = s.Telefon
+                    
+                        }).First();
+                        string mesaj = "";
+                        if (type == 1)
+                        {
+                            mesaj = "Ön Kayıt Talebi Onaylandı";
+                        }
                         MesajBaslik = "İşlem Başarılı";
-                        Mesaj = "Yoklama Alındı";
+                        Mesaj = mesaj;
                         MesajIcon = "success";
                         seanskontrol.Durum = type;
                         context.Entry(seanskontrol).State = Microsoft.EntityFrameworkCore.EntityState.Modified;
                         context.SaveChanges();
-                    }
-                
+                        return Json(new { MesajBaslik, Mesaj, MesajIcon,ogrinf,sninf });
 
+                    }
                     return Json(new { MesajBaslik, Mesaj, MesajIcon });
+
+
                   
                 }
                 else
@@ -389,7 +418,7 @@ public class SeansActionController : Controller
             MesajBaslik = "Hata Oluştu";
             var _mesajbaslik = JsonConvert.SerializeObject(MesajBaslik);
 
-            Mesaj = ex.Message;
+            Mesaj = ex.Message + " HATA KODU BURDA";
             var _mesaj = JsonConvert.SerializeObject(Mesaj);
             JsonConvert.SerializeObject(Mesaj);
             MesajIcon = "error";
@@ -419,6 +448,7 @@ public class SeansActionController : Controller
                     Tarih = S.Tarih,
                     Saat = S.Saat,
                     DenemeId = S.DenemeId,
+                    Durum = S.Durum,
                     SeansUcret = S.SeansUcret,
                     yayinLogo = S.Deneme.Yayin.Logo,
                     KitapcikAlanToplam = S.SeansOgrSets.Where(x => x.Durum == 4).Count(),
@@ -623,8 +653,16 @@ public class SeansActionController : Controller
         {
             using (var context = new U1626744Db60AContext())
             {
-                var seans = context.DenemeSeanslars.Where(x => x.Id == seansid).First();
-                seans.Durum = type;
+                var seans = context.DenemeSeanslars.Where(x => x.Id == seansid).Select(s  => new DenemeSeanslar()
+                {
+                    Id = s.Id,
+                    DenemeId = s.DenemeId,
+                    Tarih = s.Tarih,
+                    Saat = s.Saat,
+                    SeansUcret = s.SeansUcret,
+                    Kontenjan = s.Kontenjan,
+                    Durum = type
+                }).First();
                 context.Entry(seans).State = EntityState.Modified;
                 context.SaveChanges();
                 string durumstr = "";

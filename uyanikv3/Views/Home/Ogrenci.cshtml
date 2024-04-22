@@ -914,7 +914,7 @@
                                 `<div class="card">
                                             <div class="card-header" id="headingOneyayinno-${value.Id}">
                                                 <h5 class="mb-0">
-                                                                <button class="btn btn-link" type="button" onclick="seansforyayin(${value.Id},${ogrid})">
+                                                                <button class="btn btn-link" type="button" onclick="seansforyayin(${value.Id},${ogrid}),collapseclose('#clpyayinlistarea-${value.Id},1');">
                                                             ${value.YayinBaslik}
                                                 </button>
                                                 </h5>
@@ -1222,25 +1222,14 @@
         }
 
 
-        function sweetalertmethod(title, mesaj, icon) {
-            Swal.fire(
-                {
-                    html: mesaj,
-                    icon: icon,
-                    title: title,
-                    showDenyButton: true,
-                    showConfirmButton: false,
-                    denyButtonText: 'Kapat',
-                }
-            )
-        }
+
         let requestcount = "0";
         let lastclpid = "";
-        function collapseclose(clpid) {
-
+        function collapseclose(clpid,type) {
+            if (type == 0)
             $(clpid).collapse('hide');
-            requestcount = "0";
-
+            if (type == 1)
+            $(clpid).collapse('show');
         }
         function ogrseanshatirlat(ogrid,snsetid) {
             console.log("OGR ID:" + ogrid);
@@ -1314,12 +1303,7 @@
             })
 
         }
-        async function seansforyayin(yayinid, ogrid) {
-            var clpid = "#clpyayinlistarea-" + yayinid;
-            if (clpid !== lastclpid) {
-                requestcount = "0";
-            }
-            if (requestcount === "0") {
+        function seansforyayin(yayinid, ogrid) {
                 var sncount;
                 $.ajax({
                     url: '/YayinAction/SeansCountControl',
@@ -1336,12 +1320,10 @@
                     dataType: 'json',
                     data: { ogrid: ogrid, yayinid: yayinid },
                     success: function (data) {
-                        requestcount = "1";
-                        lastclpid = clpid;
                         var ogryayinlistarea = "#clpyayinseansarea-" + yayinid;
                         var jsondata = jQuery.parseJSON(data);
                         var toplam = jsondata.length;
-                        let ogrseansforkategoriarea = `<button class="btn btn-primary" type="button" onclick="collapseclose(lastclpid);" aria-expanded="false" aria-controls="collapseExample">
+                        let ogrseansforkategoriarea = `<button class="btn btn-primary" type="button" onclick="collapseclose('#clpyayinlistarea-' + ${yayinid},0);" aria-expanded="false" aria-controls="collapseExample">
                                                                Kapat
                                                              </button><br><table class="table table-striped">
                                                             <thead>
@@ -1376,20 +1358,9 @@
                         });
                         ogrseansforkategoriarea += `</tbody></table>`;
                         $(ogryayinlistarea).html(ogrseansforkategoriarea);
-                        $(clpid).collapse("toggle");
+                        collapseclose("#clpyayinlistarea-" + yayinid,1);
                     }
                 });
-                $(clpid).collapse("toggle");
-
-
-
-            } else {
-
-            }
-
-
-
-
         }
         let param = 0;
         let beforesnsetid = 0;

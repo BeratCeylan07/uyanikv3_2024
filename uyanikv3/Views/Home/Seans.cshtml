@@ -1322,6 +1322,7 @@
                             </div>`;
                             $("#btnseansdetay").html(seansdetaybuttons);
                             let seanskayitactions = ``;
+                            console.log(jsondata);
                             if (jsondata.Durum == 4) {
                                 seanskayitactions += `<div class="col"><b class="text-danger">Kayıt Alımı Durduruldu</b> <button type="button" class="btn btn-outline-success" onclick="seanskayitaktifpasif(${seansid},1);">Kayıt Alımını Başlat<button></div>`;
                             } else {
@@ -1391,7 +1392,7 @@
                                                                                     <div class="col-md-3 col-sm-12"><a href="#" class="btn btn-warning btn-block">Öğrenci Kayıt</a></div>`;
                         $("#btnseansdetay").html(seansdetaybuttons);
                         let seanskayitactions = ``;
-                        if (jsondata.Durum == 4) {
+                        if (jsondata.Durum === 4) {
                             seanskayitactions += `<div class="col-md-3 col-sm-12"><b class="text-danger">Kayıt Alımı Durduruldu</b> <button type="button" class="btn btn-outline-success " onclick="seanskayitaktifpasif(${seansid},1);">Kayıt Alımını Başlat<button></div>`;
                         } else {
                             seanskayitactions += `<div class="col-md-3 col-sm-12"><b class="text-success">Kayıt Alımı Aktif</b> <button type="button" class="btn btn-outline-danger " onclick="seanskayitaktifpasif(${seansid},4);">Kayıt Alımını Durdur<button></div>`;
@@ -1431,6 +1432,7 @@
                                 var mesaj = jQuery.parseJSON(data.mesaj);
                                 var mesajicon = jQuery.parseJSON(data.icon);
                                 sweetalertmethod(mesajbaslik, mesaj, mesajicon);
+                                seanskartref(seansid);
                             },
                             error: function (error) {
                                 var mesajbaslik = jQuery.parseJSON(error.baslik);
@@ -1536,7 +1538,9 @@
                     }
                 })
             }
+            var counter = 0;
             function ogryoklama(ogrid, seanskayitno, type, seansid, ontalep) {
+
                 var islemonay = "Öğrenci Yoklama Onayı";
                 var mesaj = "";
                 if (type == 2) {
@@ -1563,26 +1567,35 @@
                             dataType: 'json',
                             data: { ogrid: ogrid, seanskayitno: seanskayitno, type: type },
                             success: function (data) {
+                                   
                                 if (ontalep === 1){
+                                    console.log("başarılı")
                                     onkayitList(1);
+                                    console.log(data);
+                                    
+                                     let customWp = `<hr /><a class="btn btn-success" href="whatsapp://send?text=`;
+                                                                                                       customWp += `https://uyaniksistem.com/QRView/index?qrcode=${data.sninf.qrCodeforOgr} %0A`;
+                                                                                                       customWp += `Yayın: ${data.sninf.yayinBaslik} - Kategori: ${data.sninf.kategoriBaslik} - Seans: ${data.sninf.kitapcikBaslik} Tarih / Saat: ${data.sninf.tarihSTR} / ${data.sninf.saat} %0A Ön Kaydınız Onaylanmıştır`;
+                                                                                                       customWp += `&phone=+90` + data.ogrinf.telefon + `"`;
+                                                                                                       customWp += `>Whatsapp Üzerinden İlet</a>`
+                                                                                                       
+                                     sweetalertmethod("Ön Kayıt Onaylandı",customWp,"success");
+
                                 }else{
-                                ajaxpermission = true;
-                                seansdetaykart(seansid);
-                                ogrlistforseans(seansid);
+                                    ajaxpermission = true;
+                                    seansdetaykart(seansid);
+                                    ogrlistforseans(seansid);
                                 }
 
                             },
                             error: function (error) {
-                                var mesajbaslik = error._mesajbaslik;
-                                var mesaj = error._mesaj;
-                                var mesajicon = error._MesajIcon;
-                                sweetalertmethod(mesajbaslik.replace('"Hata Oluştu"', 'Hata Oluştu'), mesaj, mesajicon.replace('"error"', 'error'))
+
                             }
                         });
                     } else if (result.isDenied) {
                         Swal.fire('Herhangi Bir İşlem Yapılmadı', '', 'info')
                     }
-                })
+                });
             }
             function ogrlistforseans(seansid, param) {
                 $.ajax({

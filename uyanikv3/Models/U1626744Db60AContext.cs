@@ -72,7 +72,6 @@ public partial class U1626744Db60AContext : DbContext
     public virtual DbSet<Yayinlar> Yayinlars { get; set; }
 
     protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
-#warning To protect potentially sensitive information in your connection string, you should move it out of source code. You can avoid scaffolding the connection string by using the Name= syntax to read it from configuration - see https://go.microsoft.com/fwlink/?linkid=2131148. For more guidance on storing connection strings, see http://go.microsoft.com/fwlink/?LinkId=723263.
         => optionsBuilder.UseMySql("server=94.73.145.160;database=u1626744_db60A;user=u1626744_user60A;password=x@9Qe1-x3H2_Q-nW", Microsoft.EntityFrameworkCore.ServerVersion.Parse("10.6.16-mariadb"));
 
     protected override void OnModelCreating(ModelBuilder modelBuilder)

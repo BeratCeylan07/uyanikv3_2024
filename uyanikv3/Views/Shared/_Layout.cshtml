@@ -302,6 +302,18 @@
 
 
     <script>
+            function sweetalertmethod(title, mesaj, icon) {
+                Swal.fire(
+                    {
+                        html: mesaj,
+                        icon: icon,
+                        title: title,
+                        showDenyButton: true,
+                        showConfirmButton: false,
+                        denyButtonText: 'Kapat',
+                    }
+                )
+            }
                     var kutuphaneid = "@Accessor.HttpContext.Session.GetString("kutuphaneIDSTR")";
                             function franchisechange(){
                                 var subeid = $("#drpfranchiseies option:selected").val();

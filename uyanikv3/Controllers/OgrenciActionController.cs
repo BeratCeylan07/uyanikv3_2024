@@ -57,7 +57,7 @@ public JsonResult OgrenciOP(viewOgrencilerModel model, int? type)
 
         try
         {
-            var ogrencikontrol = context.Ogrencilers.Where(x => x.Id == model.Id || x.Telefon == model.Telefon).Select(s => new Ogrenciler
+            var ogrencikontrol = context.Ogrencilers.Where(x => x.Id == model.Id || x.Telefon == model.Telefon && x.KutuphaneId == (int)HttpContext.Session.GetInt32("kutuphaneID")).Select(s => new Ogrenciler
             {
                 Id = s.Id,
                 Ad = s.Ad,
@@ -67,7 +67,7 @@ public JsonResult OgrenciOP(viewOgrencilerModel model, int? type)
                 KategoriId = s.KategoriId,
                 OkulId = s.OkulId,
             }).FirstOrDefault();
-            var ogrencikontrolup = context.Ogrencilers.Where(x => x.Id == model.Id || x.Telefon == model.Telefon).Select(s => new Ogrenciler
+            var ogrencikontrolup = context.Ogrencilers.Where(x => x.Id == model.Id).Select(s => new Ogrenciler
             {
                 Id = s.Id,
                 Ad = s.Ad,

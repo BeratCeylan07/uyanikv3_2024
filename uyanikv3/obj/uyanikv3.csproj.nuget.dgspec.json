@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "/Users/beratceylan/Desktop/lastrev/uyanikappv3/uyanikv3/uyanikv3.csproj": {}
+    "/Users/beratceylan/RiderProjects/uyanikv3_2024/uyanikv3/uyanikv3.csproj": {}
   },
   "projects": {
-    "/Users/beratceylan/Desktop/lastrev/uyanikappv3/uyanikv3/uyanikv3.csproj": {
+    "/Users/beratceylan/RiderProjects/uyanikv3_2024/uyanikv3/uyanikv3.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "/Users/beratceylan/Desktop/lastrev/uyanikappv3/uyanikv3/uyanikv3.csproj",
+        "projectUniqueName": "/Users/beratceylan/RiderProjects/uyanikv3_2024/uyanikv3/uyanikv3.csproj",
         "projectName": "uyanikv3",
-        "projectPath": "/Users/beratceylan/Desktop/lastrev/uyanikappv3/uyanikv3/uyanikv3.csproj",
+        "projectPath": "/Users/beratceylan/RiderProjects/uyanikv3_2024/uyanikv3/uyanikv3.csproj",
         "packagesPath": "/Users/beratceylan/.nuget/packages/",
-        "outputPath": "/Users/beratceylan/Desktop/lastrev/uyanikappv3/uyanikv3/obj/",
+        "outputPath": "/Users/beratceylan/RiderProjects/uyanikv3_2024/uyanikv3/obj/",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "/Users/beratceylan/.nuget/NuGet/NuGet.Config"
@@ -20,6 +20,7 @@
           "net7.0"
         ],
         "sources": {
+          "/Users/beratceylan/.dotnet/library-packs": {},
           "https://api.nuget.org/v3/index.json": {}
         },
         "frameworks": {
@@ -102,6 +103,20 @@
           ],
           "assetTargetFallback": true,
           "warn": true,
+          "downloadDependencies": [
+            {
+              "name": "Microsoft.AspNetCore.App.Ref",
+              "version": "[7.0.14, 7.0.14]"
+            },
+            {
+              "name": "Microsoft.NETCore.App.Host.osx-arm64",
+              "version": "[7.0.14, 7.0.14]"
+            },
+            {
+              "name": "Microsoft.NETCore.App.Ref",
+              "version": "[7.0.14, 7.0.14]"
+            }
+          ],
           "frameworkReferences": {
             "Microsoft.AspNetCore.App": {
               "privateAssets": "none"
@@ -110,7 +125,7 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "/usr/local/share/dotnet/sdk/8.0.101/RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "/Users/beratceylan/.dotnet/sdk/8.0.100/RuntimeIdentifierGraph.json"
         }
       }
     }

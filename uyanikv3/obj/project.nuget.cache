@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "Auf6FXZmVRjJb6c6X3UXMA6y3qc4Yu+Uk8cN9B+pdekasnrt8ugw5ZHm6K0nBTZeB4DOdj+NamBHx1lhlcx8qQ==",
+  "dgSpecHash": "B0N5BOeu3MqjEC1T32rtn6tcuOmp4W5Vi3uk9pOVOAyWZ0l2BP3HPUJQwCQ5KwfCWp4508tgGVswcirvXyYbjw==",
   "success": true,
-  "projectFilePath": "/Users/beratceylan/Desktop/lastrev/uyanikappv3/uyanikv3/uyanikv3.csproj",
+  "projectFilePath": "/Users/beratceylan/RiderProjects/uyanikv3_2024/uyanikv3/uyanikv3.csproj",
   "expectedPackageFiles": [
     "/Users/beratceylan/.nuget/packages/autofac/4.9.4/autofac.4.9.4.nupkg.sha512",
     "/Users/beratceylan/.nuget/packages/azure.core/1.25.0/azure.core.1.25.0.nupkg.sha512",
@@ -239,7 +239,10 @@
     "/Users/beratceylan/.nuget/packages/system.windows.extensions/6.0.0/system.windows.extensions.6.0.0.nupkg.sha512",
     "/Users/beratceylan/.nuget/packages/system.xml.readerwriter/4.3.0/system.xml.readerwriter.4.3.0.nupkg.sha512",
     "/Users/beratceylan/.nuget/packages/system.xml.xdocument/4.3.0/system.xml.xdocument.4.3.0.nupkg.sha512",
-    "/Users/beratceylan/.nuget/packages/tweetinviapi/5.0.4/tweetinviapi.5.0.4.nupkg.sha512"
+    "/Users/beratceylan/.nuget/packages/tweetinviapi/5.0.4/tweetinviapi.5.0.4.nupkg.sha512",
+    "/Users/beratceylan/.nuget/packages/microsoft.netcore.app.ref/7.0.14/microsoft.netcore.app.ref.7.0.14.nupkg.sha512",
+    "/Users/beratceylan/.nuget/packages/microsoft.aspnetcore.app.ref/7.0.14/microsoft.aspnetcore.app.ref.7.0.14.nupkg.sha512",
+    "/Users/beratceylan/.nuget/packages/microsoft.netcore.app.host.osx-arm64/7.0.14/microsoft.netcore.app.host.osx-arm64.7.0.14.nupkg.sha512"
   ],
   "logs": []
 }
